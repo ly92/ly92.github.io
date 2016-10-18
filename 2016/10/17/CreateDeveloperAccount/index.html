@@ -1,20 +1,433 @@
-extends partial/layout
+<!DOCTYPE html>
+<html lang="en">
 
-block site_title
-    != page.title + " · " + config.title
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="undefined">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
+    <title>
+        
+          2016公司苹果开发者帐号申请流程 - undefined
+        
+    </title>
 
-block container
-    include mixins/post
-    +post(page)
+    <link rel="canonical" href="http://yoursite.com/2016/10/17/CreateDeveloperAccount/">
 
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-block copyright
-    include partial/copyright
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('img/post-bg-2015.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#iOS开发" title="iOS开发">iOS开发</a>
+                        
+                    </div>
+                    <h1>2016公司苹果开发者帐号申请流程</h1>
+                    <h2 class="subheading"> &quot;没成功说明不够努力&quot;</h2>
+                    <span class="meta">
+                        Posted by 李勇 on
+                        2016-10-17
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="1-工具／资料"><a href="#1-工具／资料" class="headerlink" title="1. 工具／资料"></a>1. 工具／资料</h2><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ol>
+<li>可上网电脑</li>
+<li>一张可以支付美金的信用卡（visa 或者 万事达）</li>
+</ol>
+<h3 id="注册Apple-ID需要资料："><a href="#注册Apple-ID需要资料：" class="headerlink" title="注册Apple ID需要资料："></a>注册Apple ID需要资料：</h3><ol>
+<li>申请一个公司邮箱（最好是全新的，仅用在苹果相关事宜）</li>
+</ol>
+<h3 id="申请邓白氏编码需要资料："><a href="#申请邓白氏编码需要资料：" class="headerlink" title="申请邓白氏编码需要资料："></a>申请邓白氏编码需要资料：</h3><ol>
+<li>得到公司授权申请开发者账号（跟领导说一声）</li>
+<li>公司名（英文，一般就是拼音字母）</li>
+<li>公司详细地址</li>
+<li>邮编</li>
+<li>老板电话（老板忙的话可以申请写自己电话）</li>
+<li>申请人联系信息</li>
+</ol>
+<h3 id="成为开发者需要资料："><a href="#成为开发者需要资料：" class="headerlink" title="成为开发者需要资料："></a>成为开发者需要资料：</h3><ol>
+<li>得到公司授权申请开发者账号（跟领导说一声）</li>
+<li>公司名（英文，一般就是拼音字母）</li>
+<li>邓白氏编码</li>
+<li>老板电话（老板忙的话可以申请写自己电话）</li>
+<li>申请人联系信息</li>
+<li>公司同事联系信息（苹果会跟你同事打电话证实有你的存在）</li>
+</ol>
+<h2 id="2-方法步骤"><a href="#2-方法步骤" class="headerlink" title="2.方法步骤"></a>2.方法步骤</h2><h3 id="1-注册苹果开发者账号之前，我们得有一个苹果账号。如果没有，首先我们就得先注册苹果账号。"><a href="#1-注册苹果开发者账号之前，我们得有一个苹果账号。如果没有，首先我们就得先注册苹果账号。" class="headerlink" title="1.注册苹果开发者账号之前，我们得有一个苹果账号。如果没有，首先我们就得先注册苹果账号。"></a>1.注册苹果开发者账号之前，我们得有一个苹果账号。如果没有，首先我们就得先注册苹果账号。</h3><p>1.首先在百度上搜索【苹果开发者中心】，找到Apple Developer。打开网页<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_1.png" alt="image"><br>点击【Create Apple ID 】</p>
+<p>2.填写账号信息，包括邮箱、密码、姓名（要写拼音，先写名字再写姓，拼音首字母大写，如果名字是两个字的，第二个不需要大写，紧挨着第一个字的拼音即可）；生日：当鼠标单击在生日处的时候，会出现要求的格式MM/DD/YYYY表示【月/日/年】<br>设置密码找回问题，设置好后截图保存，以便日后找回密码<br>选择地区：China；<br>输入验证码<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_3.png" alt="image"><br>点击【continue】继续下一个步骤</p>
+<p>3.信息填写完毕后，苹果会给你注册的邮箱发送一封邮件，将上面的验证码输入到该页面点击“Verify”即完成了苹果账号的注册。<br>重新登录继续完成接下来的步骤。<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_4.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_5.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_6.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_7.png" alt="image"><br>4.首次登录会弹出这样一个协议框，在条文下的可选框打钩，点击【Submit】提交<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_8.png" alt="image"></p>
+<h3 id="2-开始申请开发者账号"><a href="#2-开始申请开发者账号" class="headerlink" title="2.开始申请开发者账号"></a>2.开始申请开发者账号</h3><p>1.在Account页面点击［Join the Apple Developer Program］进入<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_9.png" alt="image"></p>
+<p>2.点击屏幕右方的【Enroll Now】<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_10.png" alt="image"></p>
+<p>3.这里是给你介绍注册需要的东西，你可以以个人的名义注册，也可以以公司名义注册。如果是以公司名义注册，需要确定公司是否有邓白氏编码，如果没有需要提前注册。可以查看我的相关经验。<br>稍作了解，就可以点击【Star your enrollment】<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_11.png" alt="image"></p>
+<p>4.然后选择你的注册类型，公司账号应该选择Company/organazation,选择之后，会弹出注意事项的提示，有邓白氏编码就可以不用管这个提示，直接点击【continue】，没有邓白氏编码的在最下方有申请流程<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_12.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_13.png" alt="image"><br>5.这里需要确认你申请开发者账号的权利，如果你是公司所有者，选择第一个选项，如果你是公司授权的，选择第二个。<br>选择第二个之后，需要验证你的身份，填写一个公司同事的联系方式，提前打好招呼，苹果公司会打电话确认。<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_14.png" alt="image"><br>6.最后，填写公司资料，需要填写英文哦，可以找一些翻译软件翻译，也可以咨询公司相关同事，尽量做到规范。<br>这里填写了老板的电话，一定要跟老板打声招呼，如果电话没接，又需要等好长时间。为了方便，可以跟老板授权填写自己的电话，这样就不怕老板忙漏接了电话。<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_15.png" alt="image"><br>7.大概三天左右，苹果客服会给老板打电话确认了信息，同时发了邮件，后面就根据邮件填写相应信息，提交订单付款就行啦！ </p>
+<h2 id="3-邓白氏编码申请流程："><a href="#3-邓白氏编码申请流程：" class="headerlink" title="3.邓白氏编码申请流程："></a>3.邓白氏编码申请流程：</h2><p>不知道邓白氏编码的话在此处点击［learn more］<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_16.png" alt="image"></p>
+<p>曾经申请过则点击上面的查看，未曾申请则点击下面的去申请，建议不是新创建Apple ID的话先点击上面的查看<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_17.png" alt="image"></p>
+<p>按照要求填写相关的公司信息以及你的信息，点击［continue］申请<br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_18.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/CreateDeveloperAccount/CreateDeveloperAccount_19.png" alt="image"></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/08/25/ImageEntrepot/" data-toggle="tooltip" data-placement="top" title="博客中使用GitHub文件夹中保存的图片">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2016 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
