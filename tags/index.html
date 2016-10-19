@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -170,14 +170,40 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#博客" title="博客" rel="2">博客</a>
-                
                     <a href="#iOS开发" title="iOS开发" rel="1">iOS开发</a>
+                
+                    <a href="#博客" title="博客" rel="2">博客</a>
                 
             </div>
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="iOS开发">
+                    <span class="tag-text">iOS开发</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/10/17/CreateDeveloperAccount/">
+                        <h2 class="post-title">
+                            2016公司苹果开发者帐号申请流程
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                 "没成功说明不够努力"
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="博客">
@@ -224,32 +250,6 @@
                 
             </div>
             
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="iOS开发">
-                    <span class="tag-text">iOS开发</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/10/17/CreateDeveloperAccount/">
-                        <h2 class="post-title">
-                            2016公司苹果开发者帐号申请流程
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "没成功说明不够努力"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
 
 
         </div>
@@ -268,7 +268,7 @@
                 
                 
                     <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/李勇">
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa  fa-stack-1x fa-inverse">知</i>
