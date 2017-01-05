@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          iOS单元测试和UI测试 - 李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/01/05/Unit&amp;UITest/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('../../../../img/cat1.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                    </div>
+                    <h1>iOS单元测试和UI测试</h1>
+                    <h2 class="subheading"> &quot;没成功说明不够努力&quot;</h2>
+                    <span class="meta">
+                        Posted by 李勇 on
+                        2017-01-05
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="1、单元测试解释"><a href="#1、单元测试解释" class="headerlink" title="1、单元测试解释"></a>1、单元测试解释</h1><p> 单元测试是开发者编写的一小段代码，用于检验被测代码中的一个很明确的功能是否正确。通常而言，一个单元测试是用于判断某个特定条件（或者场景）下某个特定函数的行为。<br> 执行单元测试，是为了证明某段代码的行为确实和开发者所期望的一致。因此，我们所要测试的是规模很小的、非常独立的功能片段。通过对所有单独部分的行为建立起信心。然后，才能开始测试整个系统</p>
+<h1 id="2、单元测试好处"><a href="#2、单元测试好处" class="headerlink" title="2、单元测试好处"></a>2、单元测试好处</h1><p><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest1.png" alt="image"></p>
+<h2 id="2-1、单元测试的好处："><a href="#2-1、单元测试的好处：" class="headerlink" title="2.1、单元测试的好处："></a>2.1、单元测试的好处：</h2><ol>
+<li>单元测试使工作完成的更轻松</li>
+<li>经过单元测试的代码，质量能够得到保证</li>
+<li>单元测试发现的问题很容易定位。</li>
+<li>修改代码犯的错，经过单元测试易发现</li>
+<li>单元测试可以在早期就发现性能问题</li>
+<li>单元测试使你的设计更好</li>
+<li>大大减少花在调试上的时间<br>2.2不做单元测试的坏处：</li>
+<li>代码会暗藏很多缺陷,健壮性不强</li>
+<li>系统测试发现的缺陷比较难以定位</li>
+<li>为了修复缺陷而修改代码，很可能会不小心犯错，但是又不能及时发现这些新错误。</li>
+<li>性能问题很难定位，性能优化的时间很难控制。</li>
+</ol>
+<h1 id="3、前期准备"><a href="#3、前期准备" class="headerlink" title="3、前期准备"></a>3、前期准备</h1><h2 id="3-1、创建项目"><a href="#3-1、创建项目" class="headerlink" title="3.1、创建项目"></a>3.1、创建项目</h2><p>如同普通创建项目一样，在输入项目名以及其他信息后点击选择“Include Unit Tests”和“Include UI Tests”，前者标示单元测试，后者表示UI测试。如下所示：<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest2.png" alt="image"></p>
+<h2 id="3-2、引入OCMock"><a href="#3-2、引入OCMock" class="headerlink" title="3.2、引入OCMock"></a>3.2、引入OCMock</h2><p>可以前往OCMock的官方GitHub上下载demo以及三方库文件，不准备使用OCMock的可以忽略。<br>1．下载静态库的包，并引入到工程里的对应的TestDemo的target里<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest3.png" alt="image"><br>2.配置TARGETS：TestDemoTests Other linker flags，中间是静态库的绝对路径。$(SRCROOT)/usr/lib/libOCMock.a<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest4.png" alt="image"><br>3.在Header Search Paths 中增加 $(PROJECT)/usr/include,里面包含OCMock的文件。<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest5.png" alt="image"></p>
+<ol>
+<li>Libray Search Paths 包含 $(PROJECT)/usr/lib，静态库的相对路径<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest6.png" alt="image"><h1 id="4、单元测试"><a href="#4、单元测试" class="headerlink" title="4、单元测试"></a>4、单元测试</h1><h2 id="4-1、系统方法解释"><a href="#4-1、系统方法解释" class="headerlink" title="4.1、系统方法解释"></a>4.1、系统方法解释</h2>TestDemoTests.m是创建项目时选择单元测试自动生成的文件。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line">*  每个test方法执行之前调用，在此方法中可以定义一些全局属性，类似controller中的viewdidload方法</div><div class="line">*/</div><div class="line">- (void)setUp &#123;</div><div class="line">[super setUp];</div><div class="line">//定义</div><div class="line">self.VC = [[ViewController alloc] init];</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line">*  每个test方法执行之后调用,释放测试用例的资源代码，这个方法会每个测试用例执行后调用</div><div class="line">*/</div><div class="line">- (void)tearDown &#123;</div><div class="line">//结束后释放</div><div class="line">self.VC = nil;</div><div class="line"></div><div class="line">[super tearDown];</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">*  测试用例的例子，注意测试用例一定要test开头</div><div class="line">*/</div><div class="line">- (void)testExample &#123;</div><div class="line">//测试view是否加载出来</div><div class="line">XCTAssertNotNil(self.VC.view,@&quot;view未成功加载出来&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)testPerformanceExample &#123;</div><div class="line">//主要测试代码性能</div><div class="line">[self measureBlock:^&#123;</div><div class="line">//检测在此block中代码的性能</div><div class="line">&#125;];</div><div class="line">&#125;</div><div class="line">## 4.2、函数测试</div><div class="line">在ViewController.h中定义函数并在ViewController.m实现：</div><div class="line">- (int)getNum; </div><div class="line">- (int)getNum&#123;</div><div class="line">return 100;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在里面TestDemoTests.m里面定义函数，必须以test开头，如果返回值不为100则测试失败<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//必须以test开头的函数</div><div class="line">- (void)testMyFuc&#123;</div><div class="line">int result = self.VC.getNum;</div><div class="line">XCTAssertEqual(result, 100,@&quot;测试普通函数不通过&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="4-3、测试图片处理"><a href="#4-3、测试图片处理" class="headerlink" title="4.3、测试图片处理"></a>4.3、测试图片处理</h2><p>//测试图片处理大小的性能，以及处理成功与否<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (void)testImageResize&#123;</div><div class="line">UIImage *image = [UIImage imageNamed:@&quot;icon1.jpeg&quot;];</div><div class="line">[self measureBlock:^&#123; //测试处理图片代码的性能</div><div class="line">// Put the code you want to measure the time of here.</div><div class="line">UIImage *resizedImage = [self imageWithImage:image scaledToSize:CGSizeMake(100, 100)];</div><div class="line">XCTAssertNotNil(resizedImage, @&quot;缩放后图片不应为nil&quot;);</div><div class="line">CGFloat resizedWidth = resizedImage.size.width;</div><div class="line">CGFloat resizedHeight = resizedImage.size.height;</div><div class="line">XCTAssertTrue(resizedWidth == 100 &amp;&amp; resizedHeight == 100, @&quot;缩放后尺寸&quot;);</div><div class="line">&#125;];</div><div class="line">&#125;</div><div class="line">- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize &#123;</div><div class="line">UIGraphicsBeginImageContext(newSize);</div><div class="line">[image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];</div><div class="line">UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">UIGraphicsEndImageContext();</div><div class="line">return newImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="4-4、异步测试"><a href="#4-4、异步测试" class="headerlink" title="4.4、异步测试"></a>4.4、异步测试</h2><p>异步测试，有三种方式（expectationWithDescription，expectationForPredicate和expectationForNotification）<br>4.4.1、expectationWithDescription<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">// 测试接口(异步测试)使用expectationWithDescription</div><div class="line">- (void)testAsynchronousURLConnection &#123;</div><div class="line">[self measureBlock:^&#123;</div><div class="line">NSLog(@&quot;testAsynchronousURLConnection&quot;);</div><div class="line">//预先定义</div><div class="line">XCTestExpectation *expectation = [self expectationWithDescription:@&quot;GET Baidu&quot;];</div><div class="line">//测试地址</div><div class="line">NSURL *url = [NSURL URLWithString:@&quot;https://www.baidu.com/&quot;];</div><div class="line"></div><div class="line">NSURLSession *session = [NSURLSession sharedSession];</div><div class="line">NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">//        NSLog(@&quot;data : %@&quot;, data);</div><div class="line">// XCTestExpectation条件已满足，接下来的测试代码可以开始执行了。</div><div class="line">[expectation fulfill];</div><div class="line">XCTAssertNotNil(data, @&quot;返回数据不应非nil&quot;);</div><div class="line">XCTAssertNil(error, @&quot;error应该为nil&quot;);</div><div class="line">if (nil != response) &#123;</div><div class="line">NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;</div><div class="line">XCTAssertEqual(httpResponse.statusCode, 200, @&quot;HTTPResponse的状态码应该是200&quot;);</div><div class="line">XCTAssertEqual(httpResponse.URL.absoluteString, url.absoluteString, @&quot;HTTPResponse的URL应该与请求的URL一致&quot;);</div><div class="line">//            XCTAssertEqual(httpResponse.MIMEType, @&quot;text/html&quot;, @&quot;HTTPResponse的内容应该是text/html&quot;);</div><div class="line">&#125; else &#123;</div><div class="line">XCTFail(@&quot;返回内容不是NSHTTPURLResponse类型&quot;);</div><div class="line">&#125;</div><div class="line">&#125;];</div><div class="line">[task resume];</div><div class="line"></div><div class="line">// 超时后执行</div><div class="line">[self waitForExpectationsWithTimeout:10.0 handler:^(NSError * _Nullable error) &#123;</div><div class="line">[task cancel];</div><div class="line">&#125;];</div><div class="line">&#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="4-4-2、expectationForPredicate"><a href="#4-4-2、expectationForPredicate" class="headerlink" title="4.4.2、expectationForPredicate"></a>4.4.2、expectationForPredicate</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//异步测试，使用expectationForPredicate,设置一个期望，在规定时间内满足期望则测试通过</div><div class="line">- (void)testAsynExampleWithExpectationForPredicate &#123;</div><div class="line"></div><div class="line">XCTAssertNil(self.imageView.image);</div><div class="line"></div><div class="line">self.imageView.image = [UIImage imageNamed:@&quot;icon2&quot;];</div><div class="line"></div><div class="line">//设置一个期望</div><div class="line">NSPredicate *predicate = [NSPredicate predicateWithFormat:@&quot;image != nil&quot;];</div><div class="line">//若在规定时间内满足期望，则测试成功</div><div class="line">[self expectationForPredicate:predicate</div><div class="line">evaluatedWithObject:self.imageView</div><div class="line">handler:nil];</div><div class="line"></div><div class="line">// 超时后执行</div><div class="line">[self waitForExpectationsWithTimeout:10.0 handler:^(NSError * _Nullable error) &#123;</div><div class="line"></div><div class="line">&#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-4-3、expectationForNotification"><a href="#4-4-3、expectationForNotification" class="headerlink" title="4.4.3、expectationForNotification"></a>4.4.3、expectationForNotification</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//异步测试，使用expectationForNotification,该方法监听一个通知,如果在规定时间内正确收到通知则测试通过</div><div class="line">- (void)testAsynExampleWithExpectationForNotification &#123;</div><div class="line"></div><div class="line">//监听通知，在规定时间内受到通知，则测试通过</div><div class="line">[self expectationForNotification:@&quot;监听通知的名称测试&quot; object:nil handler:^BOOL(NSNotification * _Nonnull notification) &#123;</div><div class="line">NSLog(@&quot;请求成功&quot;);</div><div class="line">//做后续处理</div><div class="line">return YES;</div><div class="line">&#125;];</div><div class="line"></div><div class="line">//下面2个地址可以查看测试通过与不通过的区别</div><div class="line">//测试通过</div><div class="line">NSURL *url = [NSURL URLWithString:@&quot;https://www.baidu.com/&quot;];</div><div class="line">//测试失败</div><div class="line">//    NSURL *url = [NSURL URLWithString:@&quot;www.baidu.com/&quot;];</div><div class="line"></div><div class="line">NSURLSession *session = [NSURLSession sharedSession];</div><div class="line">NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line"></div><div class="line">if (data &amp;&amp; !error &amp;&amp; response) &#123;</div><div class="line">//发送通知</div><div class="line">[[NSNotificationCenter defaultCenter]postNotificationName:@&quot;监听通知的名称测试&quot; object:nil];</div><div class="line">&#125;</div><div class="line">&#125;];</div><div class="line">[task resume];</div><div class="line">//设置延迟多少秒后，如果没有满足测试条件就报错</div><div class="line">[self waitForExpectationsWithTimeout:10.0 handler:^(NSError * _Nullable error) &#123;</div><div class="line">[task cancel];</div><div class="line">&#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-5、测试私有属性和私有方法"><a href="#4-5、测试私有属性和私有方法" class="headerlink" title="4.5、测试私有属性和私有方法"></a>4.5、测试私有属性和私有方法</h2><p>在ViewController中定义一个私有属性和一个私有方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@interface ViewController ()</div><div class="line">@property (strong, nonatomic) IBOutlet UITableView *tv;</div><div class="line">@property (nonatomic, copy) NSString *privateString;</div><div class="line">@end</div><div class="line">//私有方法</div><div class="line">- (NSString *)privateFuc&#123;</div><div class="line">return @&quot;123456&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在TestDemoTests中声明ViewController的分类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//测试ViewController的私有方法-通过分类的方式</div><div class="line">@interface ViewController (TestDemoTests)</div><div class="line">- (NSString *)privateFuc;</div><div class="line">@property (nonatomic, copy) NSString *privateString;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>然后在测试方法中直接调用即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)testExample &#123;</div><div class="line">//测试私有方法</div><div class="line">XCTAssertEqualObjects(self.VC.privateFuc, @&quot;123456&quot;,@&quot;&quot;);</div><div class="line">//测试私有属性</div><div class="line">XCTAssertEqualObjects(self.VC.privateString, @&quot;987654321&quot;,@&quot;&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="5、单元测试-OCMock"><a href="#5、单元测试-OCMock" class="headerlink" title="5、单元测试-OCMock"></a>5、单元测试-OCMock</h1><p>当我们写单元测试的时候，不可避免的要去尽可能少的实例化一些具体的组件来保持测试既短又快。而且保持单元的隔离。在现代的面向对象系统中，测试的组件很可能会有几个依赖的对象。我们用mock来替代实例化具体的依赖class。mock是在测试中的一个伪造的有预定义行为的具体对象的替身对象。被测试的组件不知道其中的差异！你的组件是在一个更大的系统中被设计的，你可以很有信心的用mock来测试你的组件。</p>
+<h2 id="5-1、准备"><a href="#5-1、准备" class="headerlink" title="5.1、准备"></a>5.1、准备</h2><h3 id="5-1-1、准备模型-PersonModel"><a href="#5-1-1、准备模型-PersonModel" class="headerlink" title="5.1.1、准备模型-PersonModel"></a>5.1.1、准备模型-PersonModel</h3><p>在target：TestDemo中新加NSObject类型文件PersonModel<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">PersonModel.h</div><div class="line">@interface PersonModel : NSObject</div><div class="line">@property (nonatomic, copy) NSString *name;</div><div class="line">@property (nonatomic, copy) NSString *gender;</div><div class="line">- (NSString *)getPersonName;</div><div class="line">- (NSString *)changeName:(NSString *)newName;</div><div class="line">@end</div><div class="line"></div><div class="line">PersonModel.m</div><div class="line">@implementation PersonModel</div><div class="line">- (instancetype)init&#123;</div><div class="line">if (self = [super init])&#123;</div><div class="line">self.name = @&quot;liyong&quot;;</div><div class="line">self.gender = @&quot;男&quot;;</div><div class="line">&#125;</div><div class="line">return self;</div><div class="line">&#125;</div><div class="line">- (NSString *)getPersonName&#123;</div><div class="line">PersonModel *person = [[PersonModel alloc] init];</div><div class="line">return person.name;</div><div class="line">&#125;</div><div class="line">- (NSString *)changeName:(NSString *)newName&#123;</div><div class="line">PersonModel *person = [[PersonModel alloc] init];</div><div class="line">person.name = newName;</div><div class="line"></div><div class="line">return person.name;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<h3 id="5-1-2、新建单元测试文件"><a href="#5-1-2、新建单元测试文件" class="headerlink" title="5.1.2、新建单元测试文件"></a>5.1.2、新建单元测试文件</h3><p>TestDemoTests.m是创建项目时选择单元测试自动生成的文件，增加测试代码时避免不了需要新建文件，继承XCTestCase创建PersonTests.m，得到的是PersonTests.h和PersonTests.m两个文件，只需将PersonTests.h的声明代码迁移到PersonTests.m中即可删除PersonTests.h文件。如果有需要可将系统自动生成的函数- (void)setUp 和- (void)tearDown复制到PersonTests.m文件中。<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest7.png" alt="image"></p>
+<h2 id="5-2、测试没有参数的函数"><a href="#5-2、测试没有参数的函数" class="headerlink" title="5.2、测试没有参数的函数"></a>5.2、测试没有参数的函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//没有参数的方法</div><div class="line">- (void)testGetName&#123;</div><div class="line">PersonModel *person = [[PersonModel alloc] init];</div><div class="line"></div><div class="line">//创建一个mock对象</div><div class="line">id mockClass = OCMClassMock([PersonModel class]);</div><div class="line">//可以给这个mock对象的方法设置预设的参数和返回值</div><div class="line">OCMStub([mockClass getPersonName]).andReturn(@&quot;liyong&quot;);</div><div class="line"></div><div class="line">//用这个预设的值和实际的值进行比较是否相等</div><div class="line">XCTAssertEqualObjects([mockClass getPersonName], [person getPersonName], @&quot;值相等&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-3、测试有参数的函数"><a href="#5-3、测试有参数的函数" class="headerlink" title="5.3、测试有参数的函数"></a>5.3、测试有参数的函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//有参数的方法</div><div class="line">- (void)testCahngeName&#123;</div><div class="line"></div><div class="line">PersonModel *person = [[PersonModel alloc] init];</div><div class="line"></div><div class="line">id mockClass = OCMClassMock([PersonModel class]);</div><div class="line">//[OCMArg any]是指任意参数,下面调用方法时传的参数必须与此处的参数一样才会返回设定的值</div><div class="line">OCMStub([mockClass changeName:[OCMArg any]]).andReturn(@&quot;wss&quot;);</div><div class="line"></div><div class="line">//验证getPersonName方法有没有被调用，如果没有调用则抛出异常</div><div class="line">//    OCMVerify([mockClass getPersonName]);</div><div class="line"></div><div class="line">XCTAssertEqualObjects([mockClass changeName:[OCMArg any]], [person changeName:@&quot;wss&quot;],@&quot;值相等&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="5-4、测试有参数的函数调用时传的参数"><a href="#5-4、测试有参数的函数调用时传的参数" class="headerlink" title="5.4、测试有参数的函数调用时传的参数"></a>5.4、测试有参数的函数调用时传的参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//检查参数</div><div class="line">- (void)testArgument&#123;</div><div class="line">id mockClass = OCMClassMock([PersonModel class]);</div><div class="line">//检查参数</div><div class="line">OCMStub([mockClass changeName:[OCMArg checkWithBlock:^BOOL(id obj) &#123;</div><div class="line">//判断参数是否为NSString类型</div><div class="line">if ([obj isKindOfClass:[NSString class]])&#123;</div><div class="line">&#125;else&#123;</div><div class="line">//提示错误</div><div class="line">//            XCTAssertFalse(obj);</div><div class="line"></div><div class="line">obj = @&quot;456&quot;;</div><div class="line">&#125;</div><div class="line">NSLog(@&quot;-----------------%@&quot;,obj);</div><div class="line">return YES;</div><div class="line">&#125;]]);</div><div class="line"></div><div class="line">[mockClass changeName:@&quot;123&quot;];</div><div class="line">[mockClass changeName:[OCMArg any]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="6、单元测试-table"><a href="#6、单元测试-table" class="headerlink" title="6、单元测试-table"></a>6、单元测试-table</h1><p>继承XCTestCase创建TableTests.m文件</p>
+<h2 id="6-1、table数据源函数返回行数"><a href="#6-1、table数据源函数返回行数" class="headerlink" title="6.1、table数据源函数返回行数"></a>6.1、table数据源函数返回行数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//测试table数据源函数返回行数</div><div class="line">- (void)testControllerReturnsCorrectNumberOfRows</div><div class="line">&#123;</div><div class="line">XCTAssertEqual(3, [self.VC tableView:self.VC.tableView numberOfRowsInSection:0],@&quot;此处返回得到的行数错误&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="6-2、table数据源函数返回cell"><a href="#6-2、table数据源函数返回cell" class="headerlink" title="6.2、table数据源函数返回cell"></a>6.2、table数据源函数返回cell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//测试table数据源函数返回cell</div><div class="line">- (void)testControllerSetsUpCellCorrectly</div><div class="line">&#123;</div><div class="line">id mockTable = OCMClassMock([UITableView class]);</div><div class="line">[[[mockTable expect] andReturn:nil] dequeueReusableCellWithIdentifier:@&quot;HappyNewYear&quot;];</div><div class="line"></div><div class="line">NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];</div><div class="line"></div><div class="line">UITableViewCell *cell = [self.VC tableView:mockTable cellForRowAtIndexPath:indexPath];</div><div class="line"></div><div class="line">XCTAssertNotNil(cell, @&quot;此处应该返回一个cell&quot;);</div><div class="line">XCTAssertEqualObjects(@&quot;x-2&quot;, cell.textLabel.text, @&quot;返回的字符串错误&quot;);</div><div class="line"></div><div class="line">[mockTable verify];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="7、UI测试"><a href="#7、UI测试" class="headerlink" title="7、UI测试"></a>7、UI测试</h1><p>TestDemoUITests.m文件中写一个方法testLogin作为测试登录流程操作的UI测试方法。然后把光标放在方法体内，然后点击红色的那个录制按钮，如下：</p>
+<h2 id="7-1、测试登录-普通点击事件"><a href="#7-1、测试登录-普通点击事件" class="headerlink" title="7.1、测试登录-普通点击事件"></a>7.1、测试登录-普通点击事件</h2><p><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest8.png" alt="image"><br>下面这个是.gif拖拽到本地可查看动画<br><img src="https://raw.githubusercontent.com/ly92/images/master/Unit&amp;UITest/unituitest9.gif" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//检测登录</div><div class="line">- (void)testLogin&#123;</div><div class="line"></div><div class="line">//首先从tabbars找到“登录”然后点击</div><div class="line">[[[XCUIApplication alloc] init].tabBars.buttons[@&quot;登录&quot;] tap];</div><div class="line">//获取app</div><div class="line">XCUIApplication *app = [[XCUIApplication alloc] init];</div><div class="line">//在当前页面寻找与“accountTF”有关系的输入框，我测试时发现placeholder写为“accountTF”就可以寻找到</div><div class="line">XCUIElement *textField = app.textFields[@&quot;accountTF&quot;];</div><div class="line">[textField tap];//获取焦点成为第一响应者，否则会报“元素（此textField）未调起键盘”错误</div><div class="line">[textField typeText:@&quot;liyong&quot;];//为此textField键入字符串</div><div class="line"></div><div class="line">XCUIElement *textField2 = app.textFields[@&quot;passwordTF&quot;];</div><div class="line">[textField2 tap];</div><div class="line">[textField2 typeText:@&quot;123456&quot;];</div><div class="line"></div><div class="line">for (int i = 0; i &lt; 2; i ++) &#123;//n次点击登陆按钮</div><div class="line">[app.buttons[@&quot;login&quot;] tap];//login标示的button点击</div><div class="line">&#125;</div><div class="line"></div><div class="line">//如果页面title为success则表示登录成功，也可用其他判断方式</div><div class="line">XCTAssertEqualObjects(app.navigationBars.element.identifier, @&quot;success&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="7-2、table下拉上拉"><a href="#7-2、table下拉上拉" class="headerlink" title="7.2、table下拉上拉"></a>7.2、table下拉上拉</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//列表下拉以及上拉测试</div><div class="line">- (void)testRefresh&#123;</div><div class="line">//获取app</div><div class="line">XCUIApplication *app = [[XCUIApplication alloc] init];</div><div class="line">//点击tabbar中“列表”这个</div><div class="line">[app.tabBars.buttons[@&quot;列表&quot;] tap];</div><div class="line">//获取当前页面的tabble（此页面只有一个table，代码自动生成的）</div><div class="line">XCUIElement *table = [[[[[[[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeOther].element childrenMatchingType:XCUIElementTypeTable].element;</div><div class="line"></div><div class="line">//可通过循环上拉或者下拉无数次</div><div class="line">[table swipeDown];//下拉</div><div class="line">[table swipeUp];//上拉</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="7-3、tablecell点击以及返回"><a href="#7-3、tablecell点击以及返回" class="headerlink" title="7.3、tablecell点击以及返回"></a>7.3、tablecell点击以及返回</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">//tablecell点击以及返回</div><div class="line">- (void)testCellClick&#123;</div><div class="line">//获取app</div><div class="line">XCUIApplication *app = [[XCUIApplication alloc] init];</div><div class="line">//点击tabbar中“列表”这个</div><div class="line">[app.tabBars.buttons[@&quot;列表&quot;] tap];</div><div class="line">//在当前页面获取table的cell队列</div><div class="line">XCUIElementQuery *tablesQuery = app.tables;</div><div class="line">//点击了第一个cell，此cell有一个标示为“x-x”</div><div class="line">[[[tablesQuery childrenMatchingType:XCUIElementTypeCell] elementBoundByIndex:0].staticTexts[@&quot;x-x&quot;] tap];</div><div class="line">//在“login”为title的页面中点击了导航栏中“table”按钮---login页面为点击cell进入的页面，table是导航栏左侧按钮，点击返回列表页面</div><div class="line">XCUIElement *tableButton = app.navigationBars[@&quot;login&quot;].buttons[@&quot;table&quot;];</div><div class="line">[tableButton tap];//点击返回</div><div class="line"></div><div class="line">[[[tablesQuery childrenMatchingType:XCUIElementTypeCell] elementBoundByIndex:7].staticTexts[@&quot;x-x&quot;] tap];</div><div class="line">[tableButton tap];</div><div class="line">[[[tablesQuery childrenMatchingType:XCUIElementTypeCell] elementBoundByIndex:9].staticTexts[@&quot;x-x&quot;] tap];</div><div class="line">//点击login页面中“back”按钮返回，</div><div class="line">[app.buttons[@&quot;back&quot;] tap];</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line">*在执行过程中如果只进行多次通过点击back来返回则可以使用</div><div class="line">*XCUIElement *backButton = app.buttons[@&quot;back&quot;];</div><div class="line">*后面直接用</div><div class="line">*[backButton tap];</div><div class="line"></div><div class="line">例如：</div><div class="line"></div><div class="line">XCUIElement *xXStaticText = [[app.tables childrenMatchingType:XCUIElementTypeCell] elementBoundByIndex:0].staticTexts[@&quot;x-x&quot;];</div><div class="line">[xXStaticText tap];</div><div class="line">XCUIElement *backButton = app.buttons[@&quot;back&quot;];</div><div class="line">[backButton tap];</div><div class="line">[xXStaticText tap];</div><div class="line">[backButton tap];</div><div class="line">[xXStaticText tap];</div><div class="line">[backButton tap];</div><div class="line">[xXStaticText tap];</div><div class="line">[backButton tap];</div><div class="line">[xXStaticText tap];</div><div class="line">[backButton tap];</div><div class="line">[xXStaticText tap];</div><div class="line">[backButton tap];</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h1 id="附件1："><a href="#附件1：" class="headerlink" title="附件1："></a>附件1：</h1><p>单元测试准则：</p>
+<ol>
+<li>保持单元测试小巧, 快速<br>理论上, 任何代码提交前都应该完整跑一遍所有测试套件. 保持测试代码执行迅捷能够缩短迭代开发周期.</li>
+<li>单元测试应该是全自动且无交互<br>测试套件通常是定期执行的, 执行过程必须完全自动化才有意义. 需要人工检查输出结果的测试不是一个好的单元测试.</li>
+<li>让单元测试很容易跑起来<br>对开发环境进行配置, 最好是敲条命令或是点个按钮就能把单个测试用例或测试套件跑起来.</li>
+<li>对测试进行评估<br>对执行的测试进行覆盖率分析, 得到精确的代码执行覆盖率, 并调查哪些代码未被执行.</li>
+<li>立即修正失败的测试<br>每个开发人员在提交前都应该保证新的测试用例执行成功, 当有代码提交时, 现有测试用例也都能跑通.<br>如果一个定期执行的测试用例执行失败, 整个团队应该放下手上的工作优先解决这个问题.</li>
+<li>把测试维持在单元级别<br>单元测试即类 (Class) 的测试. 一个 “测试类” 应该只对应于一个 “被测类”, 并且 “被测类” 的行为应该被隔离测试. 必须谨慎避免使用单元测试框架来测试整个程序的工作流, 这样的测试既低效又难维护. 工作流测试 (译注: 指跨模块/类的数据流测试) 有它自己的地盘, 但它绝不是单元测试, 必须单独建立和执行.</li>
+<li>由简入繁<br>最简单的测试也远远胜过完全没有测试. 一个简单的 “测试类” 会促使建立 “被测类” 基本的测试骨架, 可以对构建环境, 单元测试环境, 执行环境以及覆盖率分析工具等有效性进行检查, 同时也可以证明 “被测类” 能够被整合和调用.<br>下面便是单元测试版的 Hello, world! :<br>void testDefaultConstruction()<br>{<br>Foo foo = new Foo();<br>assertNotNull(foo);<br>}</li>
+<li>保持测试的独立性<br>为了保证测试稳定可靠且便于维护, 测试用例之间决不能有相互依赖, 也不能依赖执行的先后次序.</li>
+<li>Keep tests close to the class being tested<br>[译注: 有意翻译该规则, 个人认为本条规则值得商榷, 大部分 C++, Objective-C和 Python 库均把测试代码从功能代码目录中独立出来, 通常是创建一个和 src 目录同级的 tests 目录, 被测模块/类名之前也常常 不加 Test 前缀. 这么做保证功能代码和测试代码隔离, 目录结构清晰, 并且发布源码的时候更容易排除测试用例.]<br>If the class to test is Foo the test class should be called FooTest (not TestFoo) and kept in the same package (directory) as Foo. Keeping test classes in separate directory trees makes them harder to access and maintain.<br>Make sure the build environment is configured so that the test classes doesn’t make its way into production libraries or executables.</li>
+<li>合理的命名测试用例<br>确保每个方法只测试 “被测类” 的一个明确特性, 并相应的命名测试方法. 典型的命名俗定是 test[what], 比如 testSaveAs(), testAddListener(), testDeleteProperty() 等.</li>
+<li>只测公有接口<br>单元测试可以被定义为 通过类的公有 API 对类进行测试. 一些测试工具允许测试一个类的私有成员, 但这种做法应该避免, 它让测试变得繁琐而且更难维护. 如果有私有成员确实需要进行直接测试, 可以考虑把它重构到工具类的公有方法中. 但要注意这么做是为了改善设计, 而不是帮助测试.</li>
+<li>看成是黑盒<br>站在第三方使用者的角度, 测试一个类是否满足规定的需求. 并设法让它出问题.</li>
+<li>看成是白盒<br>毕竟被测试类是程序员自写自测的, 应该在最复杂的逻辑部分多花些精力测试.</li>
+<li>芝麻函数也要测试<br>通常建议所有重要的函数都应该被测试到, 一些芝麻方法比如简单的 setter 和 getter 都可以忽略. 但是仍然有充分的理由支持测试芝麻函数:<br>芝麻 很难定义. 对于不同的人有不同的理解.<br>从黑盒测试的观点看, 是无法知道哪些代码是芝麻级别的.<br>即便是再芝麻的函数, 也可能包含错误, 通常是 “复制粘贴” 代码的后果:<br>private double weight<em>;<br>private double x</em>, y<em>;<br>public void setWeight(int weight)<br>{<br>weight = weight</em>;  // error<br>}<br>public double getX()<br>{<br>return x<em>;<br>}<br>public double getY()<br>{<br>return x</em>;  // error<br>}<br>因此建议测试所有方法. 毕竟芝麻用例也容易测试.</li>
+<li>先关注执行覆盖率<br>区别对待 执行覆盖率 和 实际测试覆盖率. 测试的最初目标应该是确保较高的执行覆盖率. 这样能保证代码在 少量 参数值输入时能执行成功. 一旦执行覆盖率就绪, 就应该开始改进测试覆盖率了. 注意, 实际的测试覆盖率很难衡量 (而且往往趋近于 0%).<br>思考以下公有方法:<br>void setLength(double length);<br>调用 setLength(1.0) 你可能会得到 100% 的执行覆盖率. 但要达到 100% 的实际测试覆盖率, 有多少个 double 浮点数这个方法就必须被调用多少次, 并且要一一验证行为的正确性. 这无疑是不可能的任务.</li>
+<li>覆盖边界值<br>确保参数边界值均被覆盖. 对于数字, 测试负数, 0, 正数, 最小值, 最大值, NaN (非数字), 无穷大等. 对于字符串, 测试空字符串, 单字符, 非 ASCII 字符串, 多字节字符串等. 对于集合类型, 测试空, 1, 第一个, 最后一个等. 对于日期, 测试 1月1号, 2月29号, 12月31号等. 被测试的类本身也会暗示一些特定情况下的边界值. 要点是尽可能彻底的测试这些边界值, 因为它们都是主要 “疑犯”.</li>
+<li>提供一个随机值生成器<br>当边界值都覆盖了, 另一个能进一步改善测试覆盖率的简单方法就是生成随机参数, 这样每次执行测试都会有不同的输入.<br>想要做到这点, 需要提供一个用来生成基本类型 (如: 浮点数, 整型, 字符串, 日期等) 随机值的工具类. 生成器应该覆盖各种类型的所有取值范围.<br>如果测试时间比较短, 可以考虑再裹上一层循环, 覆盖尽可能多的输入组合. 下面的例子是验证两次转换 little endian 和 big endian 字节序后是否返回原值. 由于测试过程很快, 可以让它跑上个一百万次.<br>void testByteSwapper()<br>{<br>for (int i = 0; i &lt; 1000000; i++) {<br>double v0 = Random.getDouble();<br>double v1 = ByteSwapper.swap(v0);<br>double v2 = ByteSwapper.swap(v1);<br>assertEquals(v0, v2);<br>}<br>}</li>
+<li>每个特性只测一次<br>在测试模式下, 有时会情不自禁的滥用断言. 这种做法会导致维护更困难, 需要极力避免. 仅对测试方法名指示的特性进行明确测试.<br>因为对于一般性代码而言, 保证测试代码尽可能少是一个重要目标.</li>
+<li>使用显式断言<br>应该总是优先使用 assertEquals(a, b) 而不是 assertTrue(a == b), 因为前者会给出更有意义的测试失败信息. 在事先不确定输入值的情况下, 这条规则尤为重要, 比如之前使用随机参数值组合的例子.</li>
+<li>提供反向测试<br>反向测试是指刻意编写问题代码, 来验证鲁棒性和能否正确的处理错误.<br>假设如下方法的参数如果传进去的是负数, 会立马抛出异常:<br>void setLength(double length) throws IllegalArgumentExcepti<br>可以用下面的方法来测试这个特例是否被正确处理:<br>try {<br>setLength(-1.0);<br>fail();  // If we get here, something went wrong<br>}<br>catch (IllegalArgumentException exception) {<br>// If we get here, all is fine<br>}</li>
+<li>代码设计时谨记测试<br>编写和维护单元测试的代价是很高的, 减少代码中的公有接口和循环复杂度是降低成本, 使高覆盖率测试代码更易于编写和维护的有效方法.<br>一些建议:<br>使类成员常量化, 在构造函数中进行初始化. 减少 setter 方法的数量.<br>限制过度使用继承和公有虚函数.<br>通过使用友元类 (C++) 或包作用域 (Java) 来减少公有接口.<br>避免不必要的逻辑分支.<br>在逻辑分支中编写尽可能少的代码.<br>在公有和私有接口中尽量多用异常和断言验证参数参数的有效性.<br>限制使用快捷函数. 对于黑箱而言, 所有方法都必须一视同仁的进行测试. 思考以下简短的例子:<br>public void scale(double x0, double y0, double scaleFactor)<br>{<br>// scaling logic<br>}</li>
+</ol>
+<p>public void scale(double x0, double y0)<br>{<br>scale(x0, y0, 1.0);<br>}</p>
+<p>删除后者可以简化测试, 但用户代码的工作量也将略微增加.</p>
+<ol>
+<li>不要访问预设的外部资源<br>单元测试代码不应该假定外部的执行环境, 以便在任何时候/任何地方都能执行. 为了向测试提供必需的资源, 这些资源应该由测试本身提供.<br>比如一个解析某类型文件的类, 可以把文件内容嵌入到测试代码里, 在测试的时候写入到临时文件, 测试结束再删除, 而不是从预定的地址直接读取.</li>
+<li>权衡测试成本<br>不写单元测试的代价很高, 但是写单元测试的代价同样很高. 要在这两者之间做适当的权衡, 如果用执行覆盖率来衡量, 业界标准通常在 80% 左右.<br>很典型的, 读写外部资源的错误处理和异常处理就很难达到百分百的执行覆盖率. 模拟数据库在事务处理到一半时发生故障并不是办不到, 但相对于进行大范围的代码审查, 代价可能太大了.</li>
+<li>安排测试优先次序<br>单元测试是典型的自底向上过程, 如果没有足够的资源测试一个系统的所有模块, 就应该先把重点放在较底层的模块.</li>
+<li>测试代码要考虑错误处理<br>考虑下面的这个例子:<br>Handle handle = manager.getHandle();<br>assertNotNull(handle);<br>String handleName = handle.getName();<br>assertEquals(handleName, “handle-01”);<br>如果第一个断言失败, 后续语句会导致代码崩溃, 剩下的测试都无法执行. 任何时候都要为测试失败做好准备, 避免单个失败的测试项中断整个测试套件的执行. 上面的例子可以重写成:<br>Handle handle = manager.getHandle();<br>assertNotNull(handle);<br>if (handle == null) return;<br>String handleName = handle.getName();<br>assertEquals(handleName, “handle-01”);</li>
+<li>写测试用例重现 bug<br>每上报一个 bug, 都要写一个测试用例来重现这个 bug (即无法通过测试), 并用它作为成功修正代码的检验标准.</li>
+<li>了解局限<br>单元测试永远无法证明代码的正确性!!<br>一个跑失败的测试可能表明代码有错误, 但一个跑成功的测试什么也证明不了.<br>单元测试最有效的使用场合是在一个较低的层级验证并文档化需求, 以及 回归测试: 开发或重构代码时，不会破坏已有功能的正确性.</li>
+</ol>
+<h1 id="附件2"><a href="#附件2" class="headerlink" title="附件2:"></a>附件2:</h1><p>XCTest测试-名词解释<br>XCTFail(format…) 生成一个失败的测试；<br>XCTAssertNil(a1, format…)为空判断，a1为空时通过，反之不通过；<br>XCTAssertNotNil(a1, format…)不为空判断，a1不为空时通过，反之不通过；<br>XCTAssert(expression, format…)当expression求值为TRUE时通过；<br>XCTAssertTrue(expression, format…)当expression求值为TRUE时通过；<br>XCTAssertFalse(expression, format…)当expression求值为False时通过；<br>XCTAssertEqualObjects(a1, a2, format…)判断相等，[a1 isEqual:a2]值为TRUE时通过，其中一个不为空时，不通过；<br>XCTAssertNotEqualObjects(a1, a2, format…)判断不等，[a1 isEqual:a2]值为False时通过；<br>XCTAssertEqual(a1, a2, format…)判断相等（当a1和a2是 C语言标量、结构体或联合体时使用, 判断的是变量的地址，如果地址相同则返回TRUE，否则返回NO）；<br>XCTAssertNotEqual(a1, a2, format…)判断不等（当a1和a2是 C语言标量、结构体或联合体时使用）；<br>XCTAssertEqualWithAccuracy(a1, a2, accuracy, format…)判断相等，（double或float类型）提供一个误差范围，当在误差范围（+/-accuracy）以内相等时通过测试；<br>XCTAssertNotEqualWithAccuracy(a1, a2, accuracy, format…) 判断不等，（double或float类型）提供一个误差范围，当在误差范围以内不等时通过测试；<br>XCTAssertThrows(expression, format…)异常测试，当expression发生异常时通过；反之不通过；（很变态） XCTAssertThrowsSpecific(expression, specificException, format…) 异常测试，当expression发生specificException异常时通过；反之发生其他异常或不发生异常均不通过；<br>XCTAssertThrowsSpecificNamed(expression, specificException, exception_name, format…)异常测试，当expression发生具体异常、具体异常名称的异常时通过测试，反之不通过；<br>XCTAssertNoThrow(expression, format…)异常测试，当expression没有发生异常时通过测试；<br>XCTAssertNoThrowSpecific(expression, specificException, format…)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过；<br>XCTAssertNoThrowSpecificNamed(expression, specificException, exception_name, format…)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/05/Note/" data-toggle="tooltip" data-placement="top" title="平时遇到的小问题总结">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="“https://liyong92.github.io”" target="_blank">“liyong92”</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
