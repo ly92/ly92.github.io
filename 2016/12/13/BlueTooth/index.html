@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          蓝牙连接以及发送数据 - 李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2016/12/13/BlueTooth/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('../../../../img/cat1.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#蓝牙" title="蓝牙">蓝牙</a>
+                        
+                    </div>
+                    <h1>蓝牙连接以及发送数据</h1>
+                    <h2 class="subheading"> &quot;没成功说明不够努力&quot;</h2>
+                    <span class="meta">
+                        Posted by 李勇 on
+                        2016-12-13
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="1-连接蓝牙的常规代码"><a href="#1-连接蓝牙的常规代码" class="headerlink" title="1.连接蓝牙的常规代码"></a>1.连接蓝牙的常规代码</h2><p>1.首先引入库：#import &lt;CoreBluetooth/CoreBluetooth.h&gt;<br>2.代理:&lt;CBCentralManagerDelegate,CBPeripheralDelegatea&gt;<br>3.准备设备管理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//创建中心管理者，管理中心设备</div><div class="line">self.mgr = [[CBCentralManager alloc] initWithDelegate:self queue:nil];</div><div class="line">[self cleanup];</div><div class="line">//开始搜索蓝牙设备</div><div class="line">[self.mgr scanForPeripheralsWithServices:nil options:nil];</div></pre></td></tr></table></figure></p>
+<p>4.代理方法–代码中有注释，特别注意代码中的“kServiceUUID，kCharacteristicUUID，SERVICE_UUID，CHAR_UUID这四个参数”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div></pre></td><td class="code"><pre><div class="line">#pragma mark - 清理蓝牙</div><div class="line">//清理缓存</div><div class="line">- (void)cleanup</div><div class="line">&#123;</div><div class="line"></div><div class="line">if (!self.myPeripheral) &#123;</div><div class="line">return;</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (self.myPeripheral.state==CBPeripheralStateDisconnected||self.myPeripheral.state == CBPeripheralStateConnecting)</div><div class="line">&#123;</div><div class="line">self.myPeripheral=nil;</div><div class="line">self.characteristic = nil;</div><div class="line">return;</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (self.service != nil&amp;&amp;self.characteristic!=nil)</div><div class="line">&#123;</div><div class="line">if (self.characteristic.isNotifying)</div><div class="line">&#123;</div><div class="line">[self.myPeripheral setNotifyValue:NO forCharacteristic:self.characteristic];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">[self.mgr cancelPeripheralConnection:self.myPeripheral];</div><div class="line"></div><div class="line">[self.mgr stopScan];</div><div class="line"></div><div class="line">self.myPeripheral=nil;</div><div class="line">self.service=nil;</div><div class="line">self.characteristic=nil;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - CBCentralManagerDelegate</div><div class="line">//设备蓝牙状态更新</div><div class="line">- (void)centralManagerDidUpdateState:(CBCentralManager *)central</div><div class="line">&#123;</div><div class="line"></div><div class="line">switch (central.state) &#123;</div><div class="line">case CBCentralManagerStateUnsupported:</div><div class="line">NSLog(@&quot;该设备不支持BLE蓝牙&quot;);</div><div class="line">break;</div><div class="line">case CBCentralManagerStateUnauthorized:</div><div class="line">NSLog(@&quot;该设备未授权BLE蓝牙&quot;);</div><div class="line">break;</div><div class="line">case CBCentralManagerStatePoweredOff:</div><div class="line">NSLog(@&quot;该设备BLE蓝牙已关闭&quot;);</div><div class="line">break;</div><div class="line">case CBCentralManagerStateUnknown:</div><div class="line">NSLog(@&quot;该设备BLE蓝牙发生未知错误&quot;);</div><div class="line">break;</div><div class="line">case CBCentralManagerStateResetting:</div><div class="line">NSLog(@&quot;该设备BLE蓝牙重置中&quot;);</div><div class="line">break;</div><div class="line">case CBCentralManagerStatePoweredOn:</div><div class="line">[self cleanup];</div><div class="line">[self.mgr scanForPeripheralsWithServices:nil options:nil];</div><div class="line">break;</div><div class="line"></div><div class="line">default:</div><div class="line">NSLog(@&quot;Central Manager did change state&quot;);</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//发现外部设备时候调用此方法</div><div class="line">- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI</div><div class="line">&#123;</div><div class="line">NSString *periName = peripheral.name;</div><div class="line"></div><div class="line">self.myPeripheral = peripheral;</div><div class="line">//连接设备,这里是连接了所有设备，应该做的是跟据设备的已知信息去连接设备</div><div class="line">[self.mgr connectPeripheral:self.myPeripheral options:nil];</div><div class="line">//停止扫描蓝牙</div><div class="line">[self.mgr stopScan];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//连接蓝牙成功</div><div class="line">- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral</div><div class="line">&#123;</div><div class="line">//发现服务</div><div class="line">self.myPeripheral .delegate = self;</div><div class="line">[self.myPeripheral  discoverServices:nil];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//连接蓝牙失败</div><div class="line">- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error</div><div class="line">&#123;</div><div class="line">NSString *err = [NSString stringWithFormat:@&quot;连接蓝牙门禁%@失败,原因:%@&quot;,peripheral.name,[error localizedDescription]];</div><div class="line">NSLog(@&quot;%@&quot;,err);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//断开蓝牙连接</div><div class="line">- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">#pragma mark - CBPeripheralDelegate</div><div class="line">//外设已经查找到服务</div><div class="line">- (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error</div><div class="line">&#123;</div><div class="line">if (error) return; //发现服务失败</div><div class="line"></div><div class="line">//遍历所有服务</div><div class="line">for (CBService *service in self.myPeripheral.services) &#123;</div><div class="line">NSLog(@&quot;%@&quot;,service.UUID);</div><div class="line">if ([service.UUID isEqual:[CBUUID UUIDWithString:kServiceUUID]])&#123;</div><div class="line">self.service = service;</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">if (self.service) &#123;</div><div class="line"></div><div class="line">[self.myPeripheral discoverCharacteristics:nil forService:self.service];</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark 找到特征时调用</div><div class="line"></div><div class="line">- (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error</div><div class="line">&#123;</div><div class="line">if (error) return; //发现特征失败</div><div class="line"></div><div class="line">for (CBCharacteristic *characteristic in self.service.characteristics)</div><div class="line">&#123;</div><div class="line">NSLog(@&quot;%@&quot;,characteristic.UUID);</div><div class="line">if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:kCharacteristicUUID]])</div><div class="line">&#123;</div><div class="line">self.characteristic = characteristic;</div><div class="line">//对此特征设置通知和读取返回数据</div><div class="line">[self.myPeripheral setNotifyValue:YES forCharacteristic:self.characteristic];</div><div class="line">[self.myPeripheral readValueForCharacteristic:self.characteristic];</div><div class="line">[self sendMessageToBle];</div><div class="line">break;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error</div><div class="line">&#123;</div><div class="line">if (error) &#123;</div><div class="line">NSLog(@&quot;%@&quot;,error);</div><div class="line">return;</div><div class="line">&#125; //发送数据失败</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error</div><div class="line">&#123;</div><div class="line">if (error) return; //接收特征数据失败</div><div class="line">NSString *value = [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding];</div><div class="line">NSLog(@&quot;value==============%@&quot;,value);//蓝牙返回的信息，需要对蓝牙设备做特殊处理才能按照一定的格式返回数据</div><div class="line">if ([[value lowercaseString] isEqualToString:@&quot;success&quot;])&#123;</div><div class="line"></div><div class="line">&#125;else if ([[value lowercaseString] isEqualToString:@&quot;fail&quot;])&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error</div><div class="line">&#123;</div><div class="line">if (error) return; //开启特征数据返回通知失败</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2-iOS开发过程中没有直接获取蓝牙Mac地址的方法，需要从读取的数据中提出"><a href="#2-iOS开发过程中没有直接获取蓝牙Mac地址的方法，需要从读取的数据中提出" class="headerlink" title="2.iOS开发过程中没有直接获取蓝牙Mac地址的方法，需要从读取的数据中提出"></a>2.iOS开发过程中没有直接获取蓝牙Mac地址的方法，需要从读取的数据中提出</h2><p>参考<a href="http://blog.csdn.net/macpu/article/details/49805763" target="_blank" rel="external">MacPu的博客-iOS如果获取蓝牙Mac地址</a> 谢谢！<br>将“kServiceUUID，kCharacteristicUUID“分别设置为“180A，2A23”，<br>在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error</div><div class="line">&#123;</div><div class="line">if (error) return; //接收特征数据失败</div><div class="line">NSString *value = [NSString stringWithFormat:@&quot;%@&quot;,characteristic.value];</div><div class="line">NSMutableString *macString = [[NSMutableString alloc] init];</div><div class="line">[macString appendString:[[value substringWithRange:NSMakeRange(16, 2)] uppercaseString]];</div><div class="line">[macString appendString:@&quot;:&quot;];</div><div class="line">[macString appendString:[[value substringWithRange:NSMakeRange(14, 2)] uppercaseString]];</div><div class="line">[macString appendString:@&quot;:&quot;];</div><div class="line">[macString appendString:[[value substringWithRange:NSMakeRange(12, 2)] uppercaseString]];</div><div class="line">[macString appendString:@&quot;:&quot;];</div><div class="line">[macString appendString:[[value substringWithRange:NSMakeRange(5, 2)] uppercaseString]];</div><div class="line">[macString appendString:@&quot;:&quot;];</div><div class="line">[macString appendString:[[value substringWithRange:NSMakeRange(3, 2)] uppercaseString]];</div><div class="line">[macString appendString:@&quot;:&quot;];</div><div class="line">[macString appendString:[[value substringWithRange:NSMakeRange(1, 2)] uppercaseString]];</div><div class="line">NSLog(@&quot;macString:%@&quot;,macString);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-向蓝牙设备发送数据，并且接收返回数据"><a href="#3-向蓝牙设备发送数据，并且接收返回数据" class="headerlink" title="3.向蓝牙设备发送数据，并且接收返回数据"></a>3.向蓝牙设备发送数据，并且接收返回数据</h2><p>在我的实际操作中，发现每次向蓝牙发送数据的时候总是失败，需要借助下面的代码才能发送成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line">#pragma mark - 向蓝牙发送数据</div><div class="line">- (void)sendMessageToBle&#123;</div><div class="line">//加密数据</div><div class="line">int index =  arc4random() % 20;</div><div class="line">NSString *doorcode = self.doorArray[index];</div><div class="line"></div><div class="line">NSString *dateStr1 = [NSDate stringFromDate:[NSDate date] withFormat:@&quot;yyyyMMdd&quot;];</div><div class="line">NSString *dateStr2 = [NSDate stringFromDate:[NSDate date] withFormat:@&quot;MMddyyyy&quot;];</div><div class="line">NSString *dateStr = [NSString stringWithFormat:@&quot;%@%@&quot;,dateStr1,dateStr2];</div><div class="line"></div><div class="line">NSString *strA1 = @&quot;OW15LjrCaY2bfcMl&quot;;</div><div class="line">NSString *strB1 = @&quot;aWuK48JRDPePsYXE&quot;;</div><div class="line"></div><div class="line">Byte *A = [self strToByte:dateStr];</div><div class="line">Byte *A1 = [self strToByte:strA1];</div><div class="line">Byte *B = [self strToByte:doorcode];</div><div class="line">Byte *B1 = [self strToByte:strB1];</div><div class="line"></div><div class="line">Byte bleData[16] = &#123;0&#125;;</div><div class="line">for (int i = 0; i &lt; strA1.length; i ++) &#123;</div><div class="line">Byte left = (Byte)(A[i] &amp; A1[i]);</div><div class="line">Byte right = (Byte)(B[i] | B1[i]);</div><div class="line">bleData[i] = (Byte)(left ^ right);</div><div class="line">&#125;</div><div class="line">Byte bleMD5[16] =&#123;0&#125;;</div><div class="line">CC_MD5(bleData, 16, bleMD5);</div><div class="line">Byte final[15] = &#123;0&#125;;</div><div class="line">final[0] = 15;</div><div class="line">for (int i = 0; i &lt; 12; i ++) &#123;</div><div class="line">final[i + 1] = bleMD5[i];</div><div class="line">&#125;</div><div class="line">final[13] = 13;</div><div class="line">final[14] = 10;</div><div class="line"></div><div class="line">NSData *finalData = [NSData dataWithBytes:final length:15];</div><div class="line"></div><div class="line">[self writeValue:SERVICE_UUID characteristicUUID:CHAR_UUID p:self.myPeripheral data:finalData];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void) writeValue:(int)serviceUUID characteristicUUID:(int)characteristicUUID p:(CBPeripheral *)p data:(NSData *)data &#123;</div><div class="line">//这里对服务值以及特征值做了一下处理，按照硬件的识别方式转换一下</div><div class="line">UInt16 s = [self swap:serviceUUID];</div><div class="line">UInt16 c = [self swap:characteristicUUID];</div><div class="line">NSData *sd = [[NSData alloc] initWithBytes:(char *)&amp;s length:2];</div><div class="line">NSData *cd = [[NSData alloc] initWithBytes:(char *)&amp;c length:2];</div><div class="line">CBUUID *su = [CBUUID UUIDWithData:sd];</div><div class="line">CBUUID *cu = [CBUUID UUIDWithData:cd];</div><div class="line">CBService *service = [self findServiceFromUUIDEx:su p:p];</div><div class="line">if (!service) &#123;</div><div class="line">printf(&quot;Could not find service with UUID %s on peripheral with UUID %s\r\n&quot;,[self CBUUIDToString:su],[self UUIDToString:(__bridge CFUUIDRef )p.identifier]);</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">CBCharacteristic *characteristic = [self findCharacteristicFromUUIDEx:cu service:service];</div><div class="line">if (!characteristic) &#123;</div><div class="line">printf(&quot;Could not find characteristic with UUID %s on service with UUID %s on peripheral with UUID %s\r\n&quot;,[self CBUUIDToString:cu],[self CBUUIDToString:su],[self UUIDToString:(__bridge CFUUIDRef )p.identifier]);</div><div class="line">return;</div><div class="line">&#125;</div><div class="line">[p setNotifyValue:YES forCharacteristic:characteristic];</div><div class="line">//写入数据时选择有返回数据／无返回数据</div><div class="line">if(characteristic.properties &amp; CBCharacteristicPropertyWriteWithoutResponse)</div><div class="line">&#123;</div><div class="line">[p writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];</div><div class="line">&#125;else</div><div class="line">&#123;</div><div class="line">[p writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(UInt16) swap:(UInt16)s &#123;</div><div class="line">UInt16 temp = s &lt;&lt; 8;</div><div class="line">temp |= (s &gt;&gt; 8);</div><div class="line">return temp;</div><div class="line">&#125;</div><div class="line">-(CBService *) findServiceFromUUIDEx:(CBUUID *)UUID p:(CBPeripheral *)p &#123;</div><div class="line">for(int i = 0; i &lt; p.services.count; i++) &#123;</div><div class="line">CBService *s = [p.services objectAtIndex:i];</div><div class="line">if ([self compareCBUUID:s.UUID UUID2:UUID]) return s;</div><div class="line">&#125;</div><div class="line">return nil; //Service not found on this peripheral</div><div class="line">&#125;</div><div class="line">-(int) compareCBUUID:(CBUUID *) UUID1 UUID2:(CBUUID *)UUID2 &#123;</div><div class="line">char b1[16];</div><div class="line">char b2[16];</div><div class="line">[UUID1.data getBytes:b1];</div><div class="line">[UUID2.data getBytes:b2];</div><div class="line">if (memcmp(b1, b2, UUID1.data.length) == 0)return 1;</div><div class="line">else return 0;</div><div class="line">&#125;</div><div class="line">-(const char *) CBUUIDToString:(CBUUID *) UUID &#123;</div><div class="line">return [[UUID.data description] cStringUsingEncoding:NSStringEncodingConversionAllowLossy];</div><div class="line">&#125;</div><div class="line">-(const char *) UUIDToString:(CFUUIDRef)UUID &#123;</div><div class="line">if (!UUID) return &quot;NULL&quot;;</div><div class="line">CFStringRef s = CFUUIDCreateString(NULL, UUID);</div><div class="line">return CFStringGetCStringPtr(s, 0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(CBCharacteristic *) findCharacteristicFromUUIDEx:(CBUUID *)UUID service:(CBService*)service &#123;</div><div class="line">for(int i=0; i &lt; service.characteristics.count; i++) &#123;</div><div class="line">CBCharacteristic *c = [service.characteristics objectAtIndex:i];</div><div class="line">if ([self compareCBUUID:c.UUID UUID2:UUID]) return c;</div><div class="line">&#125;</div><div class="line">return nil; //Characteristic not found on this service</div><div class="line">&#125;</div><div class="line"></div><div class="line">//字符串转byte</div><div class="line">- (Byte *)strToByte:(NSString *)strBefor&#123;</div><div class="line">Byte *bt = (Byte *)malloc(16);</div><div class="line">for (int i =0; i &lt; strBefor.length; i++) &#123;</div><div class="line">int strInt = [strBefor characterAtIndex:i];</div><div class="line">Byte b =  (Byte) ((0xff &amp; strInt) );//( Byte) 0xff&amp;iByte;</div><div class="line">bt[i] = b;</div><div class="line">&#125;</div><div class="line">return bt;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/ly92/BluetoothTest" target="_blank" rel="external">直戳demo源码</a></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/01/05/GitLab_Ender/" data-toggle="tooltip" data-placement="top" title="GitLab by Ender -- My Teacher">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/11/09/Easemob_ly/" data-toggle="tooltip" data-placement="top" title="环信聊天对话页面双方头像以及名称">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#蓝牙" title="蓝牙">蓝牙</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="“https://liyong92.github.io”" target="_blank">“liyong92”</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
