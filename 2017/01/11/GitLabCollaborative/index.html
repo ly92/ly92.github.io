@@ -13,11 +13,11 @@
 
     <title>
         
-          平时遇到的小问题总结 - 李勇的博客 | liyong’s Blog
+          gitlab多人协作开发分支控制 - 李勇的博客 | liyong’s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/01/05/Note/">
+    <link rel="canonical" href="http://yoursite.com/2017/01/11/GitLabCollaborative/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -165,14 +165,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#Note" title="Note">Note</a>
+                          <a class="tag" href="/tags/#GitLab" title="GitLab">GitLab</a>
                         
                     </div>
-                    <h1>平时遇到的小问题总结</h1>
+                    <h1>gitlab多人协作开发分支控制</h1>
                     <h2 class="subheading"> &quot;没成功说明不够努力&quot;</h2>
                     <span class="meta">
                         Posted by 李勇 on
-                        2017-01-05
+                        2017-01-11
                     </span>
                 </div>
             </div>
@@ -191,10 +191,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="brew"><a href="#brew" class="headerlink" title="brew"></a>brew</h1><h2 id="brew使用时提示error：not-writable"><a href="#brew使用时提示error：not-writable" class="headerlink" title="brew使用时提示error：not writable"></a>brew使用时提示error：not writable</h2><p>```<br>liyongdeMacBook-Pro:~ ly$ brew update<br>Error: /usr/local is not writable. You should change the<br>ownership and permissions of /usr/local back to your<br>user account:<br>sudo chown -R $(whoami) /usr/local</p>
-<p>在终端使用sudo chown -R $(whoami) /usr/local回车后输入电脑密码即可<br>```base</p>
-<p>#获取执行权限<br>chmod 777 ~/.test.sh<br>chmod 777 绝对路径</p>
-<p>#编辑文件<br>sudo nano 文件的绝对路径</p>
+                <p>#<br>master是主干，开发在分支中进行，开发完成后将分支（branch）的代码合并到master，测试master后再打tag。简单起见只需保留一个主干和一个分支，如果需要临时开发一个不确定且耗时的功能（例如微唐项目中的蓝牙功能）则临时从branch中拉出一个feature分支修改后合并到branch中并删除feature分支。<br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative1.png" alt="image"></p>
+<h1 id="1、建立项目-amp-添加协作者"><a href="#1、建立项目-amp-添加协作者" class="headerlink" title="1、建立项目&amp;添加协作者"></a>1、建立项目&amp;添加协作者</h1><p><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative3.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative4.png" alt="image"></p>
+<h1 id="2、初始化项目"><a href="#2、初始化项目" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h1><p>执行下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd existing_folder</div><div class="line">git init</div><div class="line">git remote add origin git@255.255.255.255:XXXXXX/XXXXXX.git</div><div class="line">git add .</div><div class="line">git commit -m ‘初始化项目’</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
+<h1 id="3、建立分支"><a href="#3、建立分支" class="headerlink" title="3、建立分支"></a>3、建立分支</h1><p>按照下图所示建立分支分支名称约束为’branch/XXX’(例如“branch/0111”)，“create from”输入 master<br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative5.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative6.png" alt="image"></p>
+<h1 id="4、开发"><a href="#4、开发" class="headerlink" title="4、开发"></a>4、开发</h1><h2 id="4-1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码"><a href="#4-1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码" class="headerlink" title="4.1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码"></a>4.1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@255.255.255.255:XXXXXX/XXXXXX.git</div></pre></td></tr></table></figure>
+<p>然后定位到clone的项目文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd XXXXXX</div></pre></td></tr></table></figure></p>
+<p>最后选择checkout主干代码还是分支代码,因为是要开发所以需要checkout分支代码，如果发布版本需要checkout主干代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//主干</div><div class="line">git checkout master</div><div class="line">//分支</div><div class="line">git checkout branch/0111</div></pre></td></tr></table></figure></p>
+<h2 id="4-2、开发后合并分支代码到主干"><a href="#4-2、开发后合并分支代码到主干" class="headerlink" title="4.2、开发后合并分支代码到主干"></a>4.2、开发后合并分支代码到主干</h2><p>定位到clone的项目文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd XXXXXX</div></pre></td></tr></table></figure></p>
+<p>项目切换owner到master，然后执行merge，第二行中的“–no-ff”一定要添加，否则不显示合并的log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master  </div><div class="line">git merge --no-ff branch／0111 -m &apos;xxx&apos;//显示Already up-to-date.说明合并成功</div><div class="line">git push origin master//上传主干</div></pre></td></tr></table></figure></p>
 
 
                 <hr>
@@ -203,13 +208,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/01/05/Unit&UITest/" data-toggle="tooltip" data-placement="top" title="iOS单元测试和UI测试">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/01/05/NoteOfPhp/" data-toggle="tooltip" data-placement="top" title="PHP学习笔记">Next Post &rarr;</a>
+                            <a href="/2017/01/11/PhpNginxMysql/" data-toggle="tooltip" data-placement="top" title="MAC下使用nginx+php+mysql搭建PHP开发环境">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -250,7 +251,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Note" title="Note">Note</a>
+                          <a class="tag" href="/tags/#GitLab" title="GitLab">GitLab</a>
                         
                     </div>
                 </section>
