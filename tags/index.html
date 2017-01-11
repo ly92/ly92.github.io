@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -170,9 +170,9 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#iOS" title="iOS" rel="5">iOS</a>
-                
                     <a href="#生活" title="生活" rel="1">生活</a>
+                
+                    <a href="#iOS" title="iOS" rel="5">iOS</a>
                 
                     <a href="#博客" title="博客" rel="2">博客</a>
                 
@@ -184,14 +184,40 @@
                 
                     <a href="#Note" title="Note" rel="1">Note</a>
                 
-                    <a href="#PHP" title="PHP" rel="1">PHP</a>
-                
                     <a href="#Xcode" title="Xcode" rel="1">Xcode</a>
+                
+                    <a href="#PHP" title="PHP" rel="1">PHP</a>
                 
             </div>
 
             <!-- 标签列表 -->
 
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="生活">
+                    <span class="tag-text">生活</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2016/10/26/Anniversary/">
+                        <h2 class="post-title">
+                            工作一周年感想
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                 "没成功说明不够努力"
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="iOS">
@@ -282,32 +308,6 @@
                      <a href="/2016/11/09/YTKNetWork_ly/">
                         <h2 class="post-title">
                             YTKNetWork2.0使用总结
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                 "没成功说明不够努力"
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="生活">
-                    <span class="tag-text">生活</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2016/10/26/Anniversary/">
-                        <h2 class="post-title">
-                            工作一周年感想
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -471,8 +471,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="PHP">
-                    <span class="tag-text">PHP</span>
+                <span class="fa fa-tag listing-seperator" id="Xcode">
+                    <span class="tag-text">Xcode</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -480,9 +480,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/01/11/PhpNginxMysql/">
+                     <a href="/2017/01/06/Jenkins+Xcode/">
                         <h2 class="post-title">
-                            MAC下使用nginx+php+mysql搭建PHP开发环境
+                            Jenkins+Xcode
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -497,8 +497,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Xcode">
-                    <span class="tag-text">Xcode</span>
+                <span class="fa fa-tag listing-seperator" id="PHP">
+                    <span class="tag-text">PHP</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -506,9 +506,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/01/06/Jenkins+Xcode/">
+                     <a href="/2017/01/11/PhpNginxMysql/">
                         <h2 class="post-title">
-                            Jenkins+Xcode
+                            MAC下使用nginx+php+mysql搭建PHP开发环境
                         </h2>
                         
                             <h3 class="post-subtitle">
