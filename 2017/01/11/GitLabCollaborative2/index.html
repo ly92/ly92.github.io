@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -194,7 +194,7 @@
                 <p>主干（master）和开发者分支（develop）在全生命周期仅有一个，开发者分支（develop_name）是开发人员开发某一功能时单独创建的属于自己的分支，功能开发完毕后需要将开发者分支（develop_name）删除，如果需要开发另一功能时需要重新创建开发者分支（develop_name）<br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative1_1.png" alt="image"></p>
 <h1 id="1、建立项目-amp-添加协作者"><a href="#1、建立项目-amp-添加协作者" class="headerlink" title="1、建立项目&amp;添加协作者"></a>1、建立项目&amp;添加协作者</h1><p><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative3.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative4.png" alt="image"></p>
 <h1 id="2、初始化项目"><a href="#2、初始化项目" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h1><p>执行下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd existing_folder</div><div class="line">git init</div><div class="line">git remote add origin git@255.255.255.255:XXXXXX/XXXXXX.git</div><div class="line">git add .</div><div class="line">git commit -m ‘初始化项目’</div><div class="line">git push -u origin master</div></pre></td></tr></table></figure></p>
-<h1 id="3、建立分支"><a href="#3、建立分支" class="headerlink" title="3、建立分支"></a>3、建立分支</h1><p>3.1、主分支，相对于各个开发人员获取的分支为主干<br>按照下图所示建立分支分支名称约束为’develop’，“create from”输入 master<br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative5.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative6.png" alt="image"><br>3.2、开发人员分支<br>按照上面所示方法建立开发者分支，分支名称约束为’develop_name’(例如“branch_ly”或者“branch_wss”，后面加上开发者自己的标示)，“create from”输入 develop，流程与上面所说一样</p>
+<h1 id="3、建立分支"><a href="#3、建立分支" class="headerlink" title="3、建立分支"></a>3、建立分支</h1><p>3.1、主分支，相对于各个开发人员获取的分支为主干<br>按照下图所示建立分支分支名称约束为’develop’，“create from”输入 master<br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative5.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative6.png" alt="image"><br>3.2、开发人员分支<br>按照上面所示方法建立开发者分支，分支名称约束为’develop_name’(例如“branch_ly”或者“branch_wss”，后面加上开发者自己的标示)，“create from”输入 develop，流程与上面所说一样<br>3.3、获取分支<br>git clone后会得到现有的所有分支用“git branch”查看现有分支，如果别人添加了分支本地是看不到的，使用“git fetch”从远程仓库下载分支和数据，“git pull”从远程仓库下载数据并合并到当前分支,”git merge”将服务器上的任何更新（假设有人这时候推送到服务器了）合并到你的当前分支<br>git pull = git fetch + git merge</p>
 <h1 id="4、开发"><a href="#4、开发" class="headerlink" title="4、开发"></a>4、开发</h1><h2 id="4-1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码"><a href="#4-1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码" class="headerlink" title="4.1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码"></a>4.1、首先创建一个项目名命名的文件夹，将代码clone到此目录中，并选择代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@255.255.255.255:XXXXXX/XXXXXX.git</div></pre></td></tr></table></figure>
 <p>然后定位到clone的项目文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd XXXXXX</div></pre></td></tr></table></figure></p>
 <p>最后选择checkout主干代码（master）或者分支代码（develop）以及开发者分支代码（develop_name）,因为是要开发所以需要checkout开发者分支代码（develop_name），分支代码（develop）用来打包测试，如果测试成功则发布版本时需要checkout主干代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//主干</div><div class="line">git checkout master</div><div class="line">//分支</div><div class="line">git checkout branch</div><div class="line">//开发者分支</div><div class="line">git checkout branch_ly</div></pre></td></tr></table></figure></p>
@@ -210,9 +210,13 @@
 
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/2017/01/11/GitLabCollaborative/" data-toggle="tooltip" data-placement="top" title="gitlab多人协作开发分支控制">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
-                            <a href="/2017/01/11/GitLabCollaborative/" data-toggle="tooltip" data-placement="top" title="gitlab多人协作开发分支控制">Next Post &rarr;</a>
+                            <a href="/2017/01/11/PhpNginxMysql/" data-toggle="tooltip" data-placement="top" title="MAC下使用nginx+php+mysql搭建PHP开发环境">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
