@@ -13,11 +13,11 @@
 
     <title>
         
-          李勇的博客 | liyong’s Blog
+          gitlab多人协作开发分支控制-奥科 -- by ender - 李勇的博客 | liyong’s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/01/17/GitLabCollaborative3/">
+    <link rel="canonical" href="http://yoursite.com/2017/01/18/GitLabCollaborative3/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/cat11.jpg')
+        background-image: url('../../../../img/cat1.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,12 +165,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#GitLab" title="GitLab">GitLab</a>
+                        
                     </div>
-                    <h1></h1>
-                    <h2 class="subheading"></h2>
+                    <h1>gitlab多人协作开发分支控制-奥科 -- by ender</h1>
+                    <h2 class="subheading"> &quot;没成功说明不够努力&quot;</h2>
                     <span class="meta">
-                        Posted by ly92 on
-                        2017-01-17
+                        Posted by 李勇 on
+                        2017-01-18
                     </span>
                 </div>
             </div>
@@ -217,7 +219,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2017/01/11/GitLabCollaborative2/" data-toggle="tooltip" data-placement="top" title="gitlab多人协作开发分支控制-奥科">Next Post &rarr;</a>
+                            <a href="/2017/01/11/GitLabCollaborative/" data-toggle="tooltip" data-placement="top" title="gitlab多人协作开发分支控制">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -228,6 +230,20 @@
 
             </div>
     <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
         
 
     <!-- Sidebar Container -->
@@ -244,6 +260,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#GitLab" title="GitLab">GitLab</a>
+                        
                     </div>
                 </section>
                 
@@ -446,6 +464,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
