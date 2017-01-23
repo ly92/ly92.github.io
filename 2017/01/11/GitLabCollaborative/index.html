@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -200,12 +200,7 @@
 <p>最后选择checkout主干代码还是分支代码,因为是要开发所以需要checkout分支代码，如果发布版本需要checkout主干代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//主干</div><div class="line">git checkout master</div><div class="line">//分支</div><div class="line">git checkout branch/0111</div></pre></td></tr></table></figure></p>
 <h2 id="4-2、开发后合并分支代码到主干"><a href="#4-2、开发后合并分支代码到主干" class="headerlink" title="4.2、开发后合并分支代码到主干"></a>4.2、开发后合并分支代码到主干</h2><p>定位到clone的项目文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd XXXXXX</div></pre></td></tr></table></figure></p>
 <p>项目切换owner到master，然后执行merge，第二行中的“–no-ff”一定要添加，否则不显示合并的log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout master  </div><div class="line">git merge --no-ff branch／0111 -m &apos;xxx&apos;//显示Already up-to-date.说明合并成功</div><div class="line">git push origin master//上传主干</div></pre></td></tr></table></figure></p>
-<p># </p>
-<p># </p>
-<p># </p>
-<h1 id="下面这个是内部使用的版本"><a href="#下面这个是内部使用的版本" class="headerlink" title="下面这个是内部使用的版本"></a>下面这个是内部使用的版本</h1><p># </p>
-<p># </p>
-<h1 id="1、建立项目-amp-添加协作者-1"><a href="#1、建立项目-amp-添加协作者-1" class="headerlink" title="1、建立项目&amp;添加协作者"></a>1、建立项目&amp;添加协作者</h1><p><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative3.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative4.png" alt="image"></p>
+<h1 id="————————————————————————"><a href="#————————————————————————" class="headerlink" title="————————————————————————-"></a>————————————————————————-</h1><h1 id=""><a href="#" class="headerlink" title="-"></a>-</h1><h1 id="下面这个是内部使用的版本"><a href="#下面这个是内部使用的版本" class="headerlink" title="下面这个是内部使用的版本"></a>下面这个是内部使用的版本</h1><h1 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h1><h1 id="————————————————————————-1"><a href="#————————————————————————-1" class="headerlink" title="————————————————————————-"></a>————————————————————————-</h1><h1 id="1、建立项目-amp-添加协作者-1"><a href="#1、建立项目-amp-添加协作者-1" class="headerlink" title="1、建立项目&amp;添加协作者"></a>1、建立项目&amp;添加协作者</h1><p><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative3.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative4.png" alt="image"></p>
 <h1 id="2、初始化项目-1"><a href="#2、初始化项目-1" class="headerlink" title="2、初始化项目"></a>2、初始化项目</h1><p>执行下面命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cd existing_folder</div><div class="line"></div><div class="line">git init</div><div class="line"></div><div class="line">git remote add origin git@255.255.255.255:XXXXXX/XXXXXX.git</div><div class="line"></div><div class="line">git add .</div><div class="line"></div><div class="line">git commit -m ‘初始化项目’</div><div class="line"></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
 <h1 id="3、建立分支-1"><a href="#3、建立分支-1" class="headerlink" title="3、建立分支"></a>3、建立分支</h1><h2 id="3-1、主分支，每个项目的develop分支为开发分支-master分支为主干分支"><a href="#3-1、主分支，每个项目的develop分支为开发分支-master分支为主干分支" class="headerlink" title="3.1、主分支，每个项目的develop分支为开发分支,master分支为主干分支"></a>3.1、主分支，每个项目的develop分支为开发分支,master分支为主干分支</h2><p>按照下图所示建立分支分支名称约束为’develop’，“create from”输入 master<br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative5.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/GitLabCollaborative/GitLabCollaborative6.png" alt="image"></p>
@@ -232,12 +227,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/01/18/GitLabCollaborative3/" data-toggle="tooltip" data-placement="top" title="gitlab多人协作开发分支控制-奥科 -- by ender">&larr; Previous Post</a>
+                            <a href="/2017/01/23/finalreport/" data-toggle="tooltip" data-placement="top" title="2016年终总结">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/01/11/GitLabCollaborative2/" data-toggle="tooltip" data-placement="top" title="gitlab多人协作开发分支控制-奥科">Next Post &rarr;</a>
+                            <a href="/2017/01/11/PhpNginxMysql/" data-toggle="tooltip" data-placement="top" title="MAC下使用nginx+php+mysql搭建PHP开发环境">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
