@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/">
+    <link rel="canonical" href="http://yoursite.com/page/3/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -184,228 +184,22 @@
 
 <div class="post-preview">
 
-    <a href="/2017/07/23/LYProgressHUD/">
+    <a href="/2016/08/22/BeforeCreateBlog/">
         <h2 class="post-title">
-            Untitled
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            提示框
-自己写了一个hud，里面图片是通过代码画出来的，不需要其他资源文件
-效果有一下6种样式
-使用1234567LYProgressHUD.showLoading()LYProgressHUD.showInfo(&quot;&quot;)LYProgressHUD.showError(&quot;&quot;)LYProgressHUD.showSuccess(&quot;&quot;)L......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by ly92 on
-        2017-07-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/07/23/LYBannerView/">
-        <h2 class="post-title">
-            Untitled
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            利用闲暇时间写了一个banner
-原理scrollview中添加3张图片，每次都是显示中间那张图片，当滚动或者按照时间轮播的时候显示后一张的同时将后一张图片放在中间并且scrollview显示中间图片，并重置两边的图片
-##问题现在用手滚动的时候效果还算满意，但是根据定时器轮播的时候图片总是闪换，无法达到手动滑动的那种顺畅感觉，如果有好的方法请联系我，感谢！
-##效果支持横向轮播和纵向轮播使......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by ly92 on
-        2017-07-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/07/23/LYAlertView/">
-        <h2 class="post-title">
-            Untitled
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            自定义AlertView block使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式
-##效果下面先看一下效果图吧
-
-使用1234567891011LYAlertView.show(&quot;title&quot;, &quot;message&quot;)LYAler......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by ly92 on
-        2017-07-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/06/25/datepicker/">
-        <h2 class="post-title">
-            自定义时间选择器，带有年月日的时间选择器
+            如何创建GitHub上的个人免费博客
         </h2>
         <h3 class="post-subtitle">
              "没成功说明不够努力"
         </h3>
         <div class="post-content-preview">
-            从此踏上了Swift的学习道路在用Swift重写公司的项目中我计划先写一个工具类的三方库，主要集中我平时在项目中用到的工具类，点击查看库文件LYTools，目前还处于开始阶段，之前用的OC的比较方便的库在此慢慢都用Swift重写一遍。
-正文此处记录一个时间选择的工具，可以按照年月日时分选择，直接看效果图吧,图片前面是使用代码，这里使用的block，也可以选择使用代理方法1234let pic......
+            免费个人博客搭建， 这是一篇小白也能看懂的文章，本文主要针对OS X ，Windows 除了软件安装方式和命令有些区别（装了git bash也一样），其他基本一样。
+首先列出来两个博客的样式供参考：
+OK 开始正文1. 创建GitHub 域名和空间1.1注册首先你需要注册一个GitHub账号，已有的可以直接进行1.2，注意username，这会影响到你的域名，你的域名将会是 username......
         </div>
     </a>
     <p class="post-meta">
         Posted by 李勇 on
-        2017-06-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/06/15/createcocoapodslib/">
-        <h2 class="post-title">
-            创建cocoapods支持库
-        </h2>
-        <h3 class="post-subtitle">
-             "没成功说明不够努力"
-        </h3>
-        <div class="post-content-preview">
-            一直想要将自己写的工具类做成一个三方库分享出去让更多的人可以快速开发，今天刚学会用cocoapods支持管理我的三方库，下面将制作的流程做个记录并分享。
-1、在GitHub上新建一个项目并git clone到本地略
-2、创建podspec文件将新建的项目克隆到本地后首先进入到项目的根目录下然后新建一个“name.podspec”文件这个“name”建议用心想一个1touch name.pod......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-06-15
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/06/05/objc_runtime_first/">
-        <h2 class="post-title">
-            runtime初次尝试
-        </h2>
-        <h3 class="post-subtitle">
-             "看到结果才会觉得努力是值得的"
-        </h3>
-        <div class="post-content-preview">
-            背景介绍学习Swift的时候写工具类的时候突发奇想，想要使用block代替selector，尝试了很多次，最后还是无能为力，后来想到在oc中遇到过BlocksKit,遂学习参考了一下，但是用到了runtime，无法在纯Swift的项目中使用，再次记录
-方法比较下面是在UIView的分类中声明的两个方法，为了给View添加一个点击事件，如同控件button一样，下面两个方法的效果一样1234@......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-06-05
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/05/12/leaveoffice/">
-        <h2 class="post-title">
-            第二次找工作
-        </h2>
-        <h3 class="post-subtitle">
-             "记录整个过程的感慨"
-        </h3>
-        <div class="post-content-preview">
-            刚结婚的失业老公！！！
-1.    少不了的失业原因&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大概从16年底公司的几个老员工受不了老板娘的压榨就有离职的想法，cto对大家很关怀，所以就打消了这个念头。16年底到17年4月老板娘一直是打你一巴掌然后给你糖吃，看你笑了就再来一脚。办公室到期也不续租了，在老板的朋友公司借了几个办公位凑合着上班。......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-05-12
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/01/23/finalreport/">
-        <h2 class="post-title">
-            2016年终总结
-        </h2>
-        <h3 class="post-subtitle">
-             "没成功说明不够努力"
-        </h3>
-        <div class="post-content-preview">
-            2016年1、零散的回顾积累了一年零三个月的工作经验，然而自己真正得到了什么呢？此时准备写一下年终总结时才发现2016年我是被牵着走过来的。工作没有计划，学习没有计划，人生也没有计划，逆来顺受……没有计划的，没有为自己制定目标，一眼浑茫……
-2、能想起学到的简单回想了一下，在2106年iOS方向涉及到了蓝牙，支付，学会自己搭建框架，集成三方库，但是却未曾自己去搞一个三方库，一直以自己水平不够......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-01-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/01/11/GitLabCollaborative/">
-        <h2 class="post-title">
-            gitlab多人协作开发分支控制
-        </h2>
-        <h3 class="post-subtitle">
-             "没成功说明不够努力"
-        </h3>
-        <div class="post-content-preview">
-            master是主干，开发在分支中进行，开发完成后将分支（branch）的代码合并到master，测试master后再打tag。简单起见只需保留一个主干和一个分支，如果需要临时开发一个不确定且耗时的功能（例如微唐项目中的蓝牙功能）则临时从branch中拉出一个feature分支修改后合并到branch中并删除feature分支。
-1、建立项目&amp;添加协作者
-2、初始化项目执行下面命令12......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-01-11
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/01/11/PhpNginxMysql/">
-        <h2 class="post-title">
-            MAC下使用nginx+php+mysql搭建PHP开发环境
-        </h2>
-        <h3 class="post-subtitle">
-             "没成功说明不够努力"
-        </h3>
-        <div class="post-content-preview">
-            查看现有php版本和apache版本1$ httpd -v
-Server version: Apache/2.4.23 (Unix)Server built:   Aug  8 2016 18:10:451$ php --version
-PHP 5.6.29 (cli) (built: Dec  9 2016 07:03:56)Copyright (c) 1997-2016 The PHP ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-01-11
+        2016-08-22
     </p>
 
 </div>
@@ -417,10 +211,10 @@ PHP 5.6.29 (cli) (built: Dec  9 2016 07:03:56)Copyright (c) 1997-2016 The PHP ..
 
 <ul class="pager">
     
-    
-        <li class="next">
-            <a href="/page/2/">Older Posts &rarr;</a>
+        <li class="previous">
+            <a href="/page/2/">&larr; Newer Posts</a>
         </li>
+    
     
 </ul>
 

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/07/23/LYBannerView/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/cat11.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by ly92 on
+                        2017-07-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>利用闲暇时间写了一个banner</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>scrollview中添加3张图片，每次都是显示中间那张图片，当滚动或者按照时间轮播的时候显示后一张的同时将后一张图片放在中间并且scrollview显示中间图片，并重置两边的图片</p>
+<p>##问题<br>现在用手滚动的时候效果还算满意，但是根据定时器轮播的时候图片总是闪换，无法达到手动滑动的那种顺畅感觉，如果有好的方法请联系我，感谢！</p>
+<p>##效果<br>支持横向轮播和纵向轮播<br>使用方法，可设置imgUrlArray图片地址数组，customerTitleArray仅显示title，customerImgArray图片数组，也可设置pagecontrol的颜色以及是否隐藏<br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/banner1.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/banner2.png" alt="image"></p>
+<p>##使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">//横向轮播</div><div class="line">lazy var bannerView1 : LYBannerView = &#123;</div><div class="line">let bannerView = LYBannerView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenW * 320 / 750), isHorizontalScroll: true, delegate: self)</div><div class="line">bannerView.backgroundColor = UIColor.white</div><div class="line">bannerView.currentColor = UIColor.blue</div><div class="line">bannerView.normalColor = UIColor.green</div><div class="line">bannerView.showPageControl = true</div><div class="line">bannerView.tag = 2112</div><div class="line">self.headerView.addSubview(bannerView)</div><div class="line">return bannerView</div><div class="line">&#125;()</div><div class="line">//纵向轮播</div><div class="line">lazy var bannerView2 : LYBannerView = &#123;</div><div class="line">let bannerView = LYBannerView(frame: CGRect(x: 80, y: 0, width: kScreenW - 80 - 60, height: 49), isHorizontalScroll: false, delegate: self)</div><div class="line">bannerView.showPageControl = false</div><div class="line">bannerView.backgroundColor = UIColor.white</div><div class="line">bannerView.tag = 2222</div><div class="line">self.recommendView.addSubview(bannerView)</div><div class="line">return bannerView</div><div class="line">&#125;()</div><div class="line"></div><div class="line">//设置图片url或者显示的title</div><div class="line">self.bannerView1.imgUrlArray = bannerArray3</div><div class="line">self.bannerView2.customerTitleArray = bannerArray4</div></pre></td></tr></table></figure></p>
+<p>##源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">//  LYBannerView.swift</div><div class="line">//  qixiaofu</div><div class="line">//   _</div><div class="line">//  | |      /\   /\</div><div class="line">//  | |      \ \_/ /</div><div class="line">//  | |       \_~_/</div><div class="line">//  | |        / \</div><div class="line">//  | |__/\    [ ]</div><div class="line">//  |_|__,/    \_/</div><div class="line">//</div><div class="line">//  Created by ly on 2017/6/15.</div><div class="line">//  Copyright © 2017年 qixiaofu. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">import UIKit</div><div class="line"></div><div class="line">@objc</div><div class="line">protocol LYBannerViewDelegate : NSObjectProtocol &#123;</div><div class="line">@objc func lyBannerClick(lyBanner:LYBannerView, index : Int)</div><div class="line">&#125;</div><div class="line"></div><div class="line">class LYBannerView: UIView &#123;</div><div class="line"></div><div class="line">var delegate : LYBannerViewDelegate?</div><div class="line"></div><div class="line">var currentColor : UIColor&#123;//当前page的颜色</div><div class="line">didSet&#123;</div><div class="line">self.pageControl.currentPageIndicatorTintColor = currentColor</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var normalColor : UIColor&#123;//其他page的颜色</div><div class="line">didSet&#123;</div><div class="line">self.pageControl.pageIndicatorTintColor = normalColor</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var showPageControl : Bool&#123;//是否显示页码控制器</div><div class="line">didSet&#123;</div><div class="line">if !showPageControl &#123;</div><div class="line">self.pageControl.isHidden = true</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var customerImgArray : Array&lt;UIImage&gt;&#123;//显示的图片后期赋值</div><div class="line">didSet&#123;</div><div class="line">self.imgArray = customerImgArray</div><div class="line">self.setUpSubviews()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var customerTitleArray : Array&lt;String&gt;&#123;//显示的标题后期赋值</div><div class="line">didSet&#123;</div><div class="line">self.imgArray = self.convertStringArrayToImageArray(stringArray: customerTitleArray)</div><div class="line">self.setUpSubviews()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var imgUrlArray : Array&lt;String&gt;&#123;//显示图片的地址后期赋值</div><div class="line">didSet&#123;</div><div class="line">self.isUrl = true</div><div class="line">self.setUpSubviews()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">fileprivate var isUrl : Bool//是否通过url加载图片</div><div class="line"></div><div class="line">fileprivate let isHorizontalScroll : Bool//是否为横向滚动</div><div class="line">fileprivate var imgArray : Array&lt;UIImage&gt;//显示的图片</div><div class="line"></div><div class="line">fileprivate let scrollView = UIScrollView()//</div><div class="line">fileprivate let pageControl = UIPageControl()//</div><div class="line">fileprivate var timer = Timer()//</div><div class="line"></div><div class="line">fileprivate var imgIndex : Int//当前显示的图片的索引</div><div class="line">fileprivate var isAutoScrolling : Bool//是否为自动滚动状态</div><div class="line"></div><div class="line">fileprivate let imgV1 = UIImageView()//</div><div class="line">fileprivate let imgV2 = UIImageView()//</div><div class="line">fileprivate let imgV3 = UIImageView()//</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">init(frame: CGRect, imgArray: Array&lt;UIImage&gt;, isHorizontalScroll: Bool, delegate: LYBannerViewDelegate) &#123;</div><div class="line">self.imgArray = imgArray</div><div class="line">self.isHorizontalScroll = isHorizontalScroll</div><div class="line">self.delegate = delegate</div><div class="line"></div><div class="line">self.currentColor = UIColor.red</div><div class="line">self.normalColor = UIColor.white</div><div class="line">self.showPageControl = true</div><div class="line">self.imgIndex = 0</div><div class="line">self.isAutoScrolling = true</div><div class="line">self.customerTitleArray = Array()</div><div class="line">self.customerImgArray = Array()</div><div class="line">self.imgUrlArray = Array()</div><div class="line">self.isUrl = false</div><div class="line"></div><div class="line">super.init(frame:frame)</div><div class="line">self.frame = frame</div><div class="line"></div><div class="line">self.setUpSubviews()</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">init(frame: CGRect, titleArray: Array&lt;String&gt;, isHorizontalScroll: Bool, delegate: LYBannerViewDelegate) &#123;</div><div class="line">self.imgArray = Array()</div><div class="line">self.isHorizontalScroll = isHorizontalScroll</div><div class="line">self.delegate = delegate</div><div class="line"></div><div class="line">self.currentColor = UIColor.red</div><div class="line">self.normalColor = UIColor.white</div><div class="line">self.showPageControl = true</div><div class="line">self.imgIndex = 0</div><div class="line">self.isAutoScrolling = true</div><div class="line">self.customerTitleArray = Array()</div><div class="line">self.customerImgArray = Array()</div><div class="line">self.imgUrlArray = Array()</div><div class="line">self.isUrl = false</div><div class="line"></div><div class="line">super.init(frame:frame)</div><div class="line">self.frame = frame</div><div class="line">self.imgArray = self.convertStringArrayToImageArray(stringArray: titleArray)</div><div class="line"></div><div class="line">self.setUpSubviews()</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">init(frame: CGRect, isHorizontalScroll: Bool, delegate: LYBannerViewDelegate) &#123;</div><div class="line"></div><div class="line">self.isHorizontalScroll = isHorizontalScroll</div><div class="line">self.delegate = delegate</div><div class="line"></div><div class="line">self.currentColor = UIColor.red</div><div class="line">self.normalColor = UIColor.white</div><div class="line">self.showPageControl = true</div><div class="line">self.imgIndex = 0</div><div class="line">self.isAutoScrolling = true</div><div class="line">self.imgArray = Array()</div><div class="line">self.customerTitleArray = Array()</div><div class="line">self.customerImgArray = Array()</div><div class="line">self.imgUrlArray = Array()</div><div class="line">self.isUrl = false</div><div class="line"></div><div class="line">super.init(frame:frame)</div><div class="line">self.frame = frame</div><div class="line"></div><div class="line">self.setUpSubviews()</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">extension LYBannerView&#123;</div><div class="line">func setUpSubviews() &#123;</div><div class="line">self.imgIndex = 0</div><div class="line"></div><div class="line">if self.isUrl&#123;</div><div class="line">//1.图片至少为2张</div><div class="line">if self.imgUrlArray.count == 0&#123;</div><div class="line">let imgUrl = &quot;http://www.7xiaofu.com/UPLOAD/sys/2017-03-07/~UPLOAD~sys~2017-03-07@1488850751.jpg&quot;</div><div class="line">self.imgUrlArray.insert(imgUrl, at: 0)</div><div class="line">self.imgUrlArray.insert(imgUrl, at: 1)</div><div class="line">self.scrollView.isScrollEnabled = false</div><div class="line">&#125;else if self.imgUrlArray.count == 1&#123;</div><div class="line">self.imgUrlArray.insert(self.imgUrlArray[0], at: 1)</div><div class="line">self.scrollView.isScrollEnabled = false</div><div class="line">&#125;else&#123;</div><div class="line">self.scrollView.isScrollEnabled = true</div><div class="line"></div><div class="line">//4.定时器</div><div class="line">self.setUpTimer()</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;else&#123;</div><div class="line">//1.图片至少为2张</div><div class="line">if self.imgArray.count == 0&#123;</div><div class="line">let img = UIImage()</div><div class="line">self.imgArray.insert(img, at: 0)</div><div class="line">self.imgArray.insert(img, at: 1)</div><div class="line">self.scrollView.isScrollEnabled = false</div><div class="line">&#125;else if self.imgArray.count == 1&#123;</div><div class="line">self.imgArray.insert(self.imgArray[0], at: 1)</div><div class="line">self.scrollView.isScrollEnabled = false</div><div class="line">&#125;else&#123;</div><div class="line">self.scrollView.isScrollEnabled = true</div><div class="line"></div><div class="line">//4.定时器</div><div class="line">self.setUpTimer()</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//2.设置scroll</div><div class="line">self.setUpScrollView()</div><div class="line"></div><div class="line">//3.pagecontrol</div><div class="line">self.setUpPageControl()</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line">通过三个imageview，每次滚动或者手动滑动后都重新设置imageview的图片，并且保证scrollview显示的是中间的imageview</div><div class="line">*/</div><div class="line">func setUpScrollView() &#123;</div><div class="line">self.scrollView.frame = self.bounds</div><div class="line">self.scrollView.backgroundColor = UIColor.clear</div><div class="line">if self.isHorizontalScroll&#123;</div><div class="line">self.scrollView.contentSize = CGSize(width: self.frame.width * 3, height: self.frame.height)</div><div class="line">&#125;else&#123;</div><div class="line">self.scrollView.contentSize = CGSize(width: self.frame.width, height: self.frame.height * 3)</div><div class="line">&#125;</div><div class="line">self.scrollView.delegate = self</div><div class="line">self.scrollView.isPagingEnabled = true</div><div class="line">self.scrollView.showsVerticalScrollIndicator = false</div><div class="line">self.scrollView.showsHorizontalScrollIndicator = false</div><div class="line">self.scrollView.bounces = false</div><div class="line">self.addSubview(self.scrollView)</div><div class="line"></div><div class="line">var orginX : CGFloat</div><div class="line">var orginY : CGFloat</div><div class="line">if self.isHorizontalScroll&#123;</div><div class="line">orginX = self.frame.width</div><div class="line">orginY = 0</div><div class="line">&#125;else&#123;</div><div class="line">orginX = 0</div><div class="line">orginY = self.frame.height</div><div class="line">&#125;</div><div class="line">self.imgV1.frame = CGRect(x:0, y:0, width:self.frame.width, height:self.frame.height)</div><div class="line">self.imgV1.backgroundColor = UIColor.clear</div><div class="line">self.imgV1.contentMode = .scaleAspectFit</div><div class="line">self.imgV1.addTapAction(action: #selector(LYBannerView.imageViewClickAction), target: self)</div><div class="line">self.imgV2.frame = CGRect(x:orginX, y:orginY, width:self.frame.width, height:self.frame.height)</div><div class="line">self.imgV2.backgroundColor = UIColor.clear</div><div class="line">self.imgV2.contentMode = .scaleAspectFit</div><div class="line">self.imgV2.addTapAction(action: #selector(LYBannerView.imageViewClickAction), target: self)</div><div class="line">self.imgV3.frame = CGRect(x:orginX * 2, y:orginY * 2, width:self.frame.width, height:self.frame.height)</div><div class="line">self.imgV3.backgroundColor = UIColor.clear</div><div class="line">self.imgV3.contentMode = .scaleAspectFit</div><div class="line">self.imgV3.addTapAction(action: #selector(LYBannerView.imageViewClickAction), target: self)</div><div class="line"></div><div class="line">self.scrollView.addSubview(self.imgV1)</div><div class="line">self.scrollView.addSubview(self.imgV2)</div><div class="line">self.scrollView.addSubview(self.imgV3)</div><div class="line"></div><div class="line">self.reSetUpImageViewOfScrollView()</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**重新排布ScrollView中的ImageView*/</div><div class="line">func reSetUpImageViewOfScrollView() &#123;</div><div class="line">if self.isUrl&#123;</div><div class="line">if self.imgIndex &gt;= self.imgUrlArray.count&#123;</div><div class="line">self.imgIndex = 0</div><div class="line">&#125;else if self.imgIndex &lt; 0&#123;</div><div class="line">self.imgIndex = self.imgUrlArray.count - 1</div><div class="line">&#125;</div><div class="line"></div><div class="line">self.pageControl.currentPage = self.imgIndex</div><div class="line"></div><div class="line">self.imgV2.kf.setImage(with: URL(string:self.imgUrlArray[self.imgIndex]),placeholder:#imageLiteral(resourceName: &quot;banner1&quot;))</div><div class="line">if self.imgIndex == 0&#123;</div><div class="line">self.imgV1.kf.setImage(with: URL(string:self.imgUrlArray[self.imgUrlArray.count - 1]),placeholder:#imageLiteral(resourceName: &quot;banner1&quot;))</div><div class="line">self.imgV3.kf.setImage(with: URL(string:self.imgUrlArray[self.imgIndex + 1]),placeholder:#imageLiteral(resourceName: &quot;banner1&quot;))</div><div class="line">&#125;else if self.imgIndex == self.imgUrlArray.count - 1&#123;</div><div class="line">self.imgV1.kf.setImage(with: URL(string:self.imgUrlArray[self.imgIndex - 1]),placeholder:#imageLiteral(resourceName: &quot;banner1&quot;))</div><div class="line">self.imgV3.kf.setImage(with: URL(string:self.imgUrlArray[0]))</div><div class="line">&#125;else&#123;</div><div class="line">self.imgV1.kf.setImage(with: URL(string:self.imgUrlArray[self.imgIndex - 1]),placeholder:#imageLiteral(resourceName: &quot;banner1&quot;))</div><div class="line">self.imgV3.kf.setImage(with: URL(string:self.imgUrlArray[self.imgIndex + 1]),placeholder:#imageLiteral(resourceName: &quot;banner1&quot;))</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">if self.isHorizontalScroll&#123;</div><div class="line">self.scrollView.setContentOffset(CGPoint(x:self.frame.width, y:0), animated: false)</div><div class="line">&#125;else&#123;</div><div class="line">self.scrollView.setContentOffset(CGPoint(x:0, y:self.frame.height), animated: false)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;else&#123;</div><div class="line">if self.imgIndex &gt;= self.imgArray.count&#123;</div><div class="line">self.imgIndex = 0</div><div class="line">&#125;else if self.imgIndex &lt; 0&#123;</div><div class="line">self.imgIndex = self.imgArray.count - 1</div><div class="line">&#125;</div><div class="line"></div><div class="line">self.pageControl.currentPage = self.imgIndex</div><div class="line"></div><div class="line">self.imgV2.image = self.imgArray[self.imgIndex]</div><div class="line">if self.imgIndex == 0&#123;</div><div class="line">self.imgV1.image = self.imgArray[self.imgArray.count - 1];</div><div class="line">self.imgV3.image = self.imgArray[self.imgIndex + 1]</div><div class="line">&#125;else if self.imgIndex == self.imgArray.count - 1&#123;</div><div class="line">self.imgV1.image = self.imgArray[self.imgIndex - 1];</div><div class="line">self.imgV3.image = self.imgArray[0]</div><div class="line">&#125;else&#123;</div><div class="line">self.imgV1.image = self.imgArray[self.imgIndex - 1];</div><div class="line">self.imgV3.image = self.imgArray[self.imgIndex + 1]</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">if self.isHorizontalScroll&#123;</div><div class="line">self.scrollView.setContentOffset(CGPoint(x:self.frame.width, y:0), animated: false)</div><div class="line">&#125;else&#123;</div><div class="line">self.scrollView.setContentOffset(CGPoint(x:0, y:self.frame.height), animated: false)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**pagecontrol*/</div><div class="line">func setUpPageControl() &#123;</div><div class="line"></div><div class="line">if !self.showPageControl&#123;</div><div class="line">return</div><div class="line">&#125;</div><div class="line"></div><div class="line">self.pageControl.frame = CGRect(x:0, y:self.frame.height - 20, width:self.frame.width, height:20)</div><div class="line">self.pageControl.backgroundColor = UIColor.clear</div><div class="line">self.pageControl.numberOfPages = self.isUrl ? self.imgUrlArray.count : self.imgArray.count</div><div class="line">self.pageControl.currentPageIndicatorTintColor = self.currentColor</div><div class="line">self.pageControl.pageIndicatorTintColor = self.normalColor</div><div class="line">self.pageControl.currentPage = 0</div><div class="line">self.pageControl.hidesForSinglePage = true</div><div class="line">self.addSubview(self.pageControl)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//设置定时器</div><div class="line">func setUpTimer()  &#123;</div><div class="line">if self.timer.isValid&#123;</div><div class="line">self.timer.invalidate()</div><div class="line">&#125;</div><div class="line">self.timer = Timer(timeInterval: 2.0, target: self, selector: #selector(LYBannerView.changeImage), userInfo: nil, repeats: true)</div><div class="line">RunLoop.main.add(self.timer, forMode: .defaultRunLoopMode)</div><div class="line">timer.fire()</div><div class="line">self.isAutoScrolling = true</div><div class="line">&#125;</div><div class="line"></div><div class="line">@objc func changeImage()&#123;</div><div class="line">if isAutoScrolling &#123;</div><div class="line">self.imgIndex += 1</div><div class="line">if self.isHorizontalScroll &#123;</div><div class="line">self.scrollView.setContentOffset(CGPoint(x:self.frame.width * 2, y:0), animated: true)</div><div class="line">&#125;else&#123;</div><div class="line">self.scrollView.setContentOffset(CGPoint(x:0, y:self.frame.height * 2), animated: true)</div><div class="line">&#125;</div><div class="line">self.reSetUpImageViewOfScrollView()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">extension LYBannerView : UIScrollViewDelegate&#123;</div><div class="line">func scrollViewDidScroll(_ scrollView: UIScrollView) &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">func scrollViewWillBeginDragging(_ scrollView: UIScrollView) &#123;</div><div class="line">self.timer.invalidate()</div><div class="line">self.isAutoScrolling = false</div><div class="line">&#125;</div><div class="line"></div><div class="line">func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) &#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) &#123;</div><div class="line"></div><div class="line">var showIndex : CGFloat</div><div class="line"></div><div class="line">if self.isHorizontalScroll&#123;</div><div class="line">showIndex = scrollView.contentOffset.x / self.frame.width</div><div class="line">&#125;else&#123;</div><div class="line">showIndex = scrollView.contentOffset.y / self.frame.height</div><div class="line">&#125;</div><div class="line"></div><div class="line">if showIndex == 0&#123;</div><div class="line">//当前显示的第一个imgv</div><div class="line">self.imgIndex -= 1</div><div class="line">self.reSetUpImageViewOfScrollView()</div><div class="line">&#125;else if showIndex == 1&#123;</div><div class="line">//当前显示的第二个imgv</div><div class="line"></div><div class="line">&#125;else if showIndex == 2&#123;</div><div class="line">//当前显示的第三个imgv</div><div class="line">self.imgIndex += 1</div><div class="line">self.reSetUpImageViewOfScrollView()</div><div class="line">&#125;</div><div class="line"></div><div class="line">self.setUpTimer()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">extension LYBannerView&#123;</div><div class="line">//图片点击事件处理</div><div class="line">func imageViewClickAction() &#123;</div><div class="line">self.delegate?.lyBannerClick(lyBanner:self, index: self.imgIndex)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//显示滚动文字</div><div class="line">extension LYBannerView&#123;</div><div class="line">func convertStringArrayToImageArray(stringArray:Array&lt;String&gt;) -&gt; Array&lt;UIImage&gt; &#123;</div><div class="line">let arrM = NSMutableArray()</div><div class="line">for s in stringArray&#123;</div><div class="line">let lbl = UILabel(frame:self.bounds)</div><div class="line">lbl.text = s</div><div class="line">lbl.font = UIFont.systemFont(ofSize: 14.0)</div><div class="line">lbl.textAlignment = .center</div><div class="line">let image = self.converViewToImage(v: lbl)</div><div class="line">arrM.add(image)</div><div class="line">&#125;</div><div class="line">return arrM as! Array&lt;UIImage&gt;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//label转image</div><div class="line">func converViewToImage(v:UIView) -&gt; UIImage &#123;</div><div class="line">let s = v.bounds.size</div><div class="line">// 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传false，否则传true。第三个参数就是屏幕密度了</div><div class="line">UIGraphicsBeginImageContextWithOptions(s, false, UIScreen.main.scale)</div><div class="line">v.layer.render(in: UIGraphicsGetCurrentContext()!)</div><div class="line">let image = UIGraphicsGetImageFromCurrentImageContext()</div><div class="line">UIGraphicsEndImageContext()</div><div class="line">return image!</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/07/23/LYProgressHUD/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/07/23/LYAlertView/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+ll
+                    
+                        <li><a href="http://www.jianshu.com/u/bb0b840c4f46" target="_blanklylyly">李勇92</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

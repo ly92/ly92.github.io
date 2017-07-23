@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/07/23/LYAlertView/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/cat11.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by ly92 on
+                        2017-07-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="自定义AlertView-block"><a href="#自定义AlertView-block" class="headerlink" title="自定义AlertView block"></a>自定义AlertView block</h2><p>使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式</p>
+<p>##效果<br>下面先看一下效果图吧</p>
+<p><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/alert1.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/alert2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/alert3.png" alt="image"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">LYAlertView.show(&quot;title&quot;, &quot;message&quot;)</div><div class="line"></div><div class="line">LYAlertView.show(&quot;title&quot;, &quot;message&quot;, &quot;btnTitle&quot;, &#123;</div><div class="line">//点击按钮</div><div class="line">&#125;)</div><div class="line">LYAlertView.show(&quot;title&quot;, &quot;message&quot;, &quot;leftTitle&quot;, &quot;rightTitle&quot;, &#123;</div><div class="line">//右按钮</div><div class="line">&#125;, &#123; </div><div class="line">//左按钮</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>下面直接将代码展示出来，你可以选择借鉴或者直接复制下面代码，或者使用<a href="https://github.com/ly92/LYTools" target="_blank" rel="external">LYTools</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">//  LYAlertView.swift</div><div class="line">//  qixiaofu</div><div class="line">//   _</div><div class="line">//  | |      /\   /\</div><div class="line">//  | |      \ \_/ /</div><div class="line">//  | |       \_~_/</div><div class="line">//  | |        / \</div><div class="line">//  | |__/\    [ ]</div><div class="line">//  |_|__,/    \_/</div><div class="line">//</div><div class="line">//  Created by ly on 2017/6/29.</div><div class="line">//  Copyright © 2017年 qixiaofu. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">import UIKit</div><div class="line">import QuartzCore</div><div class="line"></div><div class="line">let KTitltOringy:CGFloat = 15.0</div><div class="line">let KTitltHeight:CGFloat = 25.0</div><div class="line">let KContentOringy:CGFloat = 30.0</div><div class="line">let KBetweenLableOffset:CGFloat = 20.0</div><div class="line">let KAlertWidth:CGFloat = 245.0</div><div class="line">let KAlertHeight:CGFloat = 160.0</div><div class="line"></div><div class="line">typealias leftBlock = () -&gt;()</div><div class="line">typealias rightBlock = ()-&gt;()</div><div class="line">typealias DelaydismissBlock = ()-&gt;()</div><div class="line"></div><div class="line"></div><div class="line">class LYAlertView: UIView &#123;</div><div class="line"></div><div class="line">var leftblock : leftBlock?</div><div class="line">var rightblock : rightBlock?</div><div class="line">var dismissblock : DelaydismissBlock?</div><div class="line">var alertTitleLabel : UILabel?</div><div class="line">var alertContentLabel : UILabel?</div><div class="line">var leftBtn : UIButton?</div><div class="line">var rightBtn : UIButton?</div><div class="line">var backImageView:UIView?</div><div class="line"></div><div class="line">var delayTime:Int64 = 0</div><div class="line"></div><div class="line">override init(frame: CGRect) &#123;</div><div class="line">super.init(frame: frame)</div><div class="line">self.backgroundColor = UIColor.black.withAlphaComponent(0.3)</div><div class="line">self.addTapActionBlock &#123; </div><div class="line">if (self.dismissblock != nil)&#123;</div><div class="line">self.dismissblock!()</div><div class="line">&#125;</div><div class="line">self.removeFromSuperview()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//没有按钮</div><div class="line">func initBody(title:String,message:String,DismissDelay:Int64)</div><div class="line">&#123;</div><div class="line">self.delayTime = DismissDelay</div><div class="line">self.initTwoBtn(title: title, message: message, cancelButtonTitle: &quot;&quot;, otherButtonTitle: &quot;&quot;)</div><div class="line">&#125;</div><div class="line">//一个按钮</div><div class="line">func initOneBtn(title:String,message:String,ButtonTitle:String)</div><div class="line">&#123;</div><div class="line">self.initTwoBtn(title: title, message: message, cancelButtonTitle: &quot;&quot;, otherButtonTitle: ButtonTitle)</div><div class="line">&#125;</div><div class="line">//两个按钮</div><div class="line">func initTwoBtn(title:String,message:String,cancelButtonTitle:String,otherButtonTitle:String) &#123;</div><div class="line"></div><div class="line">//super.init(frame: CGRectZero)</div><div class="line">backImageView = UIImageView(frame: CGRect(x:0, y:0, width:KAlertWidth, height:KAlertHeight))</div><div class="line">backImageView?.center = self.center</div><div class="line">backImageView?.backgroundColor = UIColor.RGBS(s: 250)</div><div class="line">backImageView?.layer.cornerRadius = 15.0</div><div class="line">backImageView?.isUserInteractionEnabled = true</div><div class="line">self.addSubview(backImageView!)</div><div class="line"></div><div class="line"></div><div class="line">alertTitleLabel = UILabel(frame: CGRect(x:0, y:KTitltOringy, width:KAlertWidth, height:KTitltHeight))</div><div class="line">alertTitleLabel!.font = UIFont.boldSystemFont(ofSize: 20.0)</div><div class="line">alertTitleLabel!.textColor = UIColor(red:56.0/255.0,green:64.0/255.0,blue:71.0/255.0,alpha:1)</div><div class="line">backImageView?.addSubview(alertTitleLabel!)</div><div class="line"></div><div class="line"></div><div class="line">let contentLabelWidth = KAlertWidth - 16</div><div class="line">alertContentLabel = UILabel(frame:CGRect(x:(KAlertWidth - contentLabelWidth) * 0.5, y:alertTitleLabel!.frame.maxY, width:contentLabelWidth, height:60))</div><div class="line">alertContentLabel!.numberOfLines = 0</div><div class="line">alertContentLabel!.textAlignment = NSTextAlignment.center</div><div class="line">alertTitleLabel!.textAlignment = NSTextAlignment.center</div><div class="line">alertContentLabel!.textColor = UIColor(red:127.0/255.0,green:127.0/255.0,blue:127.0/255.0,alpha:1)</div><div class="line">alertContentLabel!.font = UIFont.systemFont(ofSize: 15.0)</div><div class="line">backImageView?.addSubview(alertContentLabel!)</div><div class="line"></div><div class="line">alertTitleLabel!.text = title as String</div><div class="line">alertContentLabel!.text = message as String</div><div class="line"></div><div class="line">let KSingleButtonWidth:CGFloat = 160.0</div><div class="line">let kCoupleButtonWidth:CGFloat = 107.0</div><div class="line">let kButtonHeight:CGFloat = 40.0</div><div class="line">let kButtonBottomOffset:CGFloat = 10.0</div><div class="line"></div><div class="line">//没有按钮</div><div class="line">if cancelButtonTitle.isEmpty &amp;&amp; otherButtonTitle.isEmpty&#123;</div><div class="line">alertTitleLabel?.frame.origin.y = KTitltOringy+20</div><div class="line">alertContentLabel?.frame.size.height = 100</div><div class="line">if(self.delayTime==0)&#123;</div><div class="line">self.delayTime = 2</div><div class="line">&#125;</div><div class="line">DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(UInt64(self.delayTime) * NSEC_PER_SEC)) / Double(NSEC_PER_SEC), execute: &#123;</div><div class="line">if (self.dismissblock != nil)&#123;</div><div class="line">self.dismissblock!()</div><div class="line">&#125;</div><div class="line">self.removeFromSuperview()</div><div class="line">&#125;)</div><div class="line">return</div><div class="line">&#125;else if !cancelButtonTitle.isEmpty &amp;&amp; !otherButtonTitle.isEmpty &#123;</div><div class="line">//两个按钮</div><div class="line">let leftBtnFrame = CGRect(x:(KAlertWidth - 2 * kCoupleButtonWidth - kButtonBottomOffset) * 0.5, y:KAlertHeight - kButtonBottomOffset/2.0 - kButtonHeight, width:kCoupleButtonWidth, height:kButtonHeight);</div><div class="line">let rightBtnFrame = CGRect(x:leftBtnFrame.maxX + kButtonBottomOffset, y:KAlertHeight - kButtonBottomOffset/2.0 - kButtonHeight, width:kCoupleButtonWidth, height:kButtonHeight);</div><div class="line">leftBtn = UIButton(frame:leftBtnFrame);</div><div class="line">rightBtn = UIButton(frame:rightBtnFrame)</div><div class="line"></div><div class="line">//        rightBtn!.setBackgroundImage( UIImage(named: &quot;button_orange_normal&quot;) ,for:UIControlState.normal)</div><div class="line">//        rightBtn!.setBackgroundImage( UIImage(named: &quot;button_orange_click&quot;) ,for:UIControlState.selected)</div><div class="line">rightBtn!.setTitle(otherButtonTitle as String, for: UIControlState.normal)</div><div class="line">rightBtn!.titleLabel!.font = UIFont.boldSystemFont(ofSize: 14)</div><div class="line">rightBtn!.setTitleColor(UIColor.RGBS(s: 33),for:UIControlState.normal)</div><div class="line">rightBtn!.addTarget(self, action: #selector(LYAlertView.rightBtnClicked), for: UIControlEvents.touchUpInside)</div><div class="line">rightBtn!.layer.masksToBounds = true</div><div class="line">rightBtn!.layer.cornerRadius = 3.0</div><div class="line">backImageView?.addSubview(rightBtn!)</div><div class="line"></div><div class="line">//按钮上面的线</div><div class="line">let topLine = UIView.init(frame: CGRect(x:0, y:KAlertHeight - kButtonBottomOffset - kButtonHeight, width:KAlertWidth, height:1.5))</div><div class="line">topLine.backgroundColor = UIColor.RGBS(s: 240)</div><div class="line">backImageView?.addSubview(topLine)</div><div class="line"></div><div class="line"></div><div class="line">//按钮之间的线</div><div class="line">let bottomLine = UIView.init(frame: CGRect(x:leftBtnFrame.maxX + kButtonBottomOffset/2.0, y:KAlertHeight - kButtonBottomOffset - kButtonHeight, width:1.5, height:kButtonHeight + kButtonBottomOffset))</div><div class="line">bottomLine.backgroundColor = UIColor.RGBS(s: 240)</div><div class="line">backImageView?.addSubview(bottomLine)</div><div class="line"></div><div class="line">&#125;else&#123;</div><div class="line">//按钮上面的线</div><div class="line">let topLine = UIView.init(frame: CGRect(x:0, y:KAlertHeight - kButtonBottomOffset - kButtonHeight, width:KAlertWidth, height:1.5))</div><div class="line">topLine.backgroundColor = UIColor.RGBS(s: 240)</div><div class="line">backImageView?.addSubview(topLine)</div><div class="line">//一个按钮</div><div class="line">leftBtn = UIButton(frame:CGRect(x:(KAlertWidth-KSingleButtonWidth)/2, y:KAlertHeight - kButtonBottomOffset/2.0 - kButtonHeight, width:KSingleButtonWidth, height:kButtonHeight))</div><div class="line">&#125;</div><div class="line"></div><div class="line">//            leftBtn?.setBackgroundImage(UIImage(named: &quot;button_white_normal&quot;), for: UIControlState.normal)</div><div class="line">//            leftBtn?.setBackgroundImage(UIImage(named: &quot;button_white_clicked&quot;), for: UIControlState.selected)</div><div class="line">leftBtn!.setTitle(cancelButtonTitle as String, for: UIControlState.normal)</div><div class="line">leftBtn!.titleLabel!.font = UIFont.boldSystemFont(ofSize: 14)</div><div class="line">leftBtn!.setTitleColor(UIColor.RGBS(s: 33),for:UIControlState.normal)</div><div class="line">leftBtn!.addTarget(self, action: #selector(LYAlertView.leftBtnClicked), for: UIControlEvents.touchUpInside)</div><div class="line">leftBtn!.layer.masksToBounds = true</div><div class="line">backImageView?.addSubview(leftBtn!)</div><div class="line">leftBtn!.layer.masksToBounds = true</div><div class="line">leftBtn!.layer.cornerRadius = 3.0</div><div class="line">&#125;</div><div class="line"></div><div class="line">func leftBtnClicked()&#123;</div><div class="line">if (self.leftblock != nil)&#123;</div><div class="line">self.leftblock!()</div><div class="line">&#125;</div><div class="line">self.dismiss()</div><div class="line">&#125;</div><div class="line"></div><div class="line">func rightBtnClicked()&#123;</div><div class="line">if (self.rightblock != nil)&#123;</div><div class="line">self.rightblock!()</div><div class="line">&#125;</div><div class="line">self.dismiss()</div><div class="line">&#125;</div><div class="line">//MARK: - 显示</div><div class="line">//2个按钮</div><div class="line">class func show( _ title:String, _ message:String, _ leftTitle:String, _ rightTitle:String, _ rightClick:rightBlock? = nil, _ leftClick:leftBlock? = nil, _ dismissBlock:DelaydismissBlock? = nil)-&gt;Void&#123;</div><div class="line">let alert = LYAlertView.init(frame: CGRect(x:0, y:0, width:UIScreen.main.bounds.width, height:UIScreen.main.bounds.height))</div><div class="line">alert.initTwoBtn(title: title, message: message, cancelButtonTitle: leftTitle, otherButtonTitle: rightTitle)</div><div class="line">alert.occur(animation: true)</div><div class="line"></div><div class="line">alert.leftblock = leftClick</div><div class="line">alert.rightblock = rightClick</div><div class="line">alert.dismissblock = dismissBlock</div><div class="line">&#125;</div><div class="line"></div><div class="line">//1个按钮</div><div class="line">class func show( _ title:String, _ message:String, _ leftTitle:String, _ leftClick:leftBlock? = nil, _ dismissBlock:DelaydismissBlock? = nil)-&gt;Void&#123;</div><div class="line">self.show(title, message, leftTitle, &quot;&quot;, nil, leftClick, dismissBlock)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//0个按钮</div><div class="line">class func show( _ title:String, _ message:String, _ dismissBlock:DelaydismissBlock? = nil)-&gt;Void&#123;</div><div class="line">self.show(title, message, &quot;&quot;, &quot;&quot;, nil, nil, dismissBlock)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func occur(animation:Bool) -&gt; Void&#123;</div><div class="line"></div><div class="line">UIApplication.shared.keyWindow?.addSubview(self)</div><div class="line">UIApplication.shared.keyWindow?.bringSubview(toFront: self)</div><div class="line"></div><div class="line">if animation &#123;</div><div class="line"></div><div class="line">UIView.animate(withDuration: 0.1, delay: 0, options:</div><div class="line">UIViewAnimationOptions.transitionCrossDissolve, animations: &#123; () -&gt; Void in</div><div class="line">self.alpha = 1.0</div><div class="line">self.backImageView?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.9, y: 0.9))</div><div class="line">&#125;) &#123; (Bool) -&gt; Void in</div><div class="line">UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions.transitionCrossDissolve, animations: &#123; () -&gt; Void in</div><div class="line">self.backImageView?.layer.setAffineTransform(CGAffineTransform(scaleX: 1.1, y: 1.1))</div><div class="line">&#125;) &#123; (Bool) -&gt; Void in</div><div class="line">UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions.transitionCrossDissolve, animations: &#123; () -&gt; Void in</div><div class="line">self.backImageView?.layer.setAffineTransform(CGAffineTransform(scaleX: 0.9, y: 0.9))</div><div class="line">&#125;) &#123; (Bool) -&gt; Void in</div><div class="line">self.backImageView?.layer.setAffineTransform(CGAffineTransform(scaleX: 1.0, y: 1.0))</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func dismiss() -&gt; Void&#123;</div><div class="line">UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.transitionCrossDissolve, animations: &#123; () -&gt; Void in</div><div class="line">self.alpha = 0</div><div class="line">&#125;) &#123; (Bool) -&gt; Void in</div><div class="line">self.removeFromSuperview()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/07/23/LYBannerView/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/06/25/datepicker/" data-toggle="tooltip" data-placement="top" title="自定义时间选择器，带有年月日的时间选择器">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+ll
+                    
+                        <li><a href="http://www.jianshu.com/u/bb0b840c4f46" target="_blanklylyly">李勇92</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

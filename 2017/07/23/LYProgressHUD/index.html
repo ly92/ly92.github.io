@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/07/23/LYProgressHUD/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/cat11.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by ly92 on
+                        2017-07-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>提示框</p>
+<p>自己写了一个hud，里面图片是通过代码画出来的，不需要其他资源文件</p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>有一下6种样式<br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/hud2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/hud3.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/hud4.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/hud5.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/hud6.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/hud7.png" alt="image"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">LYProgressHUD.showLoading()</div><div class="line">LYProgressHUD.showInfo(&quot;&quot;)</div><div class="line">LYProgressHUD.showError(&quot;&quot;)</div><div class="line">LYProgressHUD.showSuccess(&quot;&quot;)</div><div class="line">LYProgressHUD.showOnlyText(&quot;&quot;)</div><div class="line">LYProgressHUD.showStatusBarWithText(text: &quot;&quot;)</div><div class="line">LYProgressHUD.showWaitingWithImages(images: Array&lt;UIImage&gt;())</div></pre></td></tr></table></figure>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">//  LYProgressHUD.swift</div><div class="line">//  LYProgressHUD</div><div class="line">//   _</div><div class="line">//  |.|      /\   /\</div><div class="line">//  |.|      \ \_/ /</div><div class="line">//  |.|       \_~_/</div><div class="line">//  |.|        /.\</div><div class="line">//  |.|__/\    [.]</div><div class="line">//  |_|__,/    \_/</div><div class="line">//</div><div class="line">//  Created by ly on 16/12/16.</div><div class="line">//  Copyright © 2016年 aoke. All rights reserved.</div><div class="line">//</div><div class="line"></div><div class="line">import UIKit</div><div class="line"></div><div class="line">public enum ShowType &#123;</div><div class="line">case success</div><div class="line">case error</div><div class="line">case info</div><div class="line">&#125;</div><div class="line"></div><div class="line">public extension LYProgressHUD &#123;</div><div class="line"></div><div class="line">/**</div><div class="line">加载动画图片</div><div class="line"></div><div class="line">- parameter images:       图片数组</div><div class="line">- parameter timeInterval: 动画每次执行时间</div><div class="line">*/</div><div class="line">public static func showWaitingWithImages(images : Array&lt;UIImage&gt;, timeInterval : TimeInterval = 0, autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.showWaitWithImages(images: images, timeInterval: timeInterval, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">显示菊花</div><div class="line"></div><div class="line">- parameter text:       需要显示的文字,如果不设置文字,则只显示菊花</div><div class="line">- parameter autoRemove: 是否自动移除,默认3秒后自动移除</div><div class="line">*/</div><div class="line">public static func showLoading(_ text: String = &quot;&quot;, autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.showWaitingWithText(text: text, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">状态栏显示</div><div class="line"></div><div class="line">- parameter text:       需要显示的文字</div><div class="line">- parameter color:      背景颜色</div><div class="line">- parameter autoRemove: 是否自动移除,默认3秒后自动移除</div><div class="line">*/</div><div class="line">public static func showStatusBarWithText(text: String = &quot;OK&quot;, color: UIColor = UIColor(red: 131 / 255.0, green: 178 / 255.0, blue: 158 / 255.0, alpha: 1), autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.showStatusBar(text: text, color: color, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">只显示文字</div><div class="line"></div><div class="line">- parameter text:       需要显示的文字</div><div class="line">- parameter autoRemove: 是否自动移除,默认3秒后自动移除</div><div class="line">*/</div><div class="line">public static func showOnlyText(_ text: String = &quot;&quot;, autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.onlyText(text: text, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">Success样式</div><div class="line"></div><div class="line">- parameter successText: 需要显示的文字,默认为 Success!</div><div class="line">- parameter autoRemove:  是否自动移除,默认3秒后自动移除</div><div class="line">*/</div><div class="line">public static func showSuccess(_ success: String = &quot;Success!&quot;, autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.showText(type: .success, text: success, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">Error样式</div><div class="line"></div><div class="line">- parameter error:  需要显示的文字,默认为 Error!</div><div class="line">- parameter autoRemove: 是否自动移除,默认3秒后自动移除</div><div class="line">*/</div><div class="line">public static func showError(_ error: String = &quot;Error!&quot;, autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.showText(type: .error, text: error, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">Info样式</div><div class="line"></div><div class="line">- parameter infoText:   需要显示的文字,默认为 Info!</div><div class="line">- parameter autoRemove: 是否自动移除,默认3秒后自动移除</div><div class="line">*/</div><div class="line">public static func showInfo(_ infoText: String = &quot;info!&quot;, autoRemove: Bool = true) &#123;</div><div class="line">LYProgressHUD.showText(type: .info, text: infoText, autoRemove: autoRemove)</div><div class="line">&#125;</div><div class="line">/**</div><div class="line">移除HUD,会移除所有</div><div class="line">*/</div><div class="line">public static func dismiss() &#123;</div><div class="line">LYProgressHUD.clear()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//提示框大小</div><div class="line">private let hudW : CGFloat = 150</div><div class="line">private let hudH : CGFloat = 150</div><div class="line">//提示图片大小</div><div class="line">private let imgW : CGFloat = 30</div><div class="line">private let imgH : CGFloat = 30</div><div class="line">//提示图标大小</div><div class="line">private let circleSize = CGSize(width: imgW, height: imgH)</div><div class="line">private let windowBgColor = UIColor.black.withAlphaComponent(0.5)</div><div class="line">private let bgColor : UIColor = UIColor(red: 250 / 255.0, green: 250 / 255.0, blue: 250 / 255.0, alpha:1)</div><div class="line">private let textColor = UIColor(red: 33 / 255.0, green: 33 / 255.0, blue: 33 / 255.0, alpha: 1)</div><div class="line"></div><div class="line"></div><div class="line">public class LYProgressHUD : NSObject &#123;</div><div class="line"></div><div class="line">static var windows = Array&lt;UIWindow!&gt;()</div><div class="line">static var angle: Double &#123;</div><div class="line">return [0, 0, 180, 270, 90][UIApplication.shared.statusBarOrientation.hashValue] as Double</div><div class="line">&#125;</div><div class="line">static public func showWaitWithImages(images : Array&lt;UIImage&gt;, timeInterval : TimeInterval, autoRemove: Bool = true) &#123;</div><div class="line">self.dismiss()</div><div class="line">let frame = CGRect(x: 0, y: 0, width: hudW, height: hudH)</div><div class="line">let imageView = UIImageView()</div><div class="line">imageView.frame = frame</div><div class="line">imageView.contentMode = .scaleAspectFit</div><div class="line">imageView.backgroundColor = bgColor</div><div class="line">imageView.layer.cornerRadius = 10</div><div class="line">imageView.animationImages = images</div><div class="line">imageView.animationDuration = timeInterval == 0 ? TimeInterval(images.count) * 0.07 : timeInterval</div><div class="line">imageView.animationRepeatCount = 0</div><div class="line">imageView.startAnimating()</div><div class="line"></div><div class="line">let window = LYProgressHUD.createWindow(frame: frame, view: imageView)</div><div class="line"></div><div class="line">if autoRemove &#123;</div><div class="line">perform(#selector(LYProgressHUD.removeHUD(object:)), with: window, afterDelay: 2)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">static public func showWaitingWithText(text: String, autoRemove: Bool) &#123;</div><div class="line">self.dismiss()</div><div class="line">let frame = CGRect(x: 0, y: 0, width: hudW, height: hudH)</div><div class="line">let view = UIView(frame: frame)</div><div class="line">view.backgroundColor = bgColor</div><div class="line">view.layer.cornerRadius = 10</div><div class="line"></div><div class="line">let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)</div><div class="line">if text.isEmpty &#123;</div><div class="line">activity.frame = CGRect(x: (hudW-60)/2.0, y: (hudH-60)/2.0, width: 60, height: 60)</div><div class="line">activity.transform = CGAffineTransform(scaleX: 2.5, y: 2.5)</div><div class="line">&#125;else&#123;</div><div class="line">activity.frame = CGRect(x: (hudW-40)/2.0, y: 20, width: 40, height: 40)</div><div class="line">activity.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)</div><div class="line">let lable = LYProgressHUD.createLable()</div><div class="line">lable.frame = CGRect(x: 5, y: 20+40+10, width: hudW-10, height: hudH-20-40-20)</div><div class="line">lable.text = text</div><div class="line">view.addSubview(lable)</div><div class="line">&#125;</div><div class="line"></div><div class="line">activity.color = textColor</div><div class="line">activity.startAnimating()</div><div class="line">view.addSubview(activity)</div><div class="line"></div><div class="line">let window = LYProgressHUD.createWindow(frame: frame, view: view)</div><div class="line">if autoRemove &#123;</div><div class="line">perform(#selector(LYProgressHUD.removeHUD(object:)), with: window, afterDelay: 10)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">static public func showStatusBar(text: String, color: UIColor, autoRemove: Bool) &#123;</div><div class="line">self.dismiss()</div><div class="line">var frame = UIApplication.shared.statusBarFrame</div><div class="line">frame.size.height = 64</div><div class="line">let lable = LYProgressHUD.createLable()</div><div class="line">lable.text = text</div><div class="line">let window = UIWindow(frame:frame)</div><div class="line">window.transform = CGAffineTransform(rotationAngle: CGFloat(angle * Double.pi / 180))</div><div class="line">window.isHidden = false</div><div class="line">window.addSubview(lable)</div><div class="line">windows.append(window)</div><div class="line">window.backgroundColor = color</div><div class="line">window.windowLevel = UIWindowLevelStatusBar</div><div class="line">lable.frame = frame</div><div class="line">window.center = CGPoint(x: frame.width * 0.5, y: frame.height * 0.5)</div><div class="line">lable.center = window.center</div><div class="line"></div><div class="line">if autoRemove &#123;</div><div class="line">perform(#selector(LYProgressHUD.removeHUD(object:)), with: window, afterDelay: 2.0)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">static public func onlyText(text: String, autoRemove: Bool) &#123;</div><div class="line">self.dismiss()</div><div class="line">let view = UIView()</div><div class="line">view.backgroundColor = bgColor</div><div class="line">view.layer.cornerRadius = 10</div><div class="line"></div><div class="line">let label = LYProgressHUD.createLable()</div><div class="line">label.text = text</div><div class="line">label.font = UIFont.systemFont(ofSize: 13)</div><div class="line">label.frame = CGRect(x: 5, y: 5, width: 200, height: 100)</div><div class="line">view.addSubview(label)</div><div class="line"></div><div class="line">let frame = CGRect(x: 0, y: 0, width: 210, height: 110)</div><div class="line">view.frame = frame</div><div class="line"></div><div class="line">let window = LYProgressHUD.createWindow(frame: frame, view: view)</div><div class="line"></div><div class="line">if autoRemove &#123;</div><div class="line">perform(#selector(LYProgressHUD.removeHUD(object:)), with: window, afterDelay: 3)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">static public func showText(type: ShowType, text: String, autoRemove: Bool) &#123;</div><div class="line">self.dismiss()</div><div class="line">let frame = CGRect(x: 0, y: 0, width: hudW, height: hudH)</div><div class="line"></div><div class="line">let view = UIView(frame: frame)</div><div class="line">view.layer.cornerRadius = 10</div><div class="line">view.backgroundColor = bgColor</div><div class="line"></div><div class="line">var image = UIImage()</div><div class="line">switch type &#123;</div><div class="line">case .success:</div><div class="line">image = drawImage.imageOfSuccess</div><div class="line">case .error:</div><div class="line">image = drawImage.imageOfError</div><div class="line">case .info:</div><div class="line">image = drawImage.imageOfInfo</div><div class="line">&#125;</div><div class="line"></div><div class="line">let imageView = UIImageView(image: image)</div><div class="line">imageView.frame = CGRect(origin: CGPoint(x: (hudW-imgW)/2.0, y: 20), size: circleSize)</div><div class="line">imageView.contentMode = .center</div><div class="line">view.addSubview(imageView)</div><div class="line"></div><div class="line">let lable = LYProgressHUD.createLable()</div><div class="line">lable.frame = CGRect(x: 5, y: 20+imgH+10, width: hudW-10, height: hudH-20-imgH-20)</div><div class="line">lable.text = text</div><div class="line">view.addSubview(lable)</div><div class="line"></div><div class="line">let window = LYProgressHUD.createWindow(frame: frame, view: view)</div><div class="line"></div><div class="line">if autoRemove &#123;</div><div class="line">perform(#selector(LYProgressHUD.removeHUD(object:)), with: window, afterDelay: 1.0)</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">static private func createLable() -&gt; UILabel &#123;</div><div class="line">let lable = UILabel()</div><div class="line">lable.font = UIFont.systemFont(ofSize: 13)</div><div class="line">lable.backgroundColor = UIColor.clear</div><div class="line">lable.textColor = textColor</div><div class="line">lable.numberOfLines = 0</div><div class="line">lable.textAlignment = .center</div><div class="line">return lable</div><div class="line">&#125;</div><div class="line">static private func createWindow(frame: CGRect, view: UIView) -&gt; UIWindow &#123;</div><div class="line"></div><div class="line">let window = UIWindow(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))</div><div class="line"></div><div class="line">window.backgroundColor = windowBgColor</div><div class="line">window.windowLevel = UIWindowLevelAlert</div><div class="line">window.transform = CGAffineTransform(rotationAngle: CGFloat(angle * Double.pi / 180))</div><div class="line">window.isHidden = false</div><div class="line">window.center = getCenter()</div><div class="line">view.center = window.center</div><div class="line">window.addSubview(view)</div><div class="line">windows.append(window)</div><div class="line">return window</div><div class="line">&#125;</div><div class="line">@objc static public func removeHUD(object: AnyObject) &#123;</div><div class="line">if let window = object as? UIWindow &#123;</div><div class="line">if let index = windows.index(where: &#123; (item) -&gt; Bool in</div><div class="line">return item == window</div><div class="line">&#125;) &#123;</div><div class="line">windows.remove(at: index)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">static public func clear() &#123;</div><div class="line">if windows.isEmpty &#123; return &#125;</div><div class="line">self.cancelPreviousPerformRequests(withTarget: self)</div><div class="line">windows.removeAll(keepingCapacity: false)</div><div class="line">&#125;</div><div class="line">static func getCenter() -&gt; CGPoint &#123;</div><div class="line">let view = UIApplication.shared.keyWindow?.subviews.first as UIView!</div><div class="line">if UIApplication.shared.statusBarOrientation.hashValue &gt;= 3 &#123;</div><div class="line">return CGPoint(x: view!.center.y, y: view!.center.x)</div><div class="line">&#125; else &#123;</div><div class="line">return view!.center</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">class drawImage  &#123;</div><div class="line"></div><div class="line">struct imageCache &#123;</div><div class="line">static var imageOfSuccess: UIImage?</div><div class="line">static var imageOfError: UIImage?</div><div class="line">static var imageOfInfo: UIImage?</div><div class="line">&#125;</div><div class="line"></div><div class="line">class func draw(type : ShowType) &#123;</div><div class="line"></div><div class="line">let path = UIBezierPath()</div><div class="line"></div><div class="line">path.move(to: CGPoint(x: imgW, y: imgH/2.0))</div><div class="line">path.addArc(withCenter: CGPoint(x: imgW/2.0, y: imgH/2.0), radius: imgW/2.0-1, startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)</div><div class="line">//        path.move(to: CGPoint(x: imgW/2.0, y: imgH/2.0))</div><div class="line">path.close()</div><div class="line"></div><div class="line">switch type &#123;</div><div class="line">case .success:</div><div class="line">path.move(to: CGPoint(x: imgW/2.0-5, y: imgH/2.0))</div><div class="line">path.addLine(to: CGPoint(x: imgW/2.0, y: imgH/2.0+5))</div><div class="line">path.addLine(to: CGPoint(x: imgW/2.0+7, y: imgH/2.0-7))</div><div class="line">path.move(to: CGPoint(x: imgW/2.0-5, y: imgH/2.0))</div><div class="line">path.close()</div><div class="line">case .error:</div><div class="line">path.move(to: CGPoint(x: imgW/2.0-7, y: imgH/2.0-7))</div><div class="line">path.addLine(to: CGPoint(x: imgW/2.0+7, y: imgH/2.0+7))</div><div class="line">path.move(to: CGPoint(x: imgW/2.0+7, y: imgH/2.0-7))</div><div class="line">path.addLine(to: CGPoint(x: imgW/2.0-7, y: imgH/2.0+7))</div><div class="line">path.move(to: CGPoint(x: imgW/2.0-7, y: imgH/2.0-7))</div><div class="line">path.close()</div><div class="line">case .info:</div><div class="line">path.move(to: CGPoint(x: imgW/2.0, y: imgH/2.0-7))</div><div class="line">path.addLine(to: CGPoint(x: imgW/2.0, y: imgH/2.0+4))</div><div class="line">path.move(to: CGPoint(x: imgW/2.0, y: imgH/2.0+6))</div><div class="line">path.addLine(to: CGPoint(x: imgW/2.0, y: imgH/2.0+7))</div><div class="line">path.move(to: CGPoint(x: imgW/2.0, y: imgH/2.0-7))</div><div class="line">path.close()</div><div class="line"></div><div class="line">let tmpPath = UIBezierPath()</div><div class="line">tmpPath.move(to: CGPoint(x: 20, y: 30))</div><div class="line">tmpPath.addArc(withCenter: CGPoint(x: 20, y: 30), radius: 1, startAngle: 0, endAngle: CGFloat(Double.pi*2), clockwise: true)</div><div class="line">tmpPath.close()</div><div class="line">UIColor.white.setFill()</div><div class="line">tmpPath.fill()</div><div class="line">&#125;</div><div class="line">UIColor.black.setStroke()</div><div class="line">path.stroke()</div><div class="line">&#125;</div><div class="line"></div><div class="line">class var imageOfSuccess: UIImage &#123;</div><div class="line">if imageCache.imageOfSuccess != nil &#123;</div><div class="line">return imageCache.imageOfSuccess!</div><div class="line">&#125;</div><div class="line">UIGraphicsBeginImageContextWithOptions(circleSize, false, 0)</div><div class="line">drawImage.draw(type: .success)</div><div class="line">imageCache.imageOfSuccess = UIGraphicsGetImageFromCurrentImageContext()</div><div class="line">UIGraphicsEndImageContext()</div><div class="line">return imageCache.imageOfSuccess!</div><div class="line">&#125;</div><div class="line">class var imageOfError: UIImage &#123;</div><div class="line">if imageCache.imageOfError != nil &#123;</div><div class="line">return imageCache.imageOfError!</div><div class="line">&#125;</div><div class="line">UIGraphicsBeginImageContextWithOptions(circleSize, false, 0)</div><div class="line">drawImage.draw(type: .error)</div><div class="line">imageCache.imageOfError = UIGraphicsGetImageFromCurrentImageContext()</div><div class="line">UIGraphicsEndImageContext()</div><div class="line">return imageCache.imageOfError!</div><div class="line">&#125;</div><div class="line">class var imageOfInfo: UIImage &#123;</div><div class="line">if imageCache.imageOfInfo != nil &#123;</div><div class="line">return imageCache.imageOfInfo!</div><div class="line">&#125;</div><div class="line">UIGraphicsBeginImageContextWithOptions(circleSize, false, 0)</div><div class="line">drawImage.draw(type: .info)</div><div class="line">imageCache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()</div><div class="line">UIGraphicsEndImageContext()</div><div class="line">return imageCache.imageOfInfo!</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/07/23/LYBannerView/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+ll
+                    
+                        <li><a href="http://www.jianshu.com/u/bb0b840c4f46" target="_blanklylyly">李勇92</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
