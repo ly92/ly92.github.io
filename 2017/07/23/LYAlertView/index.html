@@ -13,7 +13,7 @@
 
     <title>
         
-          李勇的博客 | liyong’s Blog
+          自定义AlertView block - 李勇的博客 | liyong’s Blog
         
     </title>
 
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/cat11.jpg')
+        background-image: url('../../../../img/car5.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,11 +165,15 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Swift" title="Swift">Swift</a>
+                        
                     </div>
-                    <h1></h1>
-                    <h2 class="subheading"></h2>
+                    <h1>自定义AlertView block</h1>
+                    <h2 class="subheading"> &quot;迈入Swift的学习中&quot;</h2>
                     <span class="meta">
-                        Posted by ly92 on
+                        Posted by 李勇 on
                         2017-07-23
                     </span>
                 </div>
@@ -189,7 +193,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="自定义AlertView-block"><a href="#自定义AlertView-block" class="headerlink" title="自定义AlertView block"></a>自定义AlertView block</h2><p>使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式</p>
+                <p>使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式</p>
 <p>##效果<br>下面先看一下效果图吧</p>
 <p><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/alert1.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/alert2.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/LYTools/alert3.png" alt="image"></p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">LYAlertView.show(&quot;title&quot;, &quot;message&quot;)</div><div class="line"></div><div class="line">LYAlertView.show(&quot;title&quot;, &quot;message&quot;, &quot;btnTitle&quot;, &#123;</div><div class="line">//点击按钮</div><div class="line">&#125;)</div><div class="line">LYAlertView.show(&quot;title&quot;, &quot;message&quot;, &quot;leftTitle&quot;, &quot;rightTitle&quot;, &#123;</div><div class="line">//右按钮</div><div class="line">&#125;, &#123; </div><div class="line">//左按钮</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -203,7 +207,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/07/23/LYBannerView/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                            <a href="/2017/07/23/LYBannerView/" data-toggle="tooltip" data-placement="top" title="轮播图">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -220,6 +224,20 @@
             </div>
     <!-- Side Catalog Container -->
         
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
 
     <!-- Sidebar Container -->
 
@@ -235,6 +253,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Swift" title="Swift">Swift</a>
+                        
                     </div>
                 </section>
                 
@@ -437,6 +459,50 @@ ll
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
