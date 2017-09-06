@@ -90,6 +90,13 @@
 
                         
                         <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -98,13 +105,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -316,18 +316,17 @@
 
 <div class="post-preview">
 
-    <a href="/2017/07/23/LYAlertView/">
+    <a href="/2017/07/23/LYProgressHUD/">
         <h2 class="post-title">
-            自定义AlertView block
+            提示框
         </h2>
         <h3 class="post-subtitle">
              "迈入Swift的学习中"
         </h3>
         <div class="post-content-preview">
-            使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式
-##效果下面先看一下效果图吧
-
-使用1234567891011LYAlertView.show(&quot;title&quot;, &quot;message&quot;)LYAlertView.show(&quot;t......
+            自己写了一个hud，里面图片是通过代码画出来的，不需要其他资源文件
+效果有一下6种样式
+使用1234567LYProgressHUD.showLoading()LYProgressHUD.showInfo(&quot;&quot;)LYProgressHUD.showError(&quot;&quot;)LYProgressHUD.showSuccess(&quot;&quot;)LYPro......
         </div>
     </a>
     <p class="post-meta">
@@ -340,17 +339,18 @@
 
 <div class="post-preview">
 
-    <a href="/2017/07/23/LYProgressHUD/">
+    <a href="/2017/07/23/LYAlertView/">
         <h2 class="post-title">
-            提示框
+            自定义AlertView block
         </h2>
         <h3 class="post-subtitle">
              "迈入Swift的学习中"
         </h3>
         <div class="post-content-preview">
-            自己写了一个hud，里面图片是通过代码画出来的，不需要其他资源文件
-效果有一下6种样式
-使用1234567LYProgressHUD.showLoading()LYProgressHUD.showInfo(&quot;&quot;)LYProgressHUD.showError(&quot;&quot;)LYProgressHUD.showSuccess(&quot;&quot;)LYPro......
+            使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式
+##效果下面先看一下效果图吧
+
+使用1234567891011LYAlertView.show(&quot;title&quot;, &quot;message&quot;)LYAlertView.show(&quot;t......
         </div>
     </a>
     <p class="post-meta">
