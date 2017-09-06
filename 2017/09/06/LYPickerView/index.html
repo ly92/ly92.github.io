@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          支持 年 月 日 时 分 的时间选择器  - 李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/09/06/LYPickerView/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('../../../../img/car5.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Swift" title="Swift">Swift</a>
+                        
+                    </div>
+                    <h1>支持 年 月 日 时 分 的时间选择器 </h1>
+                    <h2 class="subheading"> &quot;迈入Swift的学习中&quot;</h2>
+                    <span class="meta">
+                        Posted by 李勇 on
+                        2017-09-06
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>在公司的项目中要求选择时间的时候能够兼顾到年月日时分于是便整理了一个时间选择的工具类，最近正在学习Swift，后面抽空将会写出一个Swift版本的，如果我还未来得及写恰巧您需要使用可以联系我：1364757394@qq.com，免费技术分享</p>
+<h2 id="1、文件介绍"><a href="#1、文件介绍" class="headerlink" title="1、文件介绍"></a>1、文件介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSCalendar+LY.h    NSCalendar+LY.m</div><div class="line">STPickerDate.h     STPickerDate.m</div><div class="line">STPickerView.h     STPickerView.m</div></pre></td></tr></table></figure>
+<p>其中NSCalendar+LY为NSCalendar的分类，主要用来计算当前时间，STPickerDate中主要实现对UIPickerView的自定义显示，STPickerView是选择器显示的页面布局</p>
+<h2 id="2、使用示例"><a href="#2、使用示例" class="headerlink" title="2、使用示例"></a>2、使用示例</h2><h2 id="3、源码"><a href="#3、源码" class="headerlink" title="3、源码"></a>3、源码</h2><p>NSCalendar+LY.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line"></div><div class="line">@interface NSCalendar (ST)</div><div class="line"></div><div class="line">/**</div><div class="line">*  1.当前的日期数据元件模型</div><div class="line">*</div><div class="line">*  @return &lt;#return value description#&gt;</div><div class="line">*/</div><div class="line">+ (NSDateComponents *)currentDateComponents;</div><div class="line"></div><div class="line">/**</div><div class="line">*  2.当前年</div><div class="line">*</div><div class="line">*  @return &lt;#return value description#&gt;</div><div class="line">*/</div><div class="line">+ (NSInteger)currentYear;</div><div class="line"></div><div class="line">/**</div><div class="line">*  3.当前月</div><div class="line">*</div><div class="line">*  @return &lt;#return value description#&gt;</div><div class="line">*/</div><div class="line">+ (NSInteger)currentMonth;</div><div class="line"></div><div class="line">/**</div><div class="line">*  4.当前天</div><div class="line">*/</div><div class="line">+ (NSInteger)currentDay;</div><div class="line">/**</div><div class="line">*  4.当前小时</div><div class="line">*/</div><div class="line">+ (NSInteger)currentHour;</div><div class="line">/**</div><div class="line">*  4.当前分钟</div><div class="line">*/</div><div class="line">+ (NSInteger)currentMinute;</div><div class="line">/**</div><div class="line">*  5.当前周数</div><div class="line">*/</div><div class="line">+ (NSInteger)currnentWeekday;</div><div class="line"></div><div class="line">/**</div><div class="line">*  6.获取指定年月的天数</div><div class="line">*/</div><div class="line">+ (NSInteger)getDaysWithYear:(NSInteger)year</div><div class="line">month:(NSInteger)month;</div><div class="line"></div><div class="line">/**</div><div class="line">*  7.获取指定年月的第一天的周数</div><div class="line">*/</div><div class="line">+ (NSInteger)getFirstWeekdayWithYear:(NSInteger)year</div><div class="line">month:(NSInteger)month;</div><div class="line">/**</div><div class="line">*  8.比较两个日期元件</div><div class="line">*/</div><div class="line">+ (NSComparisonResult)compareWithComponentsOne:(NSDateComponents *)componentsOne</div><div class="line">componentsTwo:(NSDateComponents *)componentsTwo;</div><div class="line"></div><div class="line">/**</div><div class="line">*  9.获取两个日期元件之间的日期元件</div><div class="line">*/</div><div class="line">+ (NSMutableArray *)arrayComponentsWithComponentsOne:(NSDateComponents *)componentsOne</div><div class="line">componentsTwo:(NSDateComponents *)componentsTwo;</div><div class="line">/**</div><div class="line">*  10.字符串转日期元件 字符串格式为：yy-MM-dd</div><div class="line">*/</div><div class="line">+ (NSDateComponents *)dateComponentsWithString:(NSString *)String;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>NSCalendar+LY.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div></pre></td><td class="code"><pre><div class="line">#import &quot;NSCalendar+ST.h&quot;</div><div class="line"></div><div class="line">@implementation NSCalendar (ST)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">+ (NSDateComponents *)currentDateComponents</div><div class="line">&#123;</div><div class="line">NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];</div><div class="line">NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour| NSCalendarUnitMinute| NSCalendarUnitWeekday;</div><div class="line">return [calendar components:unitFlags fromDate:[NSDate date]];</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSInteger)currentMonth</div><div class="line">&#123;</div><div class="line">return [NSCalendar currentDateComponents].month;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSInteger)currentYear</div><div class="line">&#123;</div><div class="line">return [NSCalendar currentDateComponents].year;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSInteger)currentDay</div><div class="line">&#123;</div><div class="line">return [NSCalendar currentDateComponents].day;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSInteger)currentHour</div><div class="line">&#123;</div><div class="line">return [NSCalendar currentDateComponents].hour;</div><div class="line">&#125;</div><div class="line">+ (NSInteger)currentMinute</div><div class="line">&#123;</div><div class="line">return [NSCalendar currentDateComponents].minute;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">+ (NSInteger)currnentWeekday</div><div class="line">&#123;</div><div class="line">return [NSCalendar currentDateComponents].weekday;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSInteger)getDaysWithYear:(NSInteger)year</div><div class="line">month:(NSInteger)month</div><div class="line">&#123;</div><div class="line"></div><div class="line">//    NSLog(@&quot;year:%ld---month:%ld&quot;,(long)year,(long)month);</div><div class="line"></div><div class="line">switch (month) &#123;</div><div class="line">case 1:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">case 2:</div><div class="line">if (year%400==0 || (year%100!=0 &amp;&amp; year%4 == 0)) &#123;</div><div class="line">return 29;</div><div class="line">&#125;else&#123;</div><div class="line">return 28;</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 3:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">case 4:</div><div class="line">return 30;</div><div class="line">break;</div><div class="line">case 5:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">case 6:</div><div class="line">return 30;</div><div class="line">break;</div><div class="line">case 7:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">case 8:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">case 9:</div><div class="line">return 30;</div><div class="line">break;</div><div class="line">case 10:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">case 11:</div><div class="line">return 30;</div><div class="line">break;</div><div class="line">case 12:</div><div class="line">return 31;</div><div class="line">break;</div><div class="line">default:</div><div class="line">return 0;</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSInteger)getFirstWeekdayWithYear:(NSInteger)year</div><div class="line">month:(NSInteger)month</div><div class="line">&#123;</div><div class="line">NSString *stringDate = [NSString stringWithFormat:@&quot;%ld-%ld-01&quot;, (long)year, (long)month];</div><div class="line">NSDateFormatter *formatter = [[NSDateFormatter alloc]init];</div><div class="line">[formatter setDateFormat:@&quot;yy-MM-dd&quot;];</div><div class="line">NSDate *date = [formatter dateFromString:stringDate];</div><div class="line"></div><div class="line">NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];</div><div class="line">NSDateComponents *components = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday) fromDate:date];</div><div class="line">return [components weekday];</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSComparisonResult)compareWithComponentsOne:(NSDateComponents *)componentsOne</div><div class="line">componentsTwo:(NSDateComponents *)componentsTwo</div><div class="line">&#123;</div><div class="line">if (componentsOne.year == componentsTwo.year &amp;&amp;</div><div class="line">componentsOne.month == componentsTwo.month &amp;&amp;</div><div class="line">componentsOne.day   == componentsTwo.day) &#123;</div><div class="line">return NSOrderedSame;</div><div class="line">&#125;else if (componentsOne.year &lt; componentsTwo.year ||</div><div class="line">(componentsOne.year == componentsTwo.year &amp;&amp; componentsOne.month &lt; componentsTwo.month) ||</div><div class="line">(componentsOne.year == componentsTwo.year &amp;&amp; componentsOne.month == componentsTwo.month &amp;&amp; componentsOne.day &lt; componentsTwo.day)) &#123;</div><div class="line">return NSOrderedAscending;</div><div class="line">&#125;else &#123;</div><div class="line">return NSOrderedDescending;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSMutableArray *)arrayComponentsWithComponentsOne:(NSDateComponents *)componentsOne</div><div class="line">componentsTwo:(NSDateComponents *)componentsTwo</div><div class="line">&#123;</div><div class="line">NSMutableArray *arrayComponents = [NSMutableArray array];</div><div class="line"></div><div class="line">NSString *stringOne = [NSString stringWithFormat:@&quot;%ld-%ld-%ld&quot;, componentsOne.year,</div><div class="line">componentsOne.month,</div><div class="line">componentsOne.day];</div><div class="line">NSString *stringTwo = [NSString stringWithFormat:@&quot;%ld-%ld-%ld&quot;, componentsTwo.year,</div><div class="line">componentsTwo.month,</div><div class="line">componentsTwo.day];</div><div class="line">NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];</div><div class="line">[dateFormatter setDateFormat:@&quot;yy-MM-dd&quot;];</div><div class="line"></div><div class="line">NSDate *dateFromString = [dateFormatter dateFromString:stringOne];</div><div class="line">NSDate *dateToString = [dateFormatter dateFromString:stringTwo];</div><div class="line">int timediff = [dateToString timeIntervalSince1970]-[dateFromString timeIntervalSince1970];</div><div class="line"></div><div class="line">NSTimeInterval timeInterval = [dateFromString timeIntervalSinceDate:dateFromString];</div><div class="line"></div><div class="line">for (int i = 0; i &lt;= timediff; i+=86400) &#123;</div><div class="line">timeInterval = i;</div><div class="line">NSDate *date = [dateFromString dateByAddingTimeInterval:timeInterval];</div><div class="line"></div><div class="line">NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];</div><div class="line">NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;</div><div class="line">[arrayComponents addObject:[calendar components:unitFlags fromDate:date]];</div><div class="line">&#125;</div><div class="line">return arrayComponents;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (NSDateComponents *)dateComponentsWithString:(NSString *)String</div><div class="line">&#123;</div><div class="line">NSDateFormatter *formatter = [[NSDateFormatter alloc]init];</div><div class="line">[formatter setDateFormat:@&quot;yy-MM-dd&quot;];</div><div class="line">NSDate *date = [formatter dateFromString:String];</div><div class="line"></div><div class="line">NSCalendar *calendar = [NSCalendar currentCalendar];</div><div class="line">NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;</div><div class="line">return  [calendar components:unitFlags fromDate:date];</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>STPickerDate.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">#import &quot;STPickerView.h&quot;</div><div class="line">NS_ASSUME_NONNULL_BEGIN</div><div class="line">@class STPickerDate;</div><div class="line">@protocol  STPickerDateDelegate&lt;NSObject&gt;</div><div class="line">- (void)pickerDate:(STPickerDate *)pickerDate year:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute;</div><div class="line"></div><div class="line">@end</div><div class="line">@interface STPickerDate : STPickerView</div><div class="line"></div><div class="line">/** 1.最小的年份，default is 1900 */</div><div class="line">@property (nonatomic, assign)NSInteger yearLeast;</div><div class="line">/** 2.显示年份数量，default is 200 */</div><div class="line">@property (nonatomic, assign)NSInteger yearSum;</div><div class="line">/** 3.中间选择框的高度，default is 28*/</div><div class="line">@property (nonatomic, assign)CGFloat heightPickerComponent;</div><div class="line"></div><div class="line">@property(nonatomic, weak)id &lt;STPickerDateDelegate&gt;delegate ;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">@property(nonatomic, copy) void (^pickerDate5Block)(NSInteger year,NSInteger month,NSInteger day,NSInteger hour,NSInteger minute,NSString * time);</div><div class="line">@property(nonatomic, copy) void (^pickerDate4Block)(NSInteger year,NSInteger month,NSInteger day,NSInteger hour,NSString * time);</div><div class="line">@property(nonatomic, copy) void (^pickerDate3Block)(NSInteger year,NSInteger month,NSInteger day,NSString * time);</div><div class="line">@property(nonatomic, copy) void (^pickerDate3EndBlock)(NSInteger year,NSInteger month,NSInteger day,NSString * time);</div><div class="line">@property(nonatomic, copy) void (^pickerDateAndRowBlock)(NSInteger year,NSInteger month,NSInteger day,NSInteger row,NSString * time);</div><div class="line">@property(nonatomic, copy) void (^pickerDate1Block)(NSInteger year);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">@end</div><div class="line">NS_ASSUME_NONNULL_END</div></pre></td></tr></table></figure></p>
+<p>STPickerDate.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div></pre></td><td class="code"><pre><div class="line">#import &quot;STPickerDate.h&quot;</div><div class="line">#import &quot;NSCalendar+ST.h&quot;</div><div class="line">#define screenWith  [UIScreen mainScreen].bounds.size.width</div><div class="line">#define screenHeight [UIScreen mainScreen].bounds.size.height</div><div class="line">@interface STPickerDate()&lt;UIPickerViewDataSource, UIPickerViewDelegate&gt;</div><div class="line">/** 1.年 */</div><div class="line">@property (nonatomic, assign)NSInteger year;</div><div class="line">/** 2.月 */</div><div class="line">@property (nonatomic, assign)NSInteger month;</div><div class="line">/** 3.日 */</div><div class="line">@property (nonatomic, assign)NSInteger day;</div><div class="line">/** 4.时 */</div><div class="line">@property (nonatomic, assign)NSInteger hour;</div><div class="line">/** 5.分 */</div><div class="line">@property (nonatomic, assign)NSInteger minute;</div><div class="line">/** 6.秒 */</div><div class="line">//@property (nonatomic, assign)NSInteger minute;</div><div class="line"></div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation STPickerDate</div><div class="line"></div><div class="line">#pragma mark - --- init 视图初始化 ---</div><div class="line"></div><div class="line">- (void)setupUI &#123;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">self.title = @&quot;请选择日期&quot;;</div><div class="line"></div><div class="line">_yearLeast = 1900;</div><div class="line">_yearSum   = 200;</div><div class="line">_heightPickerComponent = 28;</div><div class="line"></div><div class="line">_year  = [NSCalendar currentYear];</div><div class="line">_month = [NSCalendar currentMonth];</div><div class="line">_day   = [NSCalendar currentDay];</div><div class="line">_hour   = [NSCalendar currentHour];</div><div class="line">_minute   = [NSCalendar currentMinute];</div><div class="line"></div><div class="line">[self.pickerView setDelegate:self];</div><div class="line">[self.pickerView setDataSource:self];</div><div class="line"></div><div class="line">[self.pickerView selectRow:(_year - _yearLeast) inComponent:0 animated:NO];</div><div class="line"></div><div class="line">if(self.rows &gt; 1)&#123;</div><div class="line">[self.pickerView selectRow:(_month - 1) inComponent:1 animated:NO];</div><div class="line">&#125;</div><div class="line">if(self.rows &gt; 2)&#123;</div><div class="line">[self.pickerView selectRow:(_day - 1) inComponent:2 animated:NO];</div><div class="line">&#125;</div><div class="line">if (self.rows &gt; 3) &#123;</div><div class="line">[self.pickerView selectRow:(_hour) inComponent:3 animated:NO];</div><div class="line">&#125;</div><div class="line">if (self.rows &gt; 4) &#123;</div><div class="line">[self.pickerView selectRow:(_minute) inComponent:4 animated:NO];</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - --- delegate 视图委托 ---</div><div class="line"></div><div class="line">- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView</div><div class="line">&#123;</div><div class="line">return self.rows;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component&#123;</div><div class="line"></div><div class="line">switch (component) &#123;</div><div class="line">case 0:</div><div class="line">&#123;</div><div class="line">return self.yearSum;</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 1:</div><div class="line">&#123;</div><div class="line">return 12;</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 2:</div><div class="line">&#123;</div><div class="line">//            NSInteger yearSelected = [pickerView selectedRowInComponent:0] + self.yearLeast;</div><div class="line">//            NSInteger monthSelected = [pickerView selectedRowInComponent:1] + 1;</div><div class="line"></div><div class="line">NSInteger dayNum = [NSCalendar getDaysWithYear:self.year month:self.month];</div><div class="line"></div><div class="line">//            NSLog(@&quot;------%ld&quot;,(long)dayNum);</div><div class="line"></div><div class="line">return  dayNum;</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 3:</div><div class="line">&#123;</div><div class="line">return 24;</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 4:</div><div class="line">&#123;</div><div class="line">return 60;</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">default:</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component&#123;</div><div class="line">return self.heightPickerComponent;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(nullable UIView *)view</div><div class="line">&#123;</div><div class="line"></div><div class="line">UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(screenWith*component/6.0, 0,screenWith/6.0, 30)];</div><div class="line">label.font=[UIFont systemFontOfSize:15.0];</div><div class="line">label.tag=component*100+row;</div><div class="line">label.textAlignment=NSTextAlignmentCenter;</div><div class="line">switch (component) &#123;</div><div class="line">case 0:</div><div class="line">&#123;</div><div class="line">label.frame=CGRectMake(5, 0,screenWith/4.0, 30);</div><div class="line">label.text=[NSString stringWithFormat:@&quot;%ld年&quot;,(long)(_yearLeast + row)];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 1:</div><div class="line">&#123;</div><div class="line">label.frame=CGRectMake(screenWith/4.0, 0, screenWith/8.0, 30);</div><div class="line">label.text=[NSString stringWithFormat:@&quot;%ld月&quot;,(long)row+1];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 2:</div><div class="line">&#123;</div><div class="line">label.frame=CGRectMake(screenWith*3/8, 0, screenWith/8.0, 30);</div><div class="line">label.text=[NSString stringWithFormat:@&quot;%ld日&quot;,(long)row+1];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 3:</div><div class="line">&#123;</div><div class="line">label.textAlignment=NSTextAlignmentRight;</div><div class="line">label.text=[NSString stringWithFormat:@&quot;%ld时&quot;,(long)row];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 4:</div><div class="line">&#123;</div><div class="line">label.textAlignment=NSTextAlignmentRight;</div><div class="line">label.text=[NSString stringWithFormat:@&quot;%ld分&quot;,(long)row];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 5:</div><div class="line">&#123;</div><div class="line">label.textAlignment=NSTextAlignmentRight;</div><div class="line">label.frame=CGRectMake(screenWith*component/6.0, 0, screenWith/6.0-5, 30);</div><div class="line">label.text=[NSString stringWithFormat:@&quot;%ld秒&quot;,(long)row];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line"></div><div class="line">default:</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">return label;</div><div class="line"></div><div class="line">&#125;</div><div class="line">- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component</div><div class="line">&#123;</div><div class="line">[self reloadData];</div><div class="line"></div><div class="line">switch (component) &#123;</div><div class="line">case 0:</div><div class="line">if (self.rows &gt; 1)&#123;</div><div class="line">[pickerView reloadComponent:1];</div><div class="line">&#125;</div><div class="line">if (self.rows &gt;2)&#123;</div><div class="line">[pickerView reloadComponent:2];</div><div class="line">&#125;</div><div class="line">break;</div><div class="line">case 1:</div><div class="line">if (self.rows &gt; 2)&#123;</div><div class="line">[pickerView reloadComponent:2];</div><div class="line">&#125;</div><div class="line">default:</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">#pragma mark - --- event response 事件相应 ---</div><div class="line"></div><div class="line">- (void)selectedOk</div><div class="line">&#123;</div><div class="line">if ([self.delegate respondsToSelector:@selector(pickerDate:year:month:day:hour:minute:)]) &#123;</div><div class="line">[self.delegate pickerDate:self year:self.year month:self.month day:self.day hour:self.hour minute:self.minute];</div><div class="line">&#125;</div><div class="line"></div><div class="line">NSString * selectTime =[NSString stringWithFormat:@&quot;%ld.%.2ld.%.2ld %.2ld:%.2ld&quot;,self.year,self.month,self.day,self.hour ,self.minute];</div><div class="line"></div><div class="line">if (_pickerDate5Block) &#123;</div><div class="line">_pickerDate5Block(self.year,self.month,self.day,self.hour,self.minute,selectTime);</div><div class="line">&#125;</div><div class="line">if (_pickerDate4Block) &#123;</div><div class="line">_pickerDate4Block(self.year,self.month,self.day,self.hour,selectTime);</div><div class="line">&#125;</div><div class="line">if (_pickerDate3Block) &#123;</div><div class="line"></div><div class="line">selectTime =[NSString stringWithFormat:@&quot;%ld.%.2ld.%.2ld %.2ld:%.2ld&quot;,self.year,self.month,self.day,self.hour,self.minute];</div><div class="line">_pickerDate3Block(self.year,self.month,self.day,selectTime);</div><div class="line">&#125;</div><div class="line">if (_pickerDate3EndBlock) &#123;</div><div class="line"></div><div class="line">selectTime =[NSString stringWithFormat:@&quot;%ld.%.2ld.%.2ld %.2d:%.2d&quot;,self.year,self.month,self.day,23,00];</div><div class="line">_pickerDate3EndBlock(self.year,self.month,self.day,selectTime);</div><div class="line">&#125;</div><div class="line">if (_pickerDateAndRowBlock)&#123;</div><div class="line">selectTime =[NSString stringWithFormat:@&quot;%ld.%.2ld.%.2ld %.2ld:%.2ld&quot;,self.year,self.month,self.day,self.hour,self.minute];</div><div class="line">_pickerDateAndRowBlock(self.year,self.month,self.day,self.rows,selectTime);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">if (_pickerDate1Block) &#123;</div><div class="line">_pickerDate1Block(self.year);</div><div class="line">&#125;</div><div class="line">DeLog(@&quot;-----  %@&quot;,selectTime);</div><div class="line">[super selectedOk];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - --- private methods 私有方法 ---</div><div class="line"></div><div class="line">- (void)reloadData</div><div class="line">&#123;</div><div class="line">self.year  = [self.pickerView selectedRowInComponent:0] + self.yearLeast;</div><div class="line"></div><div class="line">if (self.rows &gt; 1) &#123;</div><div class="line">self.month = [self.pickerView selectedRowInComponent:1] + 1;</div><div class="line">&#125;</div><div class="line">if (self.rows &gt; 2) &#123;</div><div class="line">self.day   = [self.pickerView selectedRowInComponent:2] + 1;</div><div class="line">&#125;</div><div class="line">if (self.rows &gt; 3) &#123;</div><div class="line">self.hour   = [self.pickerView selectedRowInComponent:3];</div><div class="line">&#125;</div><div class="line">if (self.rows &gt; 4) &#123;</div><div class="line">self.minute   = [self.pickerView selectedRowInComponent:4];</div><div class="line">&#125;</div><div class="line"></div><div class="line">NSLog(@&quot;%ld-%ld-%ld %ld:%ld&quot;,(long)self.year,(long)self.month,(long)self.day,(long)self.hour,(long)self.minute);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - --- setters 属性 ---</div><div class="line"></div><div class="line">- (void)setYearLeast:(NSInteger)yearLeast</div><div class="line">&#123;</div><div class="line">_yearLeast = yearLeast;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setYearSum:(NSInteger)yearSum</div><div class="line">&#123;</div><div class="line">_yearSum = yearSum;</div><div class="line">&#125;</div><div class="line">#pragma mark - --- getters 属性 ---</div><div class="line"></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>STPickerView.h<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">NS_ASSUME_NONNULL_BEGIN</div><div class="line"></div><div class="line">typedef NS_ENUM(NSInteger, STPickerContentMode) &#123;</div><div class="line">STPickerContentModeBottom, // 1.选择器在视图的下方</div><div class="line">STPickerContentModeCenter  // 2.选择器在视图的中间</div><div class="line">&#125;;</div><div class="line"></div><div class="line">@interface STPickerView : UIButton</div><div class="line"></div><div class="line"></div><div class="line">- (instancetype)initWithRow:(NSInteger )rows;</div><div class="line"></div><div class="line"></div><div class="line">/** 1.内部视图 */</div><div class="line">@property (nonatomic, strong) UIView *contentView;</div><div class="line">/** 2.边线,选择器和上方tool之间的边线 */</div><div class="line">@property (nonatomic, strong)UIView *lineView;</div><div class="line">/** 3.选择器 */</div><div class="line">@property (nonatomic, strong)UIPickerView *pickerView;</div><div class="line">/** 4.左边的按钮 */</div><div class="line">@property (nonatomic, strong)UIButton *buttonLeft;</div><div class="line">/** 5.右边的按钮 */</div><div class="line">@property (nonatomic, strong)UIButton *buttonRight;</div><div class="line">/** 6.标题label */</div><div class="line">@property (nonatomic, strong)UILabel *labelTitle;</div><div class="line">/** 7.下边线,在显示模式是STPickerContentModeCenter的时候显示 */</div><div class="line">@property (nonatomic, strong)UIView *lineViewDown;</div><div class="line">/** 8.上方按钮 */</div><div class="line">@property (nonatomic, strong) UIView *btnView;</div><div class="line"></div><div class="line"></div><div class="line">/** 1.标题，default is nil */</div><div class="line">@property(nullable, nonatomic,copy) NSString          *title;</div><div class="line">/** 2.字体，default is nil (system font 17 plain) */</div><div class="line">@property(null_resettable, nonatomic,strong) UIFont   *font;</div><div class="line">/** 3.字体颜色，default is nil (text draws black) */</div><div class="line">@property(null_resettable, nonatomic,strong) UIColor  *titleColor;</div><div class="line">/** 4.按钮边框颜色颜色，default is RGB(205, 205, 205) */</div><div class="line">@property(null_resettable, nonatomic,strong) UIColor  *borderButtonColor;</div><div class="line">/** 5.选择器的高度，default is 240 */</div><div class="line">@property (nonatomic, assign)CGFloat heightPicker;</div><div class="line">/** 6.视图的显示模式 */</div><div class="line">@property (nonatomic, assign)STPickerContentMode contentMode;</div><div class="line"></div><div class="line">@property (nonatomic, assign)NSInteger rows;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line">*  5.创建视图,初始化视图时初始数据</div><div class="line">*/</div><div class="line">- (void)setupUI;</div><div class="line"></div><div class="line">/**</div><div class="line">*  6.确认按钮的点击事件</div><div class="line">*/</div><div class="line">- (void)selectedOk;</div><div class="line"></div><div class="line">/**</div><div class="line">*  7.显示</div><div class="line">*/</div><div class="line">- (void)show;</div><div class="line"></div><div class="line">- (void)showWithBtnArray:(NSArray *)btnArr;</div><div class="line">/**</div><div class="line">*  8.移除</div><div class="line">*/</div><div class="line">- (void)remove;</div><div class="line"></div><div class="line">@end</div><div class="line">NS_ASSUME_NONNULL_END</div></pre></td></tr></table></figure></p>
+<p>STPickerView.m<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]</div><div class="line">#define RGBA(r, g, b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]</div><div class="line">#import &quot;STPickerView.h&quot;</div><div class="line"></div><div class="line">@implementation STPickerView</div><div class="line"></div><div class="line">#pragma mark - --- init 视图初始化 ---</div><div class="line">- (instancetype)initWithRow:(NSInteger )rows</div><div class="line">&#123;</div><div class="line">self = [super init];</div><div class="line">if (self) &#123;</div><div class="line">_rows = rows;</div><div class="line">[self setupDefault];</div><div class="line">[self setupUI];</div><div class="line">&#125;</div><div class="line">return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setupDefault</div><div class="line">&#123;</div><div class="line">// 1.设置数据的默认值</div><div class="line">_title             = nil;</div><div class="line">_font              = [UIFont systemFontOfSize:15];</div><div class="line">_titleColor        = [UIColor blackColor];</div><div class="line">_borderButtonColor = RGB(205, 205, 205);</div><div class="line">_heightPicker      = 240;</div><div class="line">_contentMode       = STPickerContentModeBottom;</div><div class="line"></div><div class="line">// 2.设置自身的属性</div><div class="line">self.bounds = [UIScreen mainScreen].bounds;</div><div class="line">self.backgroundColor = RGBA(0, 0, 0, 102.0/255);</div><div class="line">self.layer.opacity = 0.0;</div><div class="line">[self addTarget:self action:@selector(remove) forControlEvents:UIControlEventTouchUpInside];</div><div class="line"></div><div class="line">// 3.添加子视图</div><div class="line">[self addSubview:self.contentView];</div><div class="line">[self.contentView addSubview:self.lineView];</div><div class="line">[self.contentView addSubview:self.pickerView];</div><div class="line">[self.contentView addSubview:self.buttonLeft];</div><div class="line">[self.contentView addSubview:self.buttonRight];</div><div class="line">[self.contentView addSubview:self.labelTitle];</div><div class="line">[self.contentView addSubview:self.lineViewDown];</div><div class="line">[self addSubview:self.btnView];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setupUI</div><div class="line">&#123;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)layoutSubviews</div><div class="line">&#123;</div><div class="line">[super layoutSubviews];</div><div class="line"></div><div class="line">if (self.contentMode == STPickerContentModeBottom) &#123;</div><div class="line">&#125;else &#123;</div><div class="line">self.buttonLeft.y = self.lineViewDown.bottom + 5;</div><div class="line">self.buttonRight.y = self.lineViewDown.bottom + 5;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - --- delegate 视图委托 ---</div><div class="line"></div><div class="line">#pragma mark - --- event response 事件相应 ---</div><div class="line"></div><div class="line">- (void)selectedOk</div><div class="line">&#123;</div><div class="line">[self remove];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)selectedCancel</div><div class="line">&#123;</div><div class="line">[self remove];</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - --- private methods 私有方法 ---</div><div class="line"></div><div class="line"></div><div class="line">- (void)show</div><div class="line">&#123;</div><div class="line">[[UIApplication sharedApplication].keyWindow addSubview:self];</div><div class="line">[self setCenter:[UIApplication sharedApplication].keyWindow.center];</div><div class="line">[[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];</div><div class="line"></div><div class="line">if (self.contentMode == STPickerContentModeBottom) &#123;</div><div class="line">CGRect frameContent =  self.contentView.frame;</div><div class="line">frameContent.origin.y -= self.contentView.height;</div><div class="line">[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^&#123;</div><div class="line">[self.layer setOpacity:1.0];</div><div class="line">self.contentView.frame = frameContent;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">&#125;];</div><div class="line">&#125;else &#123;</div><div class="line">CGRect frameContent =  self.contentView.frame;</div><div class="line">frameContent.origin.y -= (kScreenHeight+self.contentView.height)/2;</div><div class="line">[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^&#123;</div><div class="line">[self.layer setOpacity:1.0];</div><div class="line">self.contentView.frame = frameContent;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">&#125;];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)showWithBtnArray:(NSArray *)btnArr</div><div class="line">&#123;</div><div class="line">[[UIApplication sharedApplication].keyWindow addSubview:self];</div><div class="line">[self setCenter:[UIApplication sharedApplication].keyWindow.center];</div><div class="line">[[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];</div><div class="line">_btnView.hidden = NO;</div><div class="line">CGFloat btnW = (kScreenWidth - btnArr.count - 1)/btnArr.count;</div><div class="line">for (int i = 0; i &lt; btnArr.count; i++) &#123;</div><div class="line">UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];</div><div class="line">btn.frame = CGRectMake(btnW * i + 1, 0, btnW, 34);</div><div class="line">[btn setTitle:btnArr[i] forState:UIControlStateNormal];</div><div class="line">[btn setTitleColor:rgb(33, 33, 33) forState:UIControlStateNormal];</div><div class="line">btn.tag = i;</div><div class="line">[btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];</div><div class="line"></div><div class="line">[self.btnView addSubview:btn];</div><div class="line">&#125;</div><div class="line">if (self.contentMode == STPickerContentModeBottom) &#123;</div><div class="line">CGRect frameContent =  self.contentView.frame;</div><div class="line">frameContent.origin.y -= self.contentView.height;</div><div class="line">[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^&#123;</div><div class="line">[self.layer setOpacity:1.0];</div><div class="line">self.contentView.frame = frameContent;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">&#125;];</div><div class="line">&#125;else &#123;</div><div class="line">CGRect frameContent =  self.contentView.frame;</div><div class="line">frameContent.origin.y -= (kScreenHeight+self.contentView.height)/2;</div><div class="line">[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^&#123;</div><div class="line">[self.layer setOpacity:1.0];</div><div class="line">self.contentView.frame = frameContent;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">&#125;];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)btnAction:(UIButton *)btn&#123;</div><div class="line">_rows = btn.tag + 1;</div><div class="line">[self setupUI];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)remove</div><div class="line">&#123;</div><div class="line">if (self.contentMode == STPickerContentModeBottom) &#123;</div><div class="line">CGRect frameContent =  self.contentView.frame;</div><div class="line">frameContent.origin.y += self.contentView.height;</div><div class="line">[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^&#123;</div><div class="line">[self.layer setOpacity:0.0];</div><div class="line">self.contentView.frame = frameContent;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">[self removeFromSuperview];</div><div class="line">&#125;];</div><div class="line">&#125;else &#123;</div><div class="line">CGRect frameContent =  self.contentView.frame;</div><div class="line">frameContent.origin.y += (kScreenHeight+self.contentView.height)/2;</div><div class="line">[UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^&#123;</div><div class="line">[self.layer setOpacity:0.0];</div><div class="line">self.contentView.frame = frameContent;</div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">[self removeFromSuperview];</div><div class="line">&#125;];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#pragma mark - --- setters 属性 ---</div><div class="line"></div><div class="line">- (void)setTitle:(NSString *)title</div><div class="line">&#123;</div><div class="line">_title = title;</div><div class="line">[self.labelTitle setText:title];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setFont:(UIFont *)font</div><div class="line">&#123;</div><div class="line">_font = font;</div><div class="line">[self.buttonLeft.titleLabel setFont:font];</div><div class="line">[self.buttonRight.titleLabel setFont:font];</div><div class="line">[self.labelTitle setFont:font];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setTitleColor:(UIColor *)titleColor</div><div class="line">&#123;</div><div class="line">_titleColor = titleColor;</div><div class="line">[self.labelTitle setTextColor:titleColor];</div><div class="line">[self.buttonLeft setTitleColor:titleColor forState:UIControlStateNormal];</div><div class="line">[self.buttonRight setTitleColor:titleColor forState:UIControlStateNormal];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setBorderButtonColor:(UIColor *)borderButtonColor</div><div class="line">&#123;</div><div class="line">_borderButtonColor = borderButtonColor;</div><div class="line">//    [self.buttonLeft addBorderColor:borderButtonColor];</div><div class="line">//    [self.buttonRight addBorderColor:borderButtonColor];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setHeightPicker:(CGFloat)heightPicker</div><div class="line">&#123;</div><div class="line">_heightPicker = heightPicker;</div><div class="line">self.contentView.height = heightPicker;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)setContentMode:(STPickerContentMode)contentMode</div><div class="line">&#123;</div><div class="line">_contentMode = contentMode;</div><div class="line">if (contentMode == STPickerContentModeCenter) &#123;</div><div class="line">self.contentView.height += 44;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">#pragma mark - --- getters 属性 ---</div><div class="line">- (UIView *)contentView</div><div class="line">&#123;</div><div class="line">if (!_contentView) &#123;</div><div class="line">CGFloat contentX = 0;</div><div class="line">CGFloat contentY = kScreenHeight;</div><div class="line">CGFloat contentW = kScreenWidth;</div><div class="line">CGFloat contentH = self.heightPicker;</div><div class="line">_contentView = [[UIView alloc]initWithFrame:CGRectMake(contentX, contentY, contentW, contentH)];</div><div class="line">[_contentView setBackgroundColor:[UIColor whiteColor]];</div><div class="line">&#125;</div><div class="line">return _contentView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIView *)btnView&#123;</div><div class="line">if (!_btnView)&#123;</div><div class="line">_btnView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight - self.heightPicker - 35, self.contentView.width, 35)];</div><div class="line">_btnView.backgroundColor = [UIColor whiteColor];</div><div class="line">UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 34, kScreenWidth, 1)];</div><div class="line">line.backgroundColor = rgb(240, 240, 240);</div><div class="line">[_btnView addSubview:line];</div><div class="line">_btnView.hidden = YES;</div><div class="line">&#125;</div><div class="line">return _btnView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIView *)lineView</div><div class="line">&#123;</div><div class="line">if (!_lineView) &#123;</div><div class="line">CGFloat lineX = 0;</div><div class="line">CGFloat lineY = 44;</div><div class="line">CGFloat lineW = self.contentView.width;</div><div class="line">CGFloat lineH = 0.5;</div><div class="line">_lineView = [[UIView alloc]initWithFrame:CGRectMake(lineX, lineY, lineW, lineH)];</div><div class="line">[_lineView setBackgroundColor:self.borderButtonColor];</div><div class="line">&#125;</div><div class="line">return _lineView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIPickerView *)pickerView</div><div class="line">&#123;</div><div class="line">if (!_pickerView) &#123;</div><div class="line">CGFloat pickerW = self.contentView.width;</div><div class="line">CGFloat pickerH = self.contentView.height - self.lineView.bottom;</div><div class="line">CGFloat pickerX = 0;</div><div class="line">CGFloat pickerY = self.lineView.bottom;</div><div class="line">_pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(pickerX, pickerY, pickerW, pickerH)];</div><div class="line">[_pickerView setBackgroundColor:[UIColor whiteColor]];</div><div class="line">&#125;</div><div class="line">return _pickerView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIButton *)buttonLeft</div><div class="line">&#123;</div><div class="line">if (!_buttonLeft) &#123;</div><div class="line">CGFloat leftW = 36;</div><div class="line">CGFloat leftH = self.lineView.top - 10;</div><div class="line">CGFloat leftX = 16;</div><div class="line">CGFloat leftY = (self.lineView.top - leftH) / 2;</div><div class="line">_buttonLeft = [[UIButton alloc]initWithFrame:CGRectMake(leftX, leftY, leftW, leftH)];</div><div class="line">[_buttonLeft setTitle:@&quot;取消&quot; forState:UIControlStateNormal];</div><div class="line">[_buttonLeft setTitleColor:self.titleColor forState:UIControlStateNormal];</div><div class="line">//        [_buttonLeft addBorderColor:self.borderButtonColor];</div><div class="line">[_buttonLeft.titleLabel setFont:self.font];</div><div class="line">[_buttonLeft addTarget:self action:@selector(selectedCancel) forControlEvents:UIControlEventTouchUpInside];</div><div class="line">&#125;</div><div class="line">return _buttonLeft;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIButton *)buttonRight</div><div class="line">&#123;</div><div class="line">if (!_buttonRight) &#123;</div><div class="line">CGFloat rightW = self.buttonLeft.width;</div><div class="line">CGFloat rightH = self.buttonLeft.height;</div><div class="line">CGFloat rightX = self.contentView.width - rightW - self.buttonLeft.x;</div><div class="line">CGFloat rightY = self.buttonLeft.y;</div><div class="line">_buttonRight = [[UIButton alloc]initWithFrame:CGRectMake(rightX, rightY, rightW, rightH)];</div><div class="line">[_buttonRight setTitle:@&quot;确定&quot; forState:UIControlStateNormal];</div><div class="line">[_buttonRight setTitleColor:self.titleColor forState:UIControlStateNormal];</div><div class="line">//        [_buttonRight addBorderColor:self.borderButtonColor];</div><div class="line">[_buttonRight.titleLabel setFont:self.font];</div><div class="line">[_buttonRight addTarget:self action:@selector(selectedOk) forControlEvents:UIControlEventTouchUpInside];</div><div class="line">&#125;</div><div class="line">return _buttonRight;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UILabel *)labelTitle</div><div class="line">&#123;</div><div class="line">if (!_labelTitle) &#123;</div><div class="line">CGFloat titleX = self.buttonLeft.right + 5;</div><div class="line">CGFloat titleY = 0;</div><div class="line">CGFloat titleW = self.contentView.width - titleX * 2;</div><div class="line">CGFloat titleH = self.lineView.top;</div><div class="line">_labelTitle = [[UILabel alloc]initWithFrame:CGRectMake(titleX, titleY, titleW, titleH)];</div><div class="line">[_labelTitle setTextAlignment:NSTextAlignmentCenter];</div><div class="line">[_labelTitle setTextColor:self.titleColor];</div><div class="line">[_labelTitle setFont:self.font];</div><div class="line">_labelTitle.adjustsFontSizeToFitWidth = YES;</div><div class="line">&#125;</div><div class="line">return _labelTitle;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UIView *)lineViewDown</div><div class="line">&#123;</div><div class="line">if (!_lineViewDown) &#123;</div><div class="line">CGFloat lineX = 0;</div><div class="line">CGFloat lineY = self.pickerView.bottom;</div><div class="line">CGFloat lineW = self.contentView.width;</div><div class="line">CGFloat lineH = 0.5;</div><div class="line">_lineViewDown = [[UIView alloc]initWithFrame:CGRectMake(lineX, lineY, lineW, lineH)];</div><div class="line">[_lineViewDown setBackgroundColor:self.borderButtonColor];</div><div class="line">&#125;</div><div class="line">return _lineViewDown;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/09/06/Django_userApps/" data-toggle="tooltip" data-placement="top" title="Django实战项目-自定义用户app以及其他app的设计（1）">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Swift" title="Swift">Swift</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+ll
+                    
+                        <li><a href="http://www.jianshu.com/u/bb0b840c4f46" target="_blanklylyly">李勇92</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
