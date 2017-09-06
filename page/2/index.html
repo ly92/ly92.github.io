@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -316,17 +316,15 @@ You can install with Homebrew-Cask:brew cask instal......
 
 <div class="post-preview">
 
-    <a href="/2016/10/26/virtualenv/">
+    <a href="/2016/10/26/Django_userApps/">
         <h2 class="post-title">
-            python django虚拟环境的搭建
+            Django实战项目-自定义用户app以及其他app的设计（1）
         </h2>
         <h3 class="post-subtitle">
              "没成功说明不够努力"
         </h3>
         <div class="post-content-preview">
-            1、为什么要使用虚拟环境编写多个Django项目的时候可能各个项目所需要的配置不一样，这个时候最好就是使用虚拟环境来达到针对不同项目配置不同编译环境的需求，创建虚拟环境后需要在虚拟环境中安装相应的支持库才可以使用，至于需要安装的库文件等到后面项目运行时根据提示安装即可
-2、搭建虚拟环境1.首先安装virtualenv1sudo pip install virtualenv
-2.安装virtu......
+            1、自定义用户表Django中自带了用户表，但是有时候我们需要的用户属性与自带表有差别，这时我们可以自定义用户表的字段来达到目的系统默认的用户表在“django.contrib.auth.models”中的“AbstractUser”可以自行打开看一下都有什么字段，下面我们需要继承这个model新建一个用户model，起名为“UserProfile”123456789101112131415......
         </div>
     </a>
     <p class="post-meta">
@@ -361,6 +359,29 @@ You can install with Homebrew-Cask:brew cask instal......
 
 <div class="post-preview">
 
+    <a href="/2016/10/26/virtualenv/">
+        <h2 class="post-title">
+            python django虚拟环境的搭建
+        </h2>
+        <h3 class="post-subtitle">
+             "没成功说明不够努力"
+        </h3>
+        <div class="post-content-preview">
+            1、为什么要使用虚拟环境编写多个Django项目的时候可能各个项目所需要的配置不一样，这个时候最好就是使用虚拟环境来达到针对不同项目配置不同编译环境的需求，创建虚拟环境后需要在虚拟环境中安装相应的支持库才可以使用，至于需要安装的库文件等到后面项目运行时根据提示安装即可
+2、搭建虚拟环境1.首先安装virtualenv1sudo pip install virtualenv
+2.安装virtu......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 李勇 on
+        2016-10-26
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2016/10/25/MyHTMLCSS/">
         <h2 class="post-title">
             MY Head First HTML & CSS
@@ -377,43 +398,6 @@ You can install with Homebrew-Cask:brew cask instal......
     <p class="post-meta">
         Posted by 李勇 on
         2016-10-25
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/10/17/CreateDeveloperAccount/">
-        <h2 class="post-title">
-            2016公司苹果开发者帐号申请流程
-        </h2>
-        <h3 class="post-subtitle">
-             "没成功说明不够努力"
-        </h3>
-        <div class="post-content-preview">
-            1. 工具／资料工具
-可上网电脑
-一张可以支付美金的信用卡（visa 或者 万事达）
-
-注册Apple ID需要资料：
-申请一个公司邮箱（最好是全新的，仅用在苹果相关事宜）
-
-申请邓白氏编码需要资料：
-得到公司授权申请开发者账号（跟领导说一声）
-公司名（英文，一般就是拼音字母）
-公司详细地址
-邮编
-老板电话（老板忙的话可以申请写自己电话）
-申请人联系信息
-
-成为开发者需要资料：
-得到公司授权......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2016-10-17
     </p>
 
 </div>
@@ -458,12 +442,6 @@ You can install with Homebrew-Cask:brew cask instal......
                     <div class="tags">
                         
                             
-                            <a href="/tags/#iOS" title="iOS" rel="11">iOS</a>
-                            
-                        
-                            
-                        
-                            
                             <a href="/tags/#生活" title="生活" rel="2">生活</a>
                             
                         
@@ -472,13 +450,21 @@ You can install with Homebrew-Cask:brew cask instal......
                             
                         
                             
+                            <a href="/tags/#iOS" title="iOS" rel="11">iOS</a>
+                            
+                        
+                            
+                        
+                            
+                            <a href="/tags/#Django" title="Django" rel="2">Django</a>
+                            
+                        
+                            
                         
                             
                         
                             
                             <a href="/tags/#Swift" title="Swift" rel="4">Swift</a>
-                            
-                        
                             
                         
                             

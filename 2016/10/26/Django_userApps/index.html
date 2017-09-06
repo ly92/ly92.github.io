@@ -13,11 +13,11 @@
 
     <title>
         
-          MY Head First HTML &amp; CSS - 李勇的博客 | liyong’s Blog
+          Django实战项目-自定义用户app以及其他app的设计（1） - 李勇的博客 | liyong’s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2016/10/25/MyHTMLCSS/">
+    <link rel="canonical" href="http://yoursite.com/2016/10/26/Django_userApps/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('../../../../img/cat1.jpg')
+        background-image: url('../../../../img/car5.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,14 +165,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
+                          <a class="tag" href="/tags/#Django" title="Django">Django</a>
                         
                     </div>
-                    <h1>MY Head First HTML &amp; CSS</h1>
+                    <h1>Django实战项目-自定义用户app以及其他app的设计（1）</h1>
                     <h2 class="subheading"> &quot;没成功说明不够努力&quot;</h2>
                     <span class="meta">
                         Posted by 李勇 on
-                        2016-10-25
+                        2016-10-26
                     </span>
                 </div>
             </div>
@@ -191,14 +191,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>深入了解超文本</p>
-<blockquote>
-<p>想从一个页面链接到另一个页面时，要使用&#60;a&#62;元素<br>&lt;a&gt;元素的href属性指定了链接的目标文件<br>&lt;a&gt;元素的内容是链接的标签。这个标签就是你在网页上看到的链接文本。默认的这个标签会有下划线，指示这个是可以单击的。<br>文字或图像都可以用作链接的标签<br>单击一个链接时浏览器会加载href属性中指定的web页面<br>可以链接到相同文件夹中的文件，也可以链接到其他文件夹中的文件<br>相对路径是相对于链接的缘Web页面指向网站中其他文件的一个链接。就像在地图上终点总是相对于起点。<br>使用“..”可以链接到源文件上一层文件夹中的一个文件。<br>“..”标示“父文件夹”<br>记住要用“／”（斜线）字符分割路径中的各个部分。<br>指向一个图像的路径不正确时，会在Web页面上看到一个损坏的图像。<br>为网站选择的文件名和文件夹名中不要使用空格<br>最好在构建网站初期组织网站文件，这样就不用在网站升级时修改一大堆的路径了。</p>
-</blockquote>
-<p>购建模块</p>
-<blockquote>
-<p>开始输入内容之前要规划好Web页面的结构。首先画出一个草图，然后创建一个略图，最后再写出HTML。<br>规划页面时，首先设计大的块元素，然后用内联元素完善。<br>尽量使用元素来告诉浏览器你的内容的含义。<br>一定要使用与内容含义最接近的元素。例如，如果需要一个表，就不要使用段落元素。<br>&lt;p&gt;&lt;、blockquote&gt;、&lt;ol&gt;、&lt;ul&gt;和&lt;li&gt;都是块元素。它们单独显示，在内容前后分别有一个换行（默认的）。</p>
-</blockquote>
+                <h2 id="1、自定义用户表"><a href="#1、自定义用户表" class="headerlink" title="1、自定义用户表"></a>1、自定义用户表</h2><p>Django中自带了用户表，但是有时候我们需要的用户属性与自带表有差别，这时我们可以自定义用户表的字段来达到目的<br>系统默认的用户表在“django.contrib.auth.models”中的“AbstractUser”可以自行打开看一下都有什么字段，下面我们需要继承这个model新建一个用户model，起名为“UserProfile”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">from django.contrib.auth.models import AbstractUser#首先导入AbstractUser</div><div class="line"></div><div class="line">class UserProfile(AbstractUser):#继承，下面是新增字段</div><div class="line">nick_name = models.CharField(max_length=50, verbose_name=&apos;昵称&apos;, default=&quot;&quot;)</div><div class="line">birday = models.DateTimeField(verbose_name=&quot;生日&quot;, null=True, blank=True)</div><div class="line">gender = models.CharField(max_length=10, choices=((&quot;male&quot;,&quot;男&quot;),(&quot;female&quot;,&quot;女&quot;)),default=&quot;female&quot;)</div><div class="line">address = models.CharField(max_length=100, default=&quot;&quot;)</div><div class="line">mobile = models.CharField(max_length=11, null=True, blank=True)</div><div class="line">image = models.ImageField(upload_to=&quot;image/%Y/%m&quot;, default=&quot;image/default.png&quot;, max_length=100)</div><div class="line"></div><div class="line">class Meta:#model的描述信息</div><div class="line">verbose_name = &quot;用户信息&quot;</div><div class="line">verbose_name_plural = verbose_name</div><div class="line"></div><div class="line">def __str__(self):</div><div class="line">return self.username</div></pre></td></tr></table></figure></p>
+<h2 id="2、setting的设置"><a href="#2、setting的设置" class="headerlink" title="2、setting的设置"></a>2、setting的设置</h2><p>上面自定义了UserProfile后需要在setting中告诉系统谁是用户表，只需加下面一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AUTH_USER_MODEL = &quot;users.UserProfile&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="3、其他app的设计"><a href="#3、其他app的设计" class="headerlink" title="3、其他app的设计"></a>3、其他app的设计</h2><p>项目中表的结构示意图：<br><img src="https://raw.githubusercontent.com/ly92/images/master/django/4-1.png" alt="image"><br>打开manage.py终端使用startapp name新建上图所示4个app，并在app下的models.py中建立相应的类和属性<br><img src="https://raw.githubusercontent.com/ly92/images/master/django/4-2.png" alt="image"><br>在项目目录下新建一个文件夹命名“apps”用来存放上面的四个app，直接选中拖拽到apps目录下<br>不必勾选上面的选项<br><img src="https://raw.githubusercontent.com/ly92/images/master/django/4-3.png" alt="image"><br>然后将apps设置为源文件路径<br><img src="https://raw.githubusercontent.com/ly92/images/master/django/4-4.png" alt="image"></p>
+<h2 id="4、setting的设置"><a href="#4、setting的设置" class="headerlink" title="4、setting的设置"></a>4、setting的设置</h2><p>1.首先要告知系统apps的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import sys   #引入sys</div><div class="line">在   BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))下面添加</div><div class="line">sys.path.insert(0,os.path.join(BASE_DIR,&apos;apps&apos;))</div></pre></td></tr></table></figure></p>
+<p>添加app<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">INSTALLED_APPS = [</div><div class="line">&apos;django.contrib.admin&apos;,</div><div class="line">&apos;django.contrib.auth&apos;,</div><div class="line">&apos;django.contrib.contenttypes&apos;,</div><div class="line">&apos;django.contrib.sessions&apos;,</div><div class="line">&apos;django.contrib.messages&apos;,</div><div class="line">&apos;django.contrib.staticfiles&apos;,</div><div class="line">&apos;users&apos;,</div><div class="line">&apos;courses&apos;,</div><div class="line">&apos;organization&apos;,</div><div class="line">&apos;operation&apos;,</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h2 id="5、表之间的关系表示（外键）"><a href="#5、表之间的关系表示（外键）" class="headerlink" title="5、表之间的关系表示（外键）"></a>5、表之间的关系表示（外键）</h2><p>在operation中新建CourseComments类的时候有user属性和course属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#首先导入文件</div><div class="line">from users.models import UserProfile</div><div class="line">from courses.models import Course</div><div class="line"></div><div class="line">class CourseComments(models.Model):</div><div class="line">user = models.ForeignKey(UserProfile, verbose_name=&quot;用户&quot;)#外键</div><div class="line">course = models.ForeignKey(Course, verbose_name=&quot;课程&quot;)#外键</div><div class="line">comments = models.CharField(max_length=200, verbose_name=&quot;评论内容&quot;)</div><div class="line">add_time = models.DateTimeField(default=datetime.now, verbose_name=&quot;添加时间&quot;)</div><div class="line"></div><div class="line">class Meta:</div><div class="line">verbose_name = &quot;课程评论&quot;</div><div class="line">verbose_name_plural = verbose_name</div></pre></td></tr></table></figure></p>
 
 
                 <hr>
@@ -208,12 +206,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2016/10/26/virtualenv/" data-toggle="tooltip" data-placement="top" title="python django虚拟环境的搭建">&larr; Previous Post</a>
+                            <a href="/2016/11/09/YTKNetWork_ly/" data-toggle="tooltip" data-placement="top" title="YTKNetWork2.0使用总结">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2016/10/17/CreateDeveloperAccount/" data-toggle="tooltip" data-placement="top" title="2016公司苹果开发者帐号申请流程">Next Post &rarr;</a>
+                            <a href="/2016/10/26/Anniversary/" data-toggle="tooltip" data-placement="top" title="工作一周年感想">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -254,7 +252,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#HTML" title="HTML">HTML</a>
+                          <a class="tag" href="/tags/#Django" title="Django">Django</a>
                         
                     </div>
                 </section>
