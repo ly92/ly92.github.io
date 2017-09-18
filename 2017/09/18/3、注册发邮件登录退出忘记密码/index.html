@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="“李勇，勇不言弃，勇不言弃92”">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          李勇的博客 | liyong’s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite.com/2017/09/18/3、注册发邮件登录退出忘记密码/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">勇不言弃</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/cat11.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by ly92 on
+                        2017-09-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <hr>
+<p>layout:     post<br>title:      “Django实战项目- 发邮件 注册 登录 退出 忘记密码（3）”<br>subtitle:   “ \”没成功说明不够努力\””<br>date:       2017-09-18 13:40:00<br>author:     “李勇”<br>header-img: “../../../../img/car5.jpg”<br>catalog: true<br>tags:</p>
+<h2 id="Django"><a href="#Django" class="headerlink" title="- Django"></a>- Django</h2><p>##1.发邮件配置<br>我使用的腾讯企业邮箱来发送邮件，首先需要登录邮箱确保权限的设置，如下图<br><img src="https://raw.githubusercontent.com/ly92/images/master/django/6-1.png" alt="image"><br><img src="https://raw.githubusercontent.com/ly92/images/master/django/6-2.png" alt="image"><br>在settings.py中添加邮箱配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#配置邮箱发送者</div><div class="line">EMAIL_BACKEND = &apos;django.core.mail.backends.smtp.EmailBackend&apos;   #email后端</div><div class="line">EMAIL_USE_TLS = False   #是否使用TLS安全传输协议</div><div class="line">EMAIL_USE_SSL = True     #是否使用SSL加密，qq企业邮箱要求使用</div><div class="line">EMAIL_HOST = &apos;smtp.exmail.qq.com&apos;    #发送邮件的邮箱 的 SMTP服务器，这里用了qq企业邮箱</div><div class="line">EMAIL_PORT = 465    #发件箱的SMTP服务器端口</div><div class="line">EMAIL_HOST_USER = &apos;liyong@7xiaofu.com&apos;  #发送邮件的邮箱地址</div><div class="line">EMAIL_HOST_PASSWORD = &apos;XXXXXX&apos;  #发送邮件的邮箱密码</div><div class="line">DEFAULT_FORM_EMAIL = &apos;liyong &lt;liyong@7xiaofu.com&gt;&apos;</div></pre></td></tr></table></figure></p>
+<p>在apps路径下创建’utils‘python package文件夹，并创建email_send.py文件<br>需要引入系统的“from django.core.mail import send_mail”<br>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">from random import Random</div><div class="line">from django.core.mail import send_mail</div><div class="line"></div><div class="line">from users.models import EmailVerifyRecord</div><div class="line">from MxOnline.settings import EMAIL_HOST_USER</div><div class="line"></div><div class="line"></div><div class="line">def random_str(randomlength=8):</div><div class="line">str = &apos;&apos;</div><div class="line">chars = &apos;AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789&apos;</div><div class="line">length = len(chars) - 1</div><div class="line">random = Random()</div><div class="line">for i in range(randomlength):</div><div class="line">str += chars[random.randint(0, length)]</div><div class="line">return str</div><div class="line"></div><div class="line"></div><div class="line">def send_email(email, send_type=&apos;register&apos;):</div><div class="line">email_record = EmailVerifyRecord()</div><div class="line">if send_type == &apos;update_email&apos;:</div><div class="line">code = random_str(4)</div><div class="line">else:</div><div class="line">code = random_str(16)</div><div class="line">email_record.code = code</div><div class="line">email_record.email = email</div><div class="line">email_record.send_type = send_type</div><div class="line">email_record.save()</div><div class="line"></div><div class="line">email_title = &apos;&apos;</div><div class="line">email_body = &apos;&apos;</div><div class="line">if send_type == &apos;register&apos;:</div><div class="line">email_title = &apos;注册激活链接&apos;</div><div class="line">email_body = &apos;请点击下面的链接激活你的账号: http://127.0.0.1:8000/active/&#123;0&#125;&apos;.format(code)</div><div class="line"></div><div class="line">send_status = send_mail(email_title,email_body,EMAIL_FROM,[email])</div><div class="line">if send_status:</div><div class="line">pass</div><div class="line">elif send_type == &apos;forget&apos;:</div><div class="line">email_title = &apos;密码重置链接&apos;</div><div class="line">email_body = &apos;请点击下面的链接重置你的密码: http://127.0.0.1:8000/reset/&#123;0&#125;&apos;.format(code)</div><div class="line"></div><div class="line">send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])</div><div class="line">if send_status:</div><div class="line">pass</div><div class="line">elif send_type == &apos;forget&apos;:</div><div class="line">email_title = &apos;邮箱修改验证码&apos;</div><div class="line">email_body = &apos;你的邮箱验证码为:&#123;0&#125;&apos;.format(code)</div><div class="line"></div><div class="line">send_status = send_mail(email_title, email_body, EMAIL_HOST_USER, [email])</div><div class="line">if send_status:</div><div class="line">pass</div></pre></td></tr></table></figure></p>
+<p>在views.py中的注册view类中添加发送邮件的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">from utils.email_send import send_email</div><div class="line">//example@example.com接收者邮箱</div><div class="line">send_email(“example@example.com”, &apos;register&apos;)</div></pre></td></tr></table></figure></p>
+<p>##2.验证码的使用<br>首先需要在虚拟环境中安装‘django-simple-captcha’和‘pillow’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install django-simple-captcha 用于验证码</div><div class="line">pip install pillow 图像处理</div></pre></td></tr></table></figure></p>
+<p>然后在settings.py中的“INSTALLED_APPS”添加“ ‘captcha’, ”<br>分别执行一次“makemigrations”和“migration”</p>
+<p>在RegisterForm中添加检测项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from captcha.fields import CaptchaField</div><div class="line"></div><div class="line"></div><div class="line">class RegisterForm(forms.Form):</div><div class="line">email = forms.EmailField(required=True)</div><div class="line">password = forms.CharField(required=True, min_length=5)</div><div class="line">captcha = CaptchaField(error_messages=&#123;&apos;invalid&apos; : &apos;验证码错误&apos;&#125;)</div></pre></td></tr></table></figure></p>
+<p>在html中使用的位置添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">&lt;label&gt;验&amp;nbsp;证&amp;nbsp;码&lt;/label&gt;</div><div class="line">&#123;&#123; register_form.captcha &#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>##3.页面class<br>之前写页面是通过方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># login in method</div><div class="line">def user_login(request):</div><div class="line">if request.method == &apos;POST&apos;:</div><div class="line">username = request.POST.get(&apos;username&apos;,&apos;&apos;)</div><div class="line">password = request.POST.get(&apos;password&apos;,&apos;&apos;)</div><div class="line"></div><div class="line">user = authenticate(username=username, password=password)</div><div class="line">if user is not None:</div><div class="line">login(request,user)</div><div class="line">return render(request, &apos;index.html&apos;)</div><div class="line">else:</div><div class="line">return render(request, &apos;login.html&apos;,&#123;&apos;msg&apos;:&apos;用户名或者密码错误&apos;&#125;)</div><div class="line">elif request.method == &apos;GET&apos;:</div><div class="line">return render(request,&apos;login.html&apos;,&#123;&#125;)</div></pre></td></tr></table></figure></p>
+<p>也可通过下面的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">from django.views.generic.base import View</div><div class="line"></div><div class="line"></div><div class="line"># login in class 登录</div><div class="line">class LoginView(View):</div><div class="line">def get(self,request):</div><div class="line">return render(request, &apos;login.html&apos;,&#123;&#125;)</div><div class="line">def post(self,request):</div><div class="line">login_form = LoginForm(request.POST)</div><div class="line">if login_form.is_valid():</div><div class="line">user_name = request.POST.get(&apos;username&apos;, &apos;&apos;)</div><div class="line">pass_word = request.POST.get(&apos;password&apos;, &apos;&apos;)</div><div class="line">user = authenticate(username=user_name, password=pass_word)</div><div class="line">if user is not None:</div><div class="line">if user.is_active:</div><div class="line">login(request,user)</div><div class="line">return render(request, &apos;index.html&apos;)</div><div class="line">else:</div><div class="line">return render(request, &apos;login.html&apos;, &#123;&apos;msg&apos; : &apos;用户未激活&apos;&#125;)</div><div class="line">else:</div><div class="line">return render(request, &apos;login.html&apos;, &#123;&apos;msg&apos; : &apos;用户名或密码错误&apos;&#125;)</div><div class="line">else:</div><div class="line">return render(request, &apos;login.html&apos;, &#123;&apos;login_form&apos; : login_form&#125;)</div></pre></td></tr></table></figure></p>
+<p>LoginForm可以省去上面方法或者类中对于表单提交的参数的处理逻辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">from django import forms</div><div class="line"></div><div class="line"></div><div class="line">class LoginForm(forms.Form):</div><div class="line">username = forms.CharField(required=True) #required=True 表示不可为空</div><div class="line">password = forms.CharField(required=True, min_length=5)</div></pre></td></tr></table></figure></p>
+<p>上面两种登录页面的方式在urls中的区别，分别为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">user_login:</div><div class="line">from users.views import user_login</div><div class="line">url(r&apos;^login/$&apos;, user_login, name=&apos;login&apos;),</div><div class="line"></div><div class="line">LoginView：</div><div class="line">from users.views import LoginView</div><div class="line">from django.views.generic import TemplateView</div><div class="line">url(r&apos;^login/$&apos;, LoginView.as_view(), name=&apos;login&apos;),</div></pre></td></tr></table></figure></p>
+<p>##4.登录和注册<br>在项目的中的登录和注册中需要调用系统的登录和注册方法<br>导入“from django.contrib.auth import authenticate, login, logout”</p>
+<p>user = authenticate(username=user_name, password=pass_word)//验证账号密码是否正确<br>if user is not None://表示账号密码正确然后调用系统的“login(request,user)”达到登录效果</p>
+<p>退出的时候只需调用“logout(request)”即可</p>
+<p>##5.忘记密码-重置<br>重置密码的逻辑是首先输入邮箱提交申请，然后点击邮箱收到的链接，在链接中有标示用户的信息，查找得到用户的邮箱后将邮箱传递到输入密码的页面，然后将两次输入的密码和邮箱地址一块传递到重置密码的处理逻辑中<br>通过下面代码来传递邮箱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return render(request, &apos;password_reset.html&apos;, &#123;&apos;email&apos; : email&#125;)</div></pre></td></tr></table></figure></p>
+<p>设置密码的页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;li&gt;</div><div class="line">&lt;span class=&quot;&quot;&gt;新 密 码 ：&lt;/span&gt;</div><div class="line">&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;pwd&quot; placeholder=&quot;6-20位非中文字符&quot;&gt;</div><div class="line">&lt;i&gt;&lt;/i&gt;</div><div class="line">&lt;/li&gt;</div><div class="line">&lt;li&gt;</div><div class="line">&lt;span class=&quot;&quot;&gt;确定密码：&lt;/span&gt;</div><div class="line">&lt;input type=&quot;password&quot; name=&quot;password2&quot; id=&quot;repwd&quot; placeholder=&quot;6-20位非中文字符&quot;&gt;</div><div class="line">&lt;i&gt;&lt;/i&gt;</div><div class="line">&lt;/li&gt;</div><div class="line">&lt;li&gt;</div><div class="line">&lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;&#123;&#123; email &#125;&#125;&quot;&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/09/06/LYPickerView/" data-toggle="tooltip" data-placement="top" title="支持 年 月 日 时 分 的时间选择器 ">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+ll
+                    
+                        <li><a href="http://www.jianshu.com/u/bb0b840c4f46" target="_blanklylyly">李勇92</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/li-yong-43-55">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/5284749950">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse">WeiBo</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/ly92">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse">GitHub</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 勇不言弃 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://ly92.github.io">ly92</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=ly92&repo=ly92.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yoursite.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
