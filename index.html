@@ -184,29 +184,6 @@
 
 <div class="post-preview">
 
-    <a href="/2017/09/18/3、注册发邮件登录退出忘记密码/">
-        <h2 class="post-title">
-            Untitled
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-layout:     posttitle:      “Django实战项目-发邮件注册登录退出忘记密码（3）”subtitle:   “ \”没成功说明不够努力\””date:       2017-09-18 13:40:00author:     “李勇”header-img: “../../../../img/car5.jpg”catalog: truetags:
-- Djang......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by ly92 on
-        2017-09-18
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/09/18/4、在Django中使用Ajax/">
         <h2 class="post-title">
             Django实战项目-在Django中使用Ajax (4）
@@ -217,6 +194,27 @@ layout:     posttitle:      “Django实战项目-发邮件注册登录退出忘
         <div class="post-content-preview">
             ##1.ModelFormModelForm与之前见到的Form效果一样，用着跟方便，使用下面方式导入1from django import forms
 对于下面这个model使用ModelForm与Form的两种方式123456789class UserAsk(models.Model):	name = models.CharField(max_length=20, verbose_nam......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 李勇 on
+        2017-09-18
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/09/18/3、注册发邮件登录退出忘记密码/">
+        <h2 class="post-title">
+            Django实战项目-发邮件注册登录退出忘记密码（3）
+        </h2>
+        <h3 class="post-subtitle">
+             "没成功说明不够努力"
+        </h3>
+        <div class="post-content-preview">
+            ##1.发邮件配置我使用的腾讯企业邮箱来发送邮件，首先需要登录邮箱确保权限的设置，如下图在settings.py中添加邮箱配置123456789#配置邮箱发送者EMAIL_BACKEND = &apos;django.core.mail.backends.smtp.EmailBackend&apos;   #email后端EMAIL_USE_TLS = False   #是否使用TLS安全传......
         </div>
     </a>
     <p class="post-meta">
@@ -272,15 +270,15 @@ layout:     posttitle:      “Django实战项目-发邮件注册登录退出忘
 
 <div class="post-preview">
 
-    <a href="/2017/09/06/1、Django_userApps/">
+    <a href="/2017/09/06/2、Django_xadmin/">
         <h2 class="post-title">
-            Django实战项目-自定义用户app以及其他app的设计（1）
+            Django实战项目-项目中使用xadmin管理（2）
         </h2>
         <h3 class="post-subtitle">
              "没成功说明不够努力"
         </h3>
         <div class="post-content-preview">
-            1、自定义用户表Django中自带了用户表，但是有时候我们需要的用户属性与自带表有差别，这时我们可以自定义用户表的字段来达到目的系统默认的用户表在“django.contrib.auth.models”中的“AbstractUser”可以自行打开看一下都有什么字段，下面我们需要继承这个model新建一个用户model，起名为“UserProfile”123456789101112131415......
+            1、xadmin下载在GitHub上面搜索“xadmin”或者点击xadmin将代码下载到本地，使用pip安装的xadmin不支持Django1.11，在项目中新建extra_apps文件夹存放引用的别人的三方库，将下载的xadmin文件中的xadmin拷贝到extra_apps中，并将extra_apps mark为源文件路径。运行时会提示未安装支持库，需要使用pip在虚拟环境（解释器环境......
         </div>
     </a>
     <p class="post-meta">
@@ -316,15 +314,15 @@ layout:     posttitle:      “Django实战项目-发邮件注册登录退出忘
 
 <div class="post-preview">
 
-    <a href="/2017/09/06/2、Django_xadmin/">
+    <a href="/2017/09/06/1、Django_userApps/">
         <h2 class="post-title">
-            Django实战项目-项目中使用xadmin管理（2）
+            Django实战项目-自定义用户app以及其他app的设计（1）
         </h2>
         <h3 class="post-subtitle">
              "没成功说明不够努力"
         </h3>
         <div class="post-content-preview">
-            1、xadmin下载在GitHub上面搜索“xadmin”或者点击xadmin将代码下载到本地，使用pip安装的xadmin不支持Django1.11，在项目中新建extra_apps文件夹存放引用的别人的三方库，将下载的xadmin文件中的xadmin拷贝到extra_apps中，并将extra_apps mark为源文件路径。运行时会提示未安装支持库，需要使用pip在虚拟环境（解释器环境......
+            1、自定义用户表Django中自带了用户表，但是有时候我们需要的用户属性与自带表有差别，这时我们可以自定义用户表的字段来达到目的系统默认的用户表在“django.contrib.auth.models”中的“AbstractUser”可以自行打开看一下都有什么字段，下面我们需要继承这个model新建一个用户model，起名为“UserProfile”123456789101112131415......
         </div>
     </a>
     <p class="post-meta">
@@ -441,7 +439,7 @@ layout:     posttitle:      “Django实战项目-发邮件注册登录退出忘
                     <div class="tags">
                         
                             
-                            <a href="/tags/#Django" title="Django" rel="6">Django</a>
+                            <a href="/tags/#Django" title="Django" rel="7">Django</a>
                             
                         
                             
