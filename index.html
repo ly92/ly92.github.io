@@ -193,8 +193,8 @@
         </h3>
         <div class="post-content-preview">
             
-layout:     posttitle:      “Django实战项目- 发邮件 注册 登录 退出 忘记密码（3）”subtitle:   “ \”没成功说明不够努力\””date:       2017-09-18 13:40:00author:     “李勇”header-img: “../../../../img/car5.jpg”catalog: truetags:
-- ......
+layout:     posttitle:      “Django实战项目-发邮件注册登录退出忘记密码（3）”subtitle:   “ \”没成功说明不够努力\””date:       2017-09-18 13:40:00author:     “李勇”header-img: “../../../../img/car5.jpg”catalog: truetags:
+- Djang......
         </div>
     </a>
     <p class="post-meta">
@@ -272,15 +272,15 @@ layout:     posttitle:      “Django实战项目- 发邮件 注册 登录 退�
 
 <div class="post-preview">
 
-    <a href="/2017/09/06/2、Django_xadmin/">
+    <a href="/2017/09/06/1、Django_userApps/">
         <h2 class="post-title">
-            Django实战项目-项目中使用xadmin管理（2）
+            Django实战项目-自定义用户app以及其他app的设计（1）
         </h2>
         <h3 class="post-subtitle">
              "没成功说明不够努力"
         </h3>
         <div class="post-content-preview">
-            1、xadmin下载在GitHub上面搜索“xadmin”或者点击xadmin将代码下载到本地，使用pip安装的xadmin不支持Django1.11，在项目中新建extra_apps文件夹存放引用的别人的三方库，将下载的xadmin文件中的xadmin拷贝到extra_apps中，并将extra_apps mark为源文件路径。运行时会提示未安装支持库，需要使用pip在虚拟环境（解释器环境......
+            1、自定义用户表Django中自带了用户表，但是有时候我们需要的用户属性与自带表有差别，这时我们可以自定义用户表的字段来达到目的系统默认的用户表在“django.contrib.auth.models”中的“AbstractUser”可以自行打开看一下都有什么字段，下面我们需要继承这个model新建一个用户model，起名为“UserProfile”123456789101112131415......
         </div>
     </a>
     <p class="post-meta">
@@ -316,20 +316,44 @@ layout:     posttitle:      “Django实战项目- 发邮件 注册 登录 退�
 
 <div class="post-preview">
 
-    <a href="/2017/09/06/1、Django_userApps/">
+    <a href="/2017/09/06/2、Django_xadmin/">
         <h2 class="post-title">
-            Django实战项目-自定义用户app以及其他app的设计（1）
+            Django实战项目-项目中使用xadmin管理（2）
         </h2>
         <h3 class="post-subtitle">
              "没成功说明不够努力"
         </h3>
         <div class="post-content-preview">
-            1、自定义用户表Django中自带了用户表，但是有时候我们需要的用户属性与自带表有差别，这时我们可以自定义用户表的字段来达到目的系统默认的用户表在“django.contrib.auth.models”中的“AbstractUser”可以自行打开看一下都有什么字段，下面我们需要继承这个model新建一个用户model，起名为“UserProfile”123456789101112131415......
+            1、xadmin下载在GitHub上面搜索“xadmin”或者点击xadmin将代码下载到本地，使用pip安装的xadmin不支持Django1.11，在项目中新建extra_apps文件夹存放引用的别人的三方库，将下载的xadmin文件中的xadmin拷贝到extra_apps中，并将extra_apps mark为源文件路径。运行时会提示未安装支持库，需要使用pip在虚拟环境（解释器环境......
         </div>
     </a>
     <p class="post-meta">
         Posted by 李勇 on
         2017-09-06
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/07/23/LYAlertView/">
+        <h2 class="post-title">
+            自定义AlertView block
+        </h2>
+        <h3 class="post-subtitle">
+             "迈入Swift的学习中"
+        </h3>
+        <div class="post-content-preview">
+            使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式
+##效果下面先看一下效果图吧
+
+使用1234567891011LYAlertView.show(&quot;title&quot;, &quot;message&quot;)LYAlertView.show(&quot;t......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 李勇 on
+        2017-07-23
     </p>
 
 </div>
@@ -372,30 +396,6 @@ layout:     posttitle:      “Django实战项目- 发邮件 注册 登录 退�
             自己写了一个hud，里面图片是通过代码画出来的，不需要其他资源文件
 效果有一下6种样式
 使用1234567LYProgressHUD.showLoading()LYProgressHUD.showInfo(&quot;&quot;)LYProgressHUD.showError(&quot;&quot;)LYProgressHUD.showSuccess(&quot;&quot;)LYPro......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 李勇 on
-        2017-07-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/07/23/LYAlertView/">
-        <h2 class="post-title">
-            自定义AlertView block
-        </h2>
-        <h3 class="post-subtitle">
-             "迈入Swift的学习中"
-        </h3>
-        <div class="post-content-preview">
-            使用系统自带的AlertView时候难免需要实现代理方法，不如使用block方便，这里通过UIView自定义一个AlertView，可以无按钮，一个按钮，两个按钮三种形式
-##效果下面先看一下效果图吧
-
-使用1234567891011LYAlertView.show(&quot;title&quot;, &quot;message&quot;)LYAlertView.show(&quot;t......
         </div>
     </a>
     <p class="post-meta">
