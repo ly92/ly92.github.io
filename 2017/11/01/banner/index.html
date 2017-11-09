@@ -13,11 +13,11 @@
 
     <title>
         
-          李勇的博客 | liyong’s Blog
+          Swift 动画滚动的banner - 李勇的博客 | liyong’s Blog
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2017/10/31/model/">
+    <link rel="canonical" href="http://yoursite.com/2017/11/01/banner/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('/img/cat11.jpg')
+        background-image: url('../../../../img/car5.jpg')
     }
 </style>
 <header class="intro-header" >
@@ -165,12 +165,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Swift" title="Swift">Swift</a>
+                        
                     </div>
-                    <h1></h1>
-                    <h2 class="subheading"></h2>
+                    <h1>Swift 动画滚动的banner</h1>
+                    <h2 class="subheading"> &quot;迈入Swift的学习中&quot;</h2>
                     <span class="meta">
-                        Posted by ly92 on
-                        2017-10-31
+                        Posted by 李勇 on
+                        2017-11-01
                     </span>
                 </div>
             </div>
@@ -189,8 +193,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Swift 动画滚动的banner</p>
-<p>##原理概述<br>首先说一下整个banner工具的实现原理，所用控件主要是UICollectionView，页码UIPageControl，以及计时器Timer。根据要滚动的数据显示在三个section里面，每个section都展示所有的数据，默认看到的是第二个section的某一页面，当每次执行定时器循环时先根据当前显示的索引以迅雷不及掩耳之势变为显示第二组的这个页面，如果这个页面是最后一个则下一个页面就是第三组数据的第一个，因此不会导致回滚的尴尬。<br>里面使用了isAutoScrolling来判断是否根据定时器滚动，当拖拽时定时器要注销，使用isAutoScrolling能够避免定时器与拖拽的冲突</p>
+                <p>##原理概述<br>首先说一下整个banner工具的实现原理，所用控件主要是UICollectionView，页码UIPageControl，以及计时器Timer。根据要滚动的数据显示在三个section里面，每个section都展示所有的数据，默认看到的是第二个section的某一页面，当每次执行定时器循环时先根据当前显示的索引以迅雷不及掩耳之势变为显示第二组的这个页面，如果这个页面是最后一个则下一个页面就是第三组数据的第一个，因此不会导致回滚的尴尬。<br>里面使用了isAutoScrolling来判断是否根据定时器滚动，当拖拽时定时器要注销，使用isAutoScrolling能够避免定时器与拖拽的冲突</p>
 <p>##使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let bannerView = LYAnimateBannerView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenW), delegate: self)</div><div class="line">bannerView.backgroundColor = UIColor.white</div><div class="line">bannerView.showPageControl = true</div><div class="line">self.bannerView.imageUrlArray = arrM</div><div class="line">if arrM.count &lt; 2&#123;</div><div class="line">self.bannerView.showPageControl = false</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>##源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import UIKit</div><div class="line"></div><div class="line"></div><div class="line">protocol LYAnimateBannerViewDelegate &#123;</div><div class="line">func LY_AnimateBannerViewClick(banner:LYAnimateBannerView,index:NSInteger)</div><div class="line">&#125;</div><div class="line"></div><div class="line">class LYAnimateBannerView: UIView &#123;</div><div class="line">enum LY_BannerType &#123;</div><div class="line">case ly_titleType</div><div class="line">case ly_imageType</div><div class="line">case ly_imageUrlType</div><div class="line">&#125;</div><div class="line"></div><div class="line">var LY_AnimateBannerViewClickBlock : ((Int) -&gt; Void)?</div><div class="line">var showPageControl = false</div><div class="line"></div><div class="line"></div><div class="line">fileprivate var delegate : LYAnimateBannerViewDelegate?</div><div class="line">fileprivate var collectionView : UICollectionView!</div><div class="line">fileprivate var timer : Timer?</div><div class="line">fileprivate var type : LY_BannerType = .ly_titleType</div><div class="line">fileprivate var pageControl : UIPageControl?</div><div class="line">fileprivate var isAutoScrolling = false</div><div class="line"></div><div class="line">var titleArray = Array&lt;String&gt;()&#123;</div><div class="line">didSet&#123;</div><div class="line">self.type = .ly_titleType</div><div class="line">self.setUpCollectionView()</div><div class="line">if self.titleArray.count &gt; 1&#123;</div><div class="line">self.addTimer()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var imageArray = Array&lt;UIImage&gt;()&#123;</div><div class="line">didSet&#123;</div><div class="line">self.type = .ly_imageType</div><div class="line">self.setUpCollectionView()</div><div class="line">if self.imageArray.count &gt; 1&#123;</div><div class="line">self.addTimer()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">var imageUrlArray = Array&lt;String&gt;()&#123;</div><div class="line">didSet&#123;</div><div class="line">self.type = .ly_imageUrlType</div><div class="line">self.setUpCollectionView()</div><div class="line">if self.imageUrlArray.count &gt; 1&#123;</div><div class="line">self.addTimer()</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">init(frame:CGRect,delegate:LYAnimateBannerViewDelegate) &#123;</div><div class="line">super.init(frame: frame)</div><div class="line">self.frame = frame</div><div class="line">self.delegate = delegate</div><div class="line">&#125;</div><div class="line"></div><div class="line">required init?(coder aDecoder: NSCoder) &#123;</div><div class="line">fatalError(&quot;init(coder:) has not been implemented&quot;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">func setUpCollectionView() &#123;</div><div class="line">let layout = UICollectionViewFlowLayout()</div><div class="line">layout.minimumLineSpacing = 0</div><div class="line">layout.minimumInteritemSpacing = 0</div><div class="line">layout.scrollDirection = self.type == .ly_titleType ? .vertical : .horizontal</div><div class="line">layout.itemSize = CGSize.init(width: self.w, height: self.h)</div><div class="line">self.collectionView = UICollectionView.init(frame: self.bounds, collectionViewLayout: layout)</div><div class="line">self.collectionView.dataSource = self</div><div class="line">self.collectionView.delegate = self</div><div class="line">self.collectionView.backgroundColor = UIColor.clear</div><div class="line">self.collectionView.showsVerticalScrollIndicator = false</div><div class="line">self.collectionView.showsHorizontalScrollIndicator = false</div><div class="line">self.collectionView.isPagingEnabled = true</div><div class="line">collectionView.register(UINib.init(nibName: &quot;BannerScrollTitleCell&quot;, bundle: Bundle.main), forCellWithReuseIdentifier: &quot;BannerScrollTitleCell&quot;)</div><div class="line">collectionView.register(UINib.init(nibName: &quot;BannerScrollImageCell&quot;, bundle: Bundle.main), forCellWithReuseIdentifier: &quot;BannerScrollImageCell&quot;)</div><div class="line">self.addSubview(self.collectionView)</div><div class="line">self.collectionView.reloadData()</div><div class="line"></div><div class="line">self.setUpPageControl()</div><div class="line">&#125;</div><div class="line"></div><div class="line">//set pagecontrol</div><div class="line">func setUpPageControl() &#123;</div><div class="line">//少于两个的时候不用滚动</div><div class="line">if self.collectionView.numberOfItems(inSection: 0) &lt; 2&#123;</div><div class="line">return</div><div class="line">&#125;</div><div class="line">if self.pageControl != nil&#123;</div><div class="line">self.pageControl = nil</div><div class="line">self.pageControl?.removeFromSuperview()</div><div class="line">&#125;</div><div class="line">self.pageControl = UIPageControl()</div><div class="line">self.pageControl?.numberOfPages = self.collectionView.numberOfItems(inSection: 0)</div><div class="line">self.pageControl?.currentPageIndicatorTintColor = UIColor.darkGray</div><div class="line">self.pageControl?.pageIndicatorTintColor = UIColor.lightGray</div><div class="line">self.pageControl?.frame = CGRect.init(x: 0, y: self.h - 30, width: self.w, height: 30)</div><div class="line">self.addSubview(self.pageControl!)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//设置定时器</div><div class="line">func addTimer()  &#123;</div><div class="line">if self.timer != nil&#123;</div><div class="line">self.removeTimer()</div><div class="line">&#125;</div><div class="line"></div><div class="line">self.timer = Timer(timeInterval: 3.0, target: self, selector: #selector(LYAnimateBannerView.nextPage), userInfo: nil, repeats: true)</div><div class="line">RunLoop.main.add(self.timer!, forMode: .defaultRunLoopMode)</div><div class="line">timer!.fire()</div><div class="line">self.isAutoScrolling = true</div><div class="line">&#125;</div><div class="line">//移除定时器</div><div class="line">func removeTimer() &#123;</div><div class="line">self.timer?.invalidate()</div><div class="line">self.timer = nil</div><div class="line">&#125;</div><div class="line"></div><div class="line">func nextPage() &#123;</div><div class="line"></div><div class="line">if !self.isAutoScrolling&#123;</div><div class="line">return</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 1.马上显示回最中间那组的数据</div><div class="line">let currentIndexPathReset = self.resetIndexPath()</div><div class="line">// 2.计算出下一个需要展示的位置</div><div class="line">var nextItem = currentIndexPathReset.item + 1</div><div class="line">var nextSection = currentIndexPathReset.section</div><div class="line"></div><div class="line">if self.type == .ly_titleType&#123;</div><div class="line">if nextItem == self.titleArray.count &#123;</div><div class="line">nextItem = 0</div><div class="line">nextSection += 1</div><div class="line">&#125;</div><div class="line">&#125;else if self.type == .ly_imageUrlType&#123;</div><div class="line">if nextItem == self.imageUrlArray.count &#123;</div><div class="line">nextItem = 0</div><div class="line">nextSection += 1</div><div class="line">&#125;</div><div class="line">&#125;else&#123;</div><div class="line">if nextItem == self.imageArray.count &#123;</div><div class="line">nextItem = 0</div><div class="line">nextSection += 1</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">let nextIndexPath = IndexPath.init(item: nextItem, section: nextSection)</div><div class="line">// 3.通过动画滚动到下一个位置</div><div class="line">if self.type == .ly_titleType&#123;</div><div class="line">self.collectionView.scrollToItem(at: nextIndexPath, at: .top, animated: true)</div><div class="line">&#125;else&#123;</div><div class="line">self.collectionView.scrollToItem(at: nextIndexPath, at: .left, animated: true)</div><div class="line">&#125;</div><div class="line"></div><div class="line">self.pageControl?.currentPage = nextItem</div><div class="line">&#125;</div><div class="line"></div><div class="line">func resetIndexPath() -&gt; IndexPath &#123;</div><div class="line">//current indexpath</div><div class="line">guard let currentIndexPath = self.collectionView.indexPathsForVisibleItems.last else&#123;</div><div class="line">return IndexPath.init(item: 0, section: 2)</div><div class="line">&#125;</div><div class="line">//马上显示回最中间那组的数据</div><div class="line">let currentIndexPathReset = IndexPath.init(item: currentIndexPath.item, section: 2)</div><div class="line">if self.type == .ly_titleType&#123;</div><div class="line">self.collectionView.scrollToItem(at: currentIndexPathReset, at: .top, animated: false)</div><div class="line">&#125;else&#123;</div><div class="line">self.collectionView.scrollToItem(at: currentIndexPathReset, at: .left, animated: false)</div><div class="line">&#125;</div><div class="line">return currentIndexPathReset</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">extension LYAnimateBannerView : UICollectionViewDelegate, UICollectionViewDataSource&#123;</div><div class="line">func numberOfSections(in collectionView: UICollectionView) -&gt; Int &#123;</div><div class="line">return 5</div><div class="line">&#125;</div><div class="line"></div><div class="line">func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int &#123;</div><div class="line">if self.type == .ly_titleType&#123;</div><div class="line">return self.titleArray.count</div><div class="line">&#125;else if self.type == .ly_imageUrlType&#123;</div><div class="line">return self.imageUrlArray.count</div><div class="line">&#125;else&#123;</div><div class="line">return self.imageArray.count</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell &#123;</div><div class="line">if self.type == .ly_titleType&#123;</div><div class="line">let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;BannerScrollTitleCell&quot;, for: indexPath) as! BannerScrollTitleCell</div><div class="line">if self.titleArray.count &gt; indexPath.row&#123;</div><div class="line">cell.titleLbl.text = self.titleArray[indexPath.row]</div><div class="line">&#125;</div><div class="line">return cell</div><div class="line">&#125;else&#123;</div><div class="line">let cell = collectionView.dequeueReusableCell(withReuseIdentifier: &quot;BannerScrollImageCell&quot;, for: indexPath) as! BannerScrollImageCell</div><div class="line">if self.type == .ly_imageUrlType&#123;</div><div class="line">if self.imageUrlArray.count &gt; indexPath.row&#123;</div><div class="line">cell.imgV.kf.setImage(with: URL(string:self.imageUrlArray[indexPath.row]))</div><div class="line">&#125;</div><div class="line">&#125;else&#123;</div><div class="line">if self.imageArray.count &gt; indexPath.row&#123;</div><div class="line">cell.imgV.image = self.imageArray[indexPath.row]</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">return cell</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) &#123;</div><div class="line">if self.LY_AnimateBannerViewClickBlock != nil&#123;</div><div class="line">self.LY_AnimateBannerViewClickBlock!(indexPath.row)</div><div class="line">&#125;else&#123;</div><div class="line">self.delegate?.LY_AnimateBannerViewClick(banner: self, index: indexPath.row)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func scrollViewWillBeginDragging(_ scrollView: UIScrollView) &#123;</div><div class="line">self.removeTimer()</div><div class="line">self.isAutoScrolling = false</div><div class="line">&#125;</div><div class="line"></div><div class="line">func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) &#123;</div><div class="line">let currentIndexPathReset = self.resetIndexPath()</div><div class="line">self.pageControl?.currentPage = currentIndexPathReset.item</div><div class="line">self.addTimer()</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
@@ -201,13 +204,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/10/31/qrcode/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/18/3、注册发邮件登录退出忘记密码/" data-toggle="tooltip" data-placement="top" title="Django实战项目-发邮件注册登录退出忘记密码（3）">Next Post &rarr;</a>
+                            <a href="/2017/10/25/qrcode/" data-toggle="tooltip" data-placement="top" title="iOS Swift 二维码的生产与扫描">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -218,6 +217,20 @@
 
             </div>
     <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
         
 
     <!-- Sidebar Container -->
@@ -234,6 +247,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#iOS" title="iOS">iOS</a>
+                        
+                          <a class="tag" href="/tags/#Swift" title="Swift">Swift</a>
+                        
                     </div>
                 </section>
                 
@@ -436,6 +453,50 @@ ll
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 
